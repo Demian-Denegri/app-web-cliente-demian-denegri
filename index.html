@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="GameVerse: tienda de videojuegos digitales. Comprá juegos, buscá títulos, filtrá por precio, relevancia y género, y dejá reseñas.">
+    <meta name="author" content="Demian Denegri">
+    <title>GameVerse — Videojuegos digitales</title>
+</head>
+
+<body>
+
+    <!-- ============ 1. NAVBAR DE NAVEGACIÓN ============ -->
+    <header>
+        <nav aria-label="Navegación principal">
+            <a href="index.html" aria-label="GameVerse, página de inicio">
+                <img src="assets/img/logo.png" alt="Logo de GameVerse">
+                <span>GameVerse</span>
+            </a>
+
+            <!-- Barra de búsqueda (punto 3) -->
+            <form action="#" method="get" role="search" aria-label="Búsqueda de juegos">
+                <label for="busqueda">Buscar juegos</label>
+                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…"
+                    autocomplete="off">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <ul>
+                <li>
+                    <a href="#" aria-label="Abrir carrito de compras">
+                        Carrito
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Mi biblioteca</a>
+                </li>
+                <li>
+                    <a href="#crear-cuenta">Crear cuenta / Ingresar</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ============ 2. CARUSEL INICIAL ============ -->
+        <section aria-labelledby="titulo-destacados">
+            <h2 id="titulo-destacados">Juegos destacados</h2>
+
+            <div class="carousel" aria-roledescription="carrusel" aria-label="Juegos en oferta">
+                <button type="button" aria-label="Juego anterior">‹</button>
+
+                <article class="carousel-item" aria-hidden="false">
+                    <img src="assets/img/juegos/cyber-run.jpg" alt="Portada de Cyber Run">
+                    <h3>Cyber Run</h3>
+                    <p>Acción</p>
+                    <p><strong>$12.999</strong> <s>$18.999</s></p>
+                </article>
+
+                <article class="carousel-item" aria-hidden="true">
+                    <img src="assets/img/juegos/verdant-kingdom.jpg" alt="Portada de Verdant Kingdom">
+                    <h3>Verdant Kingdom</h3>
+                    <p>Aventura</p>
+                    <p><strong>$15.499</strong></p>
+                </article>
+
+                <article class="carousel-item" aria-hidden="true">
+                    <img src="assets/img/juegos/space-legion.jpg" alt="Portada de Space Legion">
+                    <h3>Space Legion</h3>
+                    <p>Estrategia</p>
+                    <p><strong>$9.999</strong> <s>$13.499</s></p>
+                </article>
+
+                <article class="carousel-item" aria-hidden="true">
+                    <img src="assets/img/juegos/haunted-manor.jpg" alt="Portada de Haunted Manor">
+                    <h3>Haunted Manor</h3>
+                    <p>Terror</p>
+                    <p><strong>$11.299</strong></p>
+                </article>
+
+                <button type="button" aria-label="Juego siguiente">›</button>
+            </div>
+        </section>
+
+        <!-- ============ 3. BARRA DE BÚSQUEDA + FILTROS ============ -->
+        <section aria-labelledby="titulo-catalogo">
+            <header>
+                <h2 id="titulo-catalogo">Catálogo de juegos</h2>
+                <p>Encontrá tu próximo juego. Para comprar o dejar reseñas necesitás una cuenta.</p>
+            </header>
+
+            <form action="#" method="get" role="search" aria-label="Buscar y filtrar catálogo">
+                <label for="buscar-catalogo">Buscar en el catálogo</label>
+                <input type="search" id="buscar-catalogo" name="q" placeholder="Ej.: aventura, puzzle, terror…">
+                <button type="submit">Buscar</button>
+
+                <!-- Ordenar / filtrar junto a la barra -->
+                <label for="ordenar">Ordenar y filtrar por</label>
+                <select id="ordenar" name="orden">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="genero">Género</option>
+                </select>
+            </form>
+
+            <!-- ============ 4. CATÁLOGO DE PRODUCTOS ============ -->
+            <div class="catalogo-grid">
+
+                <article class="juego">
+                    <img src="assets/img/juegos/cyber-run.jpg" alt="Portada de Cyber Run">
+                    <h3>Cyber Run</h3>
+                    <ul class="etiquetas" aria-label="Etiquetas">
+                        <li>Acción</li>
+                        <li>Carreras</li>
+                        <li>Multijugador</li>
+                    </ul>
+                    <p><strong>$12.999</strong> <s>$18.999</s></p>
+                    <button type="button">Agregar al carrito</button>
+
+                    <!-- Reseñas del juego (visibles para todos) -->
+                    <section aria-label="Reseñas de Cyber Run">
+                        <h4>Reseñas</h4>
+                        <ul>
+                            <li>
+                                <blockquote>
+                                    <p>“Adictivo, los gráficos son una locura.”</p>
+                                    <footer>— usuario <cite>neko_gamer</cite></footer>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <blockquote>
+                                    <p>“Las carreras nocturnas son lo mejor.”</p>
+                                    <footer>— usuario <cite>turbo_pixel</cite></footer>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <!-- Solo con cuenta se puede reseñar -->
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Dejá tu reseña</legend>
+                                <label for="reseña-cyberrun-puntaje">Puntaje (1 a 5)</label>
+                                <select id="reseña-cyberrun-puntaje" name="puntaje">
+                                    <option value="5">5 — Excelente</option>
+                                    <option value="4">4 — Muy bueno</option>
+                                    <option value="3">3 — Bueno</option>
+                                    <option value="2">2 — Regular</option>
+                                    <option value="1">1 — Malo</option>
+                                </select>
+                                <label for="reseña-cyberrun-texto">Tu reseña</label>
+                                <textarea id="reseña-cyberrun-texto" name="texto"
+                                    placeholder="Contanos qué te pareció…"></textarea>
+                                <button type="submit">Publicar reseña</button>
+                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
+                            </fieldset>
+                        </form>
+                    </section>
+                </article>
+
+                <article class="juego">
+                    <img src="assets/img/juegos/verdant-kingdom.jpg" alt="Portada de Verdant Kingdom">
+                    <h3>Verdant Kingdom</h3>
+                    <ul class="etiquetas" aria-label="Etiquetas">
+                        <li>Aventura</li>
+                        <li>Exploración</li>
+                        <li>Mundo abierto</li>
+                    </ul>
+                    <p><strong>$15.499</strong></p>
+                    <button type="button">Agregar al carrito</button>
+
+                    <section aria-label="Reseñas de Verdant Kingdom">
+                        <h4>Reseñas</h4>
+                        <ul>
+                            <li>
+                                <blockquote>
+                                    <p>“Un mundo hermoso, cien horas y no me canso.”</p>
+                                    <footer>— usuario <cite>viajera_luna</cite></footer>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Dejá tu reseña</legend>
+                                <label for="reseña-verdant-puntaje">Puntaje (1 a 5)</label>
+                                <select id="reseña-verdant-puntaje" name="puntaje">
+                                    <option value="5">5 — Excelente</option>
+                                    <option value="4">4 — Muy bueno</option>
+                                    <option value="3">3 — Bueno</option>
+                                    <option value="2">2 — Regular</option>
+                                    <option value="1">1 — Malo</option>
+                                </select>
+                                <label for="reseña-verdant-texto">Tu reseña</label>
+                                <textarea id="reseña-verdant-texto" name="texto"
+                                    placeholder="Contanos qué te pareció…"></textarea>
+                                <button type="submit">Publicar reseña</button>
+                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
+                            </fieldset>
+                        </form>
+                    </section>
+                </article>
+
+                <article class="juego">
+                    <img src="assets/img/juegos/space-legion.jpg" alt="Portada de Space Legion">
+                    <h3>Space Legion</h3>
+                    <ul class="etiquetas" aria-label="Etiquetas">
+                        <li>Estrategia</li>
+                        <li>Ciencia ficción</li>
+                        <li>Multijugador</li>
+                    </ul>
+                    <p><strong>$9.999</strong> <s>$13.499</s></p>
+                    <button type="button">Agregar al carrito</button>
+
+                    <section aria-label="Reseñas de Space Legion">
+                        <h4>Reseñas</h4>
+                        <ul>
+                            <li>
+                                <blockquote>
+                                    <p>“La estrategia espacial que buscaba.”</p>
+                                    <footer>— usuario <cite>almirante_k</cite></footer>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Dejá tu reseña</legend>
+                                <label for="reseña-space-puntaje">Puntaje (1 a 5)</label>
+                                <select id="reseña-space-puntaje" name="puntaje">
+                                    <option value="5">5 — Excelente</option>
+                                    <option value="4">4 — Muy bueno</option>
+                                    <option value="3">3 — Bueno</option>
+                                    <option value="2">2 — Regular</option>
+                                    <option value="1">1 — Malo</option>
+                                </select>
+                                <label for="reseña-space-texto">Tu reseña</label>
+                                <textarea id="reseña-space-texto" name="texto"
+                                    placeholder="Contanos qué te pareció…"></textarea>
+                                <button type="submit">Publicar reseña</button>
+                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
+                            </fieldset>
+                        </form>
+                    </section>
+                </article>
+
+                <article class="juego">
+                    <img src="assets/img/juegos/haunted-manor.jpg" alt="Portada de Haunted Manor">
+                    <h3>Haunted Manor</h3>
+                    <ul class="etiquetas" aria-label="Etiquetas">
+                        <li>Terror</li>
+                        <li>Sigilo</li>
+                        <li>Historia</li>
+                    </ul>
+                    <p><strong>$11.299</strong></p>
+                    <button type="button">Agregar al carrito</button>
+
+                    <section aria-label="Reseñas de Haunted Manor">
+                        <h4>Reseñas</h4>
+                        <ul>
+                            <li>
+                                <blockquote>
+                                    <p>“No jugar de noche… o sí.”</p>
+                                    <footer>— usuario <cite>pilar_nocturna</cite></footer>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Dejá tu reseña</legend>
+                                <label for="reseña-haunted-puntaje">Puntaje (1 a 5)</label>
+                                <select id="reseña-haunted-puntaje" name="puntaje">
+                                    <option value="5">5 — Excelente</option>
+                                    <option value="4">4 — Muy bueno</option>
+                                    <option value="3">3 — Bueno</option>
+                                    <option value="2">2 — Regular</option>
+                                    <option value="1">1 — Malo</option>
+                                </select>
+                                <label for="reseña-haunted-texto">Tu reseña</label>
+                                <textarea id="reseña-haunted-texto" name="texto"
+                                    placeholder="Contanos qué te pareció…"></textarea>
+                                <button type="submit">Publicar reseña</button>
+                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
+                            </fieldset>
+                        </form>
+                    </section>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============ 5. SISTEMA DE RESEÑAS Y CUENTAS ============ -->
+        <section id="crear-cuenta" aria-labelledby="titulo-cuenta">
+            <h2 id="titulo-cuenta">Crear cuenta o ingresar</h2>
+            <p>Registrate como primer paso para comprar juegos y dejar reseñas.</p>
+
+            <!-- Registro -->
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Crear una cuenta</legend>
+
+                    <label for="reg-nombre">Nombre de usuario</label>
+                    <input type="text" id="reg-nombre" name="usuario" required minlength="3"
+                        placeholder="Elegí tu nombre de usuario">
+
+                    <label for="reg-email">Correo electrónico</label>
+                    <input type="email" id="reg-email" name="email" required
+                        placeholder="tucorreo@ejemplo.com">
+
+                    <label for="reg-clave">Contraseña</label>
+                    <input type="password" id="reg-clave" name="clave" required minlength="8">
+
+                    <label for="reg-clave2">Confirmar contraseña</label>
+                    <input type="password" id="reg-clave2" name="clave2" required>
+
+                    <button type="submit">Crear cuenta</button>
+                </fieldset>
+            </form>
+
+            <!-- Login -->
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Ya tengo cuenta</legend>
+
+                    <label for="log-email">Correo electrónico</label>
+                    <input type="email" id="log-email" name="email" required
+                        placeholder="tucorreo@ejemplo.com">
+
+                    <label for="log-clave">Contraseña</label>
+                    <input type="password" id="log-clave" name="clave" required>
+
+                    <button type="submit">Ingresar</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameVerse. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
