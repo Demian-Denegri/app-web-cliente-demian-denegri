@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="GameVerse: tienda de videojuegos digitales. Comprá juegos, buscá títulos, filtrá por precio, relevancia y género, y dejá reseñas.">
+        content="NullPod: tienda de videojuegos digitales. Comprá juegos, buscá títulos, filtrá por precio, relevancia y género, y dejá reseñas.">
     <meta name="author" content="Demian Denegri">
-    <title>GameVerse — Videojuegos digitales</title>
+    <title>NullPod — Videojuegos digitales</title>
 </head>
 
 <body>
@@ -15,32 +15,64 @@
     <!-- ============ 1. NAVBAR DE NAVEGACIÓN ============ -->
     <header>
         <nav aria-label="Navegación principal">
-            <a href="index.html" aria-label="GameVerse, página de inicio">
-                <img src="assets/img/logo.png" alt="Logo de GameVerse">
-                <span>GameVerse</span>
+            <a href="index.html" aria-label="NullPod, página de inicio">
+                <img src="assets/img/logo.png" alt="Logo de NullPod">
+                <span>NullPod</span>
             </a>
 
-            <!-- Barra de búsqueda (punto 3) -->
+            <!-- Barra de búsqueda -->
             <form action="#" method="get" role="search" aria-label="Búsqueda de juegos">
                 <label for="busqueda">Buscar juegos</label>
-                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…"
-                    autocomplete="off">
+                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
                 <button type="submit">Buscar</button>
             </form>
 
             <ul>
                 <li>
-                    <a href="#" aria-label="Abrir carrito de compras">
-                        Carrito
-                    </a>
+                    <a href="#" aria-label="Abrir carrito de compras">Carrito</a>
                 </li>
                 <li>
                     <a href="#">Mi biblioteca</a>
                 </li>
-                <li>
-                    <a href="#crear-cuenta">Crear cuenta / Ingresar</a>
-                </li>
             </ul>
+
+            <!-- Menú hamburguesa: contiene login + botón crear cuenta (solo HTML semántico) -->
+            <details id="acceso" aria-label="Menú de cuenta">
+                <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
+                    &#9776; Cuenta
+                </summary>
+
+                <section aria-labelledby="titulo-menu-cuenta">
+                    <h2 id="titulo-menu-cuenta">Cuenta</h2>
+                    <p>Ingresá para comprar juegos, ver tu biblioteca y dejar reseñas.</p>
+
+                    <!-- Opciones de ingreso -->
+                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta">
+                        <fieldset>
+                            <legend>Ya tengo cuenta</legend>
+
+                            <label for="log-email">Correo electrónico</label>
+                            <input type="email" id="log-email" name="email" required
+                                placeholder="tucorreo@ejemplo.com">
+
+                            <label for="log-clave">Contraseña</label>
+                            <input type="password" id="log-clave" name="clave" required>
+
+                            <button type="submit">Ingresar</button>
+                        </fieldset>
+                    </form>
+
+                    <!-- Botón crear cuenta dentro del mismo menú hamburguesa -->
+                    <section aria-labelledby="titulo-sin-cuenta-nav">
+                        <h3 id="titulo-sin-cuenta-nav">¿No tenés cuenta?</h3>
+                        <p>Creá una cuenta para empezar a comprar y dejar reseñas.</p>
+                        <form action="register.html" method="get" aria-label="Ir a registro">
+                            <button type="submit">Crear una cuenta</button>
+                        </form>
+                        <p><small>También podés <a href="register.html">registrarte acá</a>.</small></p>
+                    </section>
+                </section>
+            </details>
         </nav>
     </header>
 
@@ -54,31 +86,39 @@
                 <button type="button" aria-label="Juego anterior">‹</button>
 
                 <article class="carousel-item" aria-hidden="false">
-                    <img src="assets/img/juegos/cyber-run.jpg" alt="Portada de Cyber Run">
-                    <h3>Cyber Run</h3>
-                    <p>Acción</p>
-                    <p><strong>$12.999</strong> <s>$18.999</s></p>
+                    <a href="product.html" aria-label="Ver detalles de Cyber Run">
+                        <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Cyber Run">
+                        <h3>Cyber Run</h3>
+                        <p>Acción</p>
+                        <p><strong>$12.999</strong> <s>$18.999</s></p>
+                    </a>
                 </article>
 
                 <article class="carousel-item" aria-hidden="true">
-                    <img src="assets/img/juegos/verdant-kingdom.jpg" alt="Portada de Verdant Kingdom">
-                    <h3>Verdant Kingdom</h3>
-                    <p>Aventura</p>
-                    <p><strong>$15.499</strong></p>
+                    <a href="product.html" aria-label="Ver detalles de Verdant Kingdom">
+                        <img src="https://imgproxy.eneba.games/m-PE1_SW28Jiy-AanJrZcxExxoR3l1GWmfkCclamtIE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/RVhUeG84cll3LWl4/V2JZU1pvV2ltVjdp/S3JyVjZxUERsT0VF/T09sM3lrLmpwZw" alt="Portada de Verdant Kingdom">
+                        <h3>Verdant Kingdom</h3>
+                        <p>Aventura</p>
+                        <p><strong>$15.499</strong></p>
+                    </a>
                 </article>
 
                 <article class="carousel-item" aria-hidden="true">
-                    <img src="assets/img/juegos/space-legion.jpg" alt="Portada de Space Legion">
-                    <h3>Space Legion</h3>
-                    <p>Estrategia</p>
-                    <p><strong>$9.999</strong> <s>$13.499</s></p>
+                    <a href="product.html" aria-label="Ver detalles de Space Legion">
+                        <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Space Legion">
+                        <h3>Space Legion</h3>
+                        <p>Estrategia</p>
+                        <p><strong>$9.999</strong> <s>$13.499</s></p>
+                    </a>
                 </article>
 
                 <article class="carousel-item" aria-hidden="true">
-                    <img src="assets/img/juegos/haunted-manor.jpg" alt="Portada de Haunted Manor">
-                    <h3>Haunted Manor</h3>
-                    <p>Terror</p>
-                    <p><strong>$11.299</strong></p>
+                    <a href="product.html" aria-label="Ver detalles de Haunted Manor">
+                        <img src="https://imgproxy.eneba.games/eobNNLmiDhHiKYsyhP1GV54d0ufYOFQwxe3EkfkqNoA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/ZVl1VWdnLmpwZw" alt="Portada de Haunted Manor">
+                        <h3>Haunted Manor</h3>
+                        <p>Terror</p>
+                        <p><strong>$11.299</strong></p>
+                    </a>
                 </article>
 
                 <button type="button" aria-label="Juego siguiente">›</button>
@@ -89,7 +129,8 @@
         <section aria-labelledby="titulo-catalogo">
             <header>
                 <h2 id="titulo-catalogo">Catálogo de juegos</h2>
-                <p>Encontrá tu próximo juego. Para comprar o dejar reseñas necesitás una cuenta.</p>
+                <p>Encontrá tu próximo juego. Seleccioná una portada para ver detalles, reseñas y comprar. Para
+                    comprar o dejar reseñas necesitás una cuenta desde el menú superior.</p>
             </header>
 
             <form action="#" method="get" role="search" aria-label="Buscar y filtrar catálogo">
@@ -97,7 +138,6 @@
                 <input type="search" id="buscar-catalogo" name="q" placeholder="Ej.: aventura, puzzle, terror…">
                 <button type="submit">Buscar</button>
 
-                <!-- Ordenar / filtrar junto a la barra -->
                 <label for="ordenar">Ordenar y filtrar por</label>
                 <select id="ordenar" name="orden">
                     <option value="relevancia">Relevancia</option>
@@ -108,333 +148,51 @@
             </form>
 
             <!-- ============ 4. CATÁLOGO DE PRODUCTOS ============ -->
-            <div class="catalogo-grid">
+            <!-- Cards: solo imagen, título y precio. Detalles completos en product.html -->
+            <section aria-labelledby="titulo-listado">
+                <h3 id="titulo-listado">Juegos disponibles</h3>
+                <div class="catalogo-grid">
 
-                <article class="juego">
-                    <img src="assets/img/juegos/cyber-run.jpg" alt="Portada de Cyber Run">
-                    <h3>Cyber Run</h3>
-                    <ul class="etiquetas" aria-label="Etiquetas">
-                        <li>Acción</li>
-                        <li>Carreras</li>
-                        <li>Multijugador</li>
-                    </ul>
-                    <p><strong>$12.999</strong> <s>$18.999</s></p>
-                    <button type="button">Agregar al carrito</button>
+                    <article class="card-juego">
+                        <a href="product.html" aria-label="Ver detalles de Cyber Run">
+                            <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Cyber Run">
+                            <h3>Cyber Run</h3>
+                            <p><strong>$12.999</strong> <s>$18.999</s></p>
+                        </a>
+                    </article>
 
-                    <!-- Detalles del juego (requisitos)-->
-                    <details>
-                        <summary>Detalles del juego</summary>
-                        <p>Resumen: carreras futuristas en una metrópolis cyberpunk. Personalizá tu
-                            vehículo, esquivá el tráfico y competí contra jugadores de todo el mundo en
-                            circuitos nocturnos.</p>
-                        <h4>Requisitos mínimos</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i5-8400</li>
-                            <li>Memoria: 8 GB de RAM</li>
-                            <li>Gráficos: GTX 1060 6GB</li>
-                            <li>Almacenamiento: 40 GB</li>
-                        </ul>
-                        <h4>Requisitos recomendados</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i7-9700</li>
-                            <li>Memoria: 16 GB de RAM</li>
-                            <li>Gráficos: RTX 2070</li>
-                            <li>Almacenamiento: 40 GB en SSD</li>
-                        </ul>
-                        <p><strong>Idiomas:</strong> Español, Inglés, Portugués, Alemán.</p>
-                    </details>
+                    <article class="card-juego">
+                        <a href="product.html" aria-label="Ver detalles de Verdant Kingdom">
+                            <img src="https://imgproxy.eneba.games/m-PE1_SW28Jiy-AanJrZcxExxoR3l1GWmfkCclamtIE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/RVhUeG84cll3LWl4/V2JZU1pvV2ltVjdp/S3JyVjZxUERsT0VF/T09sM3lrLmpwZw" alt="Portada de Verdant Kingdom">
+                            <h3>Verdant Kingdom</h3>
+                            <p><strong>$15.499</strong></p>
+                        </a>
+                    </article>
 
-                    <!-- Reseñas del juego (visibles para todos) -->
-                    <section aria-label="Reseñas de Cyber Run">
-                        <h4>Reseñas</h4>
-                        <ul>
-                            <li>
-                                <blockquote>
-                                    <p>“Adictivo, los gráficos son una locura.”</p>
-                                    <footer>— usuario <cite>neko_gamer</cite></footer>
-                                </blockquote>
-                            </li>
-                            <li>
-                                <blockquote>
-                                    <p>“Las carreras nocturnas son lo mejor.”</p>
-                                    <footer>— usuario <cite>turbo_pixel</cite></footer>
-                                </blockquote>
-                            </li>
-                        </ul>
-                        <!-- Solo con cuenta se puede reseñar -->
-                        <form action="#" method="post">
-                            <fieldset>
-                                <legend>Dejá tu reseña</legend>
-                                <label for="reseña-cyberrun-puntaje">Puntaje (1 a 5)</label>
-                                <select id="reseña-cyberrun-puntaje" name="puntaje">
-                                    <option value="5">5 — Excelente</option>
-                                    <option value="4">4 — Muy bueno</option>
-                                    <option value="3">3 — Bueno</option>
-                                    <option value="2">2 — Regular</option>
-                                    <option value="1">1 — Malo</option>
-                                </select>
-                                <label for="reseña-cyberrun-texto">Tu reseña</label>
-                                <textarea id="reseña-cyberrun-texto" name="texto"
-                                    placeholder="Contanos qué te pareció…"></textarea>
-                                <button type="submit">Publicar reseña</button>
-                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
-                            </fieldset>
-                        </form>
-                    </section>
-                </article>
+                    <article class="card-juego">
+                        <a href="product.html" aria-label="Ver detalles de Space Legion">
+                            <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Space Legion">
+                            <h3>Space Legion</h3>
+                            <p><strong>$9.999</strong> <s>$13.499</s></p>
+                        </a>
+                    </article>
 
-                <article class="juego">
-                    <img src="assets/img/juegos/verdant-kingdom.jpg" alt="Portada de Verdant Kingdom">
-                    <h3>Verdant Kingdom</h3>
-                    <ul class="etiquetas" aria-label="Etiquetas">
-                        <li>Aventura</li>
-                        <li>Exploración</li>
-                        <li>Mundo abierto</li>
-                    </ul>
-                    <p><strong>$15.499</strong></p>
-                    <button type="button">Agregar al carrito</button>
+                    <article class="card-juego">
+                        <a href="product.html" aria-label="Ver detalles de Haunted Manor">
+                            <img src="https://imgproxy.eneba.games/eobNNLmiDhHiKYsyhP1GV54d0ufYOFQwxe3EkfkqNoA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/ZVl1VWdnLmpwZw" alt="Portada de Haunted Manor">
+                            <h3>Haunted Manor</h3>
+                            <p><strong>$11.299</strong></p>
+                        </a>
+                    </article>
 
-                    <!-- Requisitos del juego -->
-                    <details>
-                        <summary>Requisitos del juego</summary>
-                        <p>Resumen: aventura de mundo abierto en un reino en ruinas. Explorá biomas,
-                            cultivá la tierra, descubrí secretos ocultos y devolvé la vida al valle.</p>
-                        <h4>Requisitos mínimos</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i5-9400</li>
-                            <li>Memoria: 8 GB de RAM</li>
-                            <li>Gráficos: GTX 1660</li>
-                            <li>Almacenamiento: 60 GB</li>
-                        </ul>
-                        <h4>Requisitos recomendados</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i7-10700</li>
-                            <li>Memoria: 16 GB de RAM</li>
-                            <li>Gráficos: RTX 3060</li>
-                            <li>Almacenamiento: 60 GB en SSD</li>
-                        </ul>
-                        <p><strong>Idiomas:</strong> Español, Inglés, Francés, Japonés.</p>
-                    </details>
-
-                    <section aria-label="Reseñas de Verdant Kingdom">
-                        <h4>Reseñas</h4>
-                        <ul>
-                            <li>
-                                <blockquote>
-                                    <p>“Un mundo hermoso, cien horas y no me canso.”</p>
-                                    <footer>— usuario <cite>viajera_luna</cite></footer>
-                                </blockquote>
-                            </li>
-                        </ul>
-                        <form action="#" method="post">
-                            <fieldset>
-                                <legend>Dejá tu reseña</legend>
-                                <label for="reseña-verdant-puntaje">Puntaje (1 a 5)</label>
-                                <select id="reseña-verdant-puntaje" name="puntaje">
-                                    <option value="5">5 — Excelente</option>
-                                    <option value="4">4 — Muy bueno</option>
-                                    <option value="3">3 — Bueno</option>
-                                    <option value="2">2 — Regular</option>
-                                    <option value="1">1 — Malo</option>
-                                </select>
-                                <label for="reseña-verdant-texto">Tu reseña</label>
-                                <textarea id="reseña-verdant-texto" name="texto"
-                                    placeholder="Contanos qué te pareció…"></textarea>
-                                <button type="submit">Publicar reseña</button>
-                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
-                            </fieldset>
-                        </form>
-                    </section>
-                </article>
-
-                <article class="juego">
-                    <img src="assets/img/juegos/space-legion.jpg" alt="Portada de Space Legion">
-                    <h3>Space Legion</h3>
-                    <ul class="etiquetas" aria-label="Etiquetas">
-                        <li>Estrategia</li>
-                        <li>Ciencia ficción</li>
-                        <li>Multijugador</li>
-                    </ul>
-                    <p><strong>$9.999</strong> <s>$13.499</s></p>
-                    <button type="button">Agregar al carrito</button>
-
-                    <!-- Requisitos del juego -->
-                    <details>
-                        <summary>Requisitos del juego</summary>
-                        <p>Resumen: estrategia en tiempo real al mando de una flota espacial. Gestioná
-                            recursos, construí tu armada y conquistá sistemas estelares enteros.</p>
-                        <h4>Requisitos mínimos</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i3-9100</li>
-                            <li>Memoria: 8 GB de RAM</li>
-                            <li>Gráficos: GTX 1050</li>
-                            <li>Almacenamiento: 25 GB</li>
-                        </ul>
-                        <h4>Requisitos recomendados</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i5-12400</li>
-                            <li>Memoria: 16 GB de RAM</li>
-                            <li>Gráficos: RTX 2060</li>
-                            <li>Almacenamiento: 25 GB en SSD</li>
-                        </ul>
-                        <p><strong>Idiomas:</strong> Inglés, Español, Coreano, Ruso.</p>
-                    </details>
-
-                    <section aria-label="Reseñas de Space Legion">
-                        <h4>Reseñas</h4>
-                        <ul>
-                            <li>
-                                <blockquote>
-                                    <p>“La estrategia espacial que buscaba.”</p>
-                                    <footer>— usuario <cite>almirante_k</cite></footer>
-                                </blockquote>
-                            </li>
-                        </ul>
-                        <form action="#" method="post">
-                            <fieldset>
-                                <legend>Dejá tu reseña</legend>
-                                <label for="reseña-space-puntaje">Puntaje (1 a 5)</label>
-                                <select id="reseña-space-puntaje" name="puntaje">
-                                    <option value="5">5 — Excelente</option>
-                                    <option value="4">4 — Muy bueno</option>
-                                    <option value="3">3 — Bueno</option>
-                                    <option value="2">2 — Regular</option>
-                                    <option value="1">1 — Malo</option>
-                                </select>
-                                <label for="reseña-space-texto">Tu reseña</label>
-                                <textarea id="reseña-space-texto" name="texto"
-                                    placeholder="Contanos qué te pareció…"></textarea>
-                                <button type="submit">Publicar reseña</button>
-                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
-                            </fieldset>
-                        </form>
-                    </section>
-                </article>
-
-                <article class="juego">
-                    <img src="assets/img/juegos/haunted-manor.jpg" alt="Portada de Haunted Manor">
-                    <h3>Haunted Manor</h3>
-                    <ul class="etiquetas" aria-label="Etiquetas">
-                        <li>Terror</li>
-                        <li>Sigilo</li>
-                        <li>Historia</li>
-                    </ul>
-                    <p><strong>$11.299</strong></p>
-                    <button type="button">Agregar al carrito</button>
-
-                    <!-- Requisitos del juego -->
-                    <details>
-                        <summary>Requisitos del juego</summary>
-                        <p>Resumen: terror psicológico en primera persona. Investigá una mansión
-                            abandonada, resolvé enigmas y descubrí qué pasó con sus antiguos habitantes.</p>
-                        <h4>Requisitos mínimos</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i5-8400</li>
-                            <li>Memoria: 8 GB de RAM</li>
-                            <li>Gráficos: GTX 1060</li>
-                            <li>Almacenamiento: 30 GB</li>
-                        </ul>
-                        <h4>Requisitos recomendados</h4>
-                        <ul>
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i7-9700</li>
-                            <li>Memoria: 16 GB de RAM</li>
-                            <li>Gráficos: RTX 2070</li>
-                            <li>Almacenamiento: 30 GB en SSD</li>
-                        </ul>
-                        <p><strong>Idiomas:</strong> Español, Inglés, Italiano, Polaco.</p>
-                    </details>
-
-                    <section aria-label="Reseñas de Haunted Manor">
-                        <h4>Reseñas</h4>
-                        <ul>
-                            <li>
-                                <blockquote>
-                                    <p>“No jugar de noche… o sí.”</p>
-                                    <footer>— usuario <cite>pilar_nocturna</cite></footer>
-                                </blockquote>
-                            </li>
-                        </ul>
-                        <form action="#" method="post">
-                            <fieldset>
-                                <legend>Dejá tu reseña</legend>
-                                <label for="reseña-haunted-puntaje">Puntaje (1 a 5)</label>
-                                <select id="reseña-haunted-puntaje" name="puntaje">
-                                    <option value="5">5 — Excelente</option>
-                                    <option value="4">4 — Muy bueno</option>
-                                    <option value="3">3 — Bueno</option>
-                                    <option value="2">2 — Regular</option>
-                                    <option value="1">1 — Malo</option>
-                                </select>
-                                <label for="reseña-haunted-texto">Tu reseña</label>
-                                <textarea id="reseña-haunted-texto" name="texto"
-                                    placeholder="Contanos qué te pareció…"></textarea>
-                                <button type="submit">Publicar reseña</button>
-                                <p><small>Para publicar necesitás <a href="#crear-cuenta">iniciar sesión</a>.</small></p>
-                            </fieldset>
-                        </form>
-                    </section>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- ============ 5. SISTEMA DE RESEÑAS Y CUENTAS ============ -->
-        <section id="crear-cuenta" aria-labelledby="titulo-cuenta">
-            <h2 id="titulo-cuenta">Crear cuenta o ingresar</h2>
-            <p>Registrate como primer paso para comprar juegos y dejar reseñas.</p>
-
-            <!-- Registro -->
-            <form action="#" method="post">
-                <fieldset>
-                    <legend>Crear una cuenta</legend>
-
-                    <label for="reg-nombre">Nombre de usuario</label>
-                    <input type="text" id="reg-nombre" name="usuario" required minlength="3"
-                        placeholder="Elegí tu nombre de usuario">
-
-                    <label for="reg-email">Correo electrónico</label>
-                    <input type="email" id="reg-email" name="email" required
-                        placeholder="tucorreo@ejemplo.com">
-
-                    <label for="reg-clave">Contraseña</label>
-                    <input type="password" id="reg-clave" name="clave" required minlength="8">
-
-                    <label for="reg-clave2">Confirmar contraseña</label>
-                    <input type="password" id="reg-clave2" name="clave2" required>
-
-                    <button type="submit">Crear cuenta</button>
-                </fieldset>
-            </form>
-
-            <!-- Login -->
-            <form action="#" method="post">
-                <fieldset>
-                    <legend>Ya tengo cuenta</legend>
-
-                    <label for="log-email">Correo electrónico</label>
-                    <input type="email" id="log-email" name="email" required
-                        placeholder="tucorreo@ejemplo.com">
-
-                    <label for="log-clave">Contraseña</label>
-                    <input type="password" id="log-clave" name="clave" required>
-
-                    <button type="submit">Ingresar</button>
-                </fieldset>
-            </form>
+                </div>
+            </section>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 GameVerse. Todos los derechos reservados.</p>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
         <nav aria-label="Enlaces del pie de página">
             <a href="#">Términos y condiciones</a>
             <a href="#">Política de privacidad</a>

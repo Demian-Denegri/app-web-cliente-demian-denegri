@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creá tu cuenta en NullPod para comprar videojuegos digitales y dejar reseñas.">
+    <meta name="author" content="Demian Denegri">
+    <title>Crear cuenta — NullPod</title>
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <nav aria-label="Navegación principal">
+            <a href="index.html" aria-label="NullPod, página de inicio">
+                <img src="assets/img/logo.png" alt="Logo de NullPod">
+                <span>NullPod</span>
+            </a>
+
+            <form action="index.html" method="get" role="search" aria-label="Búsqueda de juegos">
+                <label for="busqueda">Buscar juegos</label>
+                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <ul>
+                <li><a href="#" aria-label="Abrir carrito de compras">Carrito</a></li>
+                <li><a href="#">Mi biblioteca</a></li>
+            </ul>
+
+            <!-- Menú hamburguesa: login + crear cuenta (consistente en todo el sitio) -->
+            <details id="acceso" aria-label="Menú de cuenta">
+                <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
+                    &#9776; Cuenta
+                </summary>
+
+                <section aria-labelledby="titulo-menu-cuenta-reg">
+                    <h2 id="titulo-menu-cuenta-reg">Cuenta</h2>
+                    <p>Ingresá si ya tenés cuenta o registrate.</p>
+
+                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta-reg">
+                        <fieldset>
+                            <legend>Ya tengo cuenta</legend>
+
+                            <label for="log-email-reg">Correo electrónico</label>
+                            <input type="email" id="log-email-reg" name="email" required
+                                placeholder="tucorreo@ejemplo.com">
+
+                            <label for="log-clave-reg">Contraseña</label>
+                            <input type="password" id="log-clave-reg" name="clave" required>
+
+                            <button type="submit">Ingresar</button>
+                        </fieldset>
+                    </form>
+
+                    <section aria-labelledby="titulo-sin-cuenta-reg">
+                        <h3 id="titulo-sin-cuenta-reg">¿No tenés cuenta?</h3>
+                        <p>Estás en la página de registro.</p>
+                        <form action="register.html" method="get" aria-label="Ir a registro">
+                            <button type="submit">Crear una cuenta</button>
+                        </form>
+                    </section>
+                </section>
+            </details>
+        </nav>
+    </header>
+
+    <main>
+
+        <nav aria-label="Miga de pan">
+            <ol>
+                <li><a href="index.html">Inicio</a></li>
+                <li aria-current="page">Crear cuenta</li>
+            </ol>
+        </nav>
+
+        <section aria-labelledby="titulo-registro">
+            <h1 id="titulo-registro">Crear una cuenta</h1>
+            <p>Registrate como primer paso para comprar juegos y dejar reseñas en NullPod.</p>
+
+            <form action="#" method="post" aria-labelledby="titulo-registro">
+                <fieldset>
+                    <legend>Datos de registro</legend>
+
+                    <label for="reg-nombre">Nombre de usuario</label>
+                    <input type="text" id="reg-nombre" name="usuario" required minlength="3"
+                        placeholder="Elegí tu nombre de usuario">
+
+                    <label for="reg-email">Correo electrónico</label>
+                    <input type="email" id="reg-email" name="email" required placeholder="tucorreo@ejemplo.com">
+
+                    <label for="reg-clave">Contraseña</label>
+                    <input type="password" id="reg-clave" name="clave" required minlength="8"
+                        placeholder="Mínimo 8 caracteres">
+
+                    <label for="reg-clave2">Confirmar contraseña</label>
+                    <input type="password" id="reg-clave2" name="clave2" required placeholder="Repetí tu contraseña">
+
+                    <button type="submit">Crear cuenta</button>
+                </fieldset>
+            </form>
+
+            <aside aria-labelledby="titulo-ya-tenes-cuenta">
+                <h2 id="titulo-ya-tenes-cuenta">¿Ya tenés cuenta?</h2>
+                <p>Si ya estás registrado, abrí el menú <strong>Cuenta</strong> en la barra superior para ingresar.</p>
+                <p><a href="index.html">Volver al inicio</a></p>
+            </aside>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Detalle del juego Cyber Run en NullPod. Comprá el juego, consultá especificaciones, género y reseñas de la comunidad.">
+    <meta name="author" content="Demian Denegri">
+    <title>Cyber Run — Detalle del juego | NullPod</title>
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <nav aria-label="Navegación principal">
+            <a href="index.html" aria-label="NullPod, página de inicio">
+                <img src="assets/img/logo.png" alt="Logo de NullPod">
+                <span>NullPod</span>
+            </a>
+
+            <form action="index.html" method="get" role="search" aria-label="Búsqueda de juegos">
+                <label for="busqueda">Buscar juegos</label>
+                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <ul>
+                <li><a href="#" aria-label="Abrir carrito de compras">Carrito</a></li>
+                <li><a href="#">Mi biblioteca</a></li>
+            </ul>
+
+            <!-- Menú hamburguesa: login + crear cuenta (consistente en todo el sitio) -->
+            <details id="acceso" aria-label="Menú de cuenta">
+                <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
+                    &#9776; Cuenta
+                </summary>
+
+                <section aria-labelledby="titulo-menu-cuenta-prod">
+                    <h2 id="titulo-menu-cuenta-prod">Cuenta</h2>
+                    <p>Ingresá para comprar y dejar reseñas.</p>
+
+                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta-prod">
+                        <fieldset>
+                            <legend>Ya tengo cuenta</legend>
+
+                            <label for="log-email-prod">Correo electrónico</label>
+                            <input type="email" id="log-email-prod" name="email" required
+                                placeholder="tucorreo@ejemplo.com">
+
+                            <label for="log-clave-prod">Contraseña</label>
+                            <input type="password" id="log-clave-prod" name="clave" required>
+
+                            <button type="submit">Ingresar</button>
+                        </fieldset>
+                    </form>
+
+                    <section aria-labelledby="titulo-sin-cuenta-prod">
+                        <h3 id="titulo-sin-cuenta-prod">¿No tenés cuenta?</h3>
+                        <form action="register.html" method="get" aria-label="Ir a registro">
+                            <button type="submit">Crear una cuenta</button>
+                        </form>
+                        <p><small><a href="register.html">Registrarme</a></small></p>
+                    </section>
+                </section>
+            </details>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Miga de pan -->
+        <nav aria-label="Miga de pan">
+            <ol>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#titulo-catalogo">Catálogo</a></li>
+                <li aria-current="page">Cyber Run</li>
+            </ol>
+        </nav>
+
+        <!-- ============ DETALLE PRINCIPAL DEL JUEGO ============ -->
+        <article id="cyber-run" aria-labelledby="titulo-juego">
+
+            <header>
+                <h1 id="titulo-juego">Cyber Run</h1>
+                <p><strong>$12.999</strong> <s>$18.999</s> <span>— 32% de descuento</span></p>
+
+                <section aria-labelledby="titulo-genero">
+                    <h2 id="titulo-genero">Género y características</h2>
+                    <ul aria-label="Géneros y etiquetas">
+                        <li>Acción</li>
+                        <li>Carreras</li>
+                        <li>Multijugador</li>
+                    </ul>
+                </section>
+            </header>
+
+            <figure>
+                <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc"
+                    alt="Portada de Cyber Run: vehículos futuristas en ciudad cyberpunk nocturna">
+                <figcaption>Portada oficial de Cyber Run</figcaption>
+            </figure>
+
+            <section aria-labelledby="titulo-compra">
+                <h2 id="titulo-compra">Comprar</h2>
+                <p>Entrega digital inmediata. Se activa en tu biblioteca NullPod.</p>
+                <button type="button">Agregar al carrito</button>
+                <button type="button">Comprar ahora</button>
+                <p><small>Para comprar necesitás ingresar desde el menú <strong>Cuenta</strong> en la barra superior
+                        o <a href="register.html">crear una cuenta</a>.</small></p>
+            </section>
+
+            <section aria-labelledby="titulo-descripcion">
+                <h2 id="titulo-descripcion">Acerca del juego</h2>
+                <p>Carreras futuristas en una metrópolis cyberpunk. Personalizá tu vehículo, esquivá el tráfico y
+                    competí contra jugadores de todo el mundo en circuitos nocturnos iluminados con neón.</p>
+                <p>Desbloqueá piezas, mejorá tu motor y dominá las calles de la ciudad que nunca duerme.</p>
+            </section>
+
+            <section aria-labelledby="titulo-especificaciones">
+                <h2 id="titulo-especificaciones">Especificaciones</h2>
+                <details open>
+                    <summary>Detalles del juego</summary>
+                    <p><strong>Idiomas:</strong> Español, Inglés, Portugués, Alemán.</p>
+                    <p><strong>Género:</strong> Acción / Carreras / Multijugador</p>
+                    <p><strong>Modo:</strong> Un jugador, Multijugador en línea</p>
+                </details>
+
+                <section aria-labelledby="titulo-minimos">
+                    <h3 id="titulo-minimos">Requisitos mínimos</h3>
+                    <ul>
+                        <li>SO: Windows 10 de 64 bits</li>
+                        <li>Procesador: Intel i5-8400</li>
+                        <li>Memoria: 8 GB de RAM</li>
+                        <li>Gráficos: GTX 1060 6GB</li>
+                        <li>Almacenamiento: 40 GB</li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="titulo-recomendados">
+                    <h3 id="titulo-recomendados">Requisitos recomendados</h3>
+                    <ul>
+                        <li>SO: Windows 10 de 64 bits</li>
+                        <li>Procesador: Intel i7-9700</li>
+                        <li>Memoria: 16 GB de RAM</li>
+                        <li>Gráficos: RTX 2070</li>
+                        <li>Almacenamiento: 40 GB en SSD</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section aria-labelledby="titulo-reseñas">
+                <h2 id="titulo-reseñas">Reseñas</h2>
+                <p>Opiniones de jugadores que ya probaron el juego.</p>
+
+                <ul>
+                    <li>
+                        <article aria-label="Reseña de neko_gamer">
+                            <blockquote>
+                                <p>“Adictivo, los gráficos son una locura.”</p>
+                                <footer>— usuario <cite>neko_gamer</cite></footer>
+                            </blockquote>
+                            <p><small>Puntaje: 5/5</small></p>
+                        </article>
+                    </li>
+                    <li>
+                        <article aria-label="Reseña de turbo_pixel">
+                            <blockquote>
+                                <p>“Las carreras nocturnas son lo mejor.”</p>
+                                <footer>— usuario <cite>turbo_pixel</cite></footer>
+                            </blockquote>
+                            <p><small>Puntaje: 4/5</small></p>
+                        </article>
+                    </li>
+                </ul>
+
+                <form action="#" method="post" aria-labelledby="titulo-dejar-reseña">
+                    <fieldset>
+                        <legend id="titulo-dejar-reseña">Dejá tu reseña</legend>
+                        <label for="reseña-cyberrun-puntaje">Puntaje (1 a 5)</label>
+                        <select id="reseña-cyberrun-puntaje" name="puntaje">
+                            <option value="5">5 — Excelente</option>
+                            <option value="4">4 — Muy bueno</option>
+                            <option value="3">3 — Bueno</option>
+                            <option value="2">2 — Regular</option>
+                            <option value="1">1 — Malo</option>
+                        </select>
+
+                        <label for="reseña-cyberrun-texto">Tu reseña</label>
+                        <textarea id="reseña-cyberrun-texto" name="texto"
+                            placeholder="Contanos qué te pareció…"></textarea>
+
+                        <button type="submit">Publicar reseña</button>
+                        <p><small>Para publicar necesitás ingresar desde el menú <strong>Cuenta</strong> en la barra
+                                superior.</small></p>
+                    </fieldset>
+                </form>
+            </section>
+
+        </article>
+
+        <aside aria-labelledby="titulo-relacionados">
+            <h2 id="titulo-relacionados">Juegos relacionados</h2>
+            <p>Otros títulos que podrían interesarte:</p>
+
+            <section aria-label="Juegos relacionados">
+                <article>
+                    <a href="product.html" aria-label="Ver detalles de Verdant Kingdom">
+                        <img src="https://imgproxy.eneba.games/m-PE1_SW28Jiy-AanJrZcxExxoR3l1GWmfkCclamtIE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/RVhUeG84cll3LWl4/V2JZU1pvV2ltVjdp/S3JyVjZxUERsT0VF/T09sM3lrLmpwZw" alt="Portada de Verdant Kingdom">
+                        <h3>Verdant Kingdom</h3>
+                        <p><strong>$15.499</strong></p>
+                    </a>
+                </article>
+
+                <article>
+                    <a href="product.html" aria-label="Ver detalles de Space Legion">
+                        <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Space Legion">
+                        <h3>Space Legion</h3>
+                        <p><strong>$9.999</strong> <s>$13.499</s></p>
+                    </a>
+                </article>
+
+                <article>
+                    <a href="product.html" aria-label="Ver detalles de Haunted Manor">
+                        <img src="https://imgproxy.eneba.games/eobNNLmiDhHiKYsyhP1GV54d0ufYOFQwxe3EkfkqNoA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/ZVl1VWdnLmpwZw" alt="Portada de Haunted Manor">
+                        <h3>Haunted Manor</h3>
+                        <p><strong>$11.299</strong></p>
+                    </a>
+                </article>
+            </section>
+
+            <p><a href="index.html#titulo-catalogo">Ver catálogo completo</a></p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
