@@ -1,0 +1,333 @@
+/* ============================================
+   VARIABLES GLOBALES
+   ============================================ */
+:root {
+    --color-fondo: #0A0A0A;
+    --color-texto: #fffefe;
+    --color-acento: #17cf11;
+    --color-acento-aux: #aaaaaa;
+    --color-borde: transparent;
+    --fuente-titulos: 'Orbitron', sans-serif;
+    --fuente-botones: 'Audiowide', sans-serif;
+    --fuente-secundaria: 'Press Start 2P', sans-serif;
+}
+
+/* ============================================
+   RESET BÁSICO
+   Saco margenes/paddings por defecto
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-secundaria);
+    font-size: 14px;
+    line-height: 1.6; /* espacio entre líneas de txt */
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;/* grosor del texto */
+}
+
+a {
+    color: var(--color-texto);
+    text-decoration: none;/* saca la decoracion por defecto de los links */
+}
+
+/* BOTONES CARRUSEL */
+button {
+    font-family: var(--fuente-botones);
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    border: none;/* elimina bordes */
+    padding: 8px 16px;
+    cursor: pointer;/* cambia el cursor al pasar sobre el botón */
+}
+
+/* ============================================
+   NAVBAR
+   position: sticky la mantiene fija arriba
+   mientras se scrollea la página.
+   ============================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;/* z-index sirve para que el navbar esté por encima de otros elementos (es como las capas)*/
+    background-color: var(--color-fondo);
+}
+
+.navbar nav {
+    display: flex;/* flex para alinear los elementos*/
+    align-items: center;/* centro los elemen=tros del interior */
+    gap: 24px;/* espacio entre los elementos */
+    padding: 12px 24px;
+}
+
+.logo {
+    display: flex;/* para alinear los elementos */
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-titulos);
+    font-size: 18px;
+}
+
+.logo img {
+    height: 32px;
+}
+
+/* BARRA DE BUSQUEDA EN LA NAVBAR */
+.navbar-search {
+    display: flex;
+    flex: 1;
+}
+
+.navbar-search input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    color: var(--color-texto);
+    font-family: var(--fuente-secundaria);
+    font-size: 12px;
+}
+
+.navbar-search input::placeholder {
+    color: var(--color-acento-aux);
+}
+
+/* Iconos de carrito / biblioteca */
+.navbar-icons {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar-icons a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar-icons .icon {
+    width: 22px;
+    height: 22px;
+}
+
+.navbar-icons a:hover {
+    color: var(--color-acento); /* cambio de color al pasar el mouse */
+}
+
+/* Menú de cuenta (details/summary nativo del HTML) */
+.menu-cuenta summary {
+    cursor: pointer;
+    list-style: none;/* elimina el estilo de lista */
+    font-family: var(--fuente-botones);
+    font-size: 13px;
+}
+
+.menu-cuenta[open] summary {
+    color: var(--color-acento);
+}
+
+.menu-cuenta section {
+    position: absolute; /* es para posicionar el menú de forma absoluta */
+    right: 24px;
+    margin-top: 12px;
+    background-color: var(--color-fondo);
+    padding: 20px;
+    width: 280px;
+}
+ /* menu expanido */
+.menu-cuenta fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.menu-cuenta input {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+}
+
+/* ============================================
+   CARRUSEL
+   ============================================ */
+.carousel-section {
+    padding: 32px 24px;
+}
+
+.carousel-section h2 {
+    margin-bottom: 16px;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    /* justify-content: center centra los items. */
+    justify-content: center;
+    gap: 16px;
+    overflow-x: auto; /* para permitir el scroll horizontal */
+    scroll-behavior: smooth;/* movimiento smoot */
+}
+
+.carousel-item {
+    flex: 0 0 220px;/* para que los elementos no se redimensionen */
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+}
+
+.carousel-item h3 {
+    font-size: 15px;
+    padding: 10px 10px 0;
+}
+
+.carousel-item .precio {
+    padding: 4px 10px 12px;
+}
+/* precio actual */
+.carousel-item .precio strong {
+    color: var(--color-acento);
+}
+/* precio anterior */
+.carousel-item .precio s {
+    color: var(--color-acento-aux);
+    margin-left: 6px;
+    font-size: 11px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--color-texto);
+    font-size: 20px;
+    padding: 8px 12px;
+}
+/* para las flecha izquierda */
+.carousel-btn:first-of-type {
+    left: 0;
+}
+/* para la flecha derecha */
+.carousel-btn:last-of-type {
+    right: 0;/* para que esté a la izquierda y no se salga*/
+}
+
+/* ============================================
+   CATÁLOGO Y FILTROS
+   ============================================ */
+.catalogo-section {
+    padding: 32px 24px;
+}
+
+.catalogo-section header {
+    margin-bottom: 20px;
+}
+
+
+.filtros {
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.filtros label {
+    font-size: 11px;
+    color: var(--color-acento-aux);
+}
+
+.filtros input,
+.filtros select {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+}
+
+/* Cada juego ocupa una fila completa, imagen a la
+   izquierda e info a la derecha (flexbox). */
+.catalogo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fila-juego {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+}
+
+.fila-juego a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px;
+}
+
+.fila-juego:hover {
+    border-color: var(--color-acento);
+}
+
+.fila-juego img {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;/* para que la imagen cubra TODO el área disponible */
+}
+
+.info-juego h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.info-juego .genero {
+    color: var(--color-acento-aux);
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+
+.info-juego .precio strong {
+    color: var(--color-acento);
+    font-size: 13px;
+}
+
+.info-juego .precio s {
+    color: var(--color-acento-aux);
+    margin-left: 8px;
+    font-size: 11px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-acento-aux);
+    font-size: 11px;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+}
