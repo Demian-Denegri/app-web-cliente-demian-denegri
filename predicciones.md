@@ -68,35 +68,51 @@ A. Eliminar los botones de agregar al carrito de los productos en el index.html,
 
 B.en el index.html se encuentra un login/register, taslada solo el register a el archivo register.html, el login queda en el index.html y junto a este se va a enconrar un button para registrar una cuenta en caso de no tenerla, este button llevara al register.html para posteriormente realizar el registro.
 
--------------------------------------------------------------------------------------
-3 (Terceca prediccion). se va a crear el style.css para aplicarle estilos a todas las secciones de la web, la palata de colores se va a centrar en:
+--------------------------------------------------------------------------------------
+3 (Terceca prediccion).
+se va a crear el style.css para aplicarle estilos a todas las secciones de la web, la palata de colores se va a centrar en:
 
-Fondo principal #0A0A0A (sujeto a cambios) Texto #FFFFFF(sujeto a cambios) Acento principal (botones, links) Azul eléctrico #00A0D7(sujeto a cambios) Éxito / Confirmación #92D709(sujeto a cambios) Error / Alerta Rojo intenso #E55F5F(sujeto a cambios)
+Fondo principal	#0A0A0A (sujeto a cambios)
+Texto #FFFFFF(sujeto a cambios)
+Acento principal (botones, links)	Azul eléctrico	#00A0D7(sujeto a cambios)
+Éxito / Confirmación #92D709(sujeto a cambios)
+Error / Alerta	Rojo intenso #E55F5F(sujeto a cambios)
 
 los estilos van a tener estetica minimalista y moderna.
 
 INSTRUCCIONES PARA LA CUNSTRUCCION (prompt):
 
-Actua como un desarollador y diseñador UX/UI Senior especializado en el dessarollo Front-end, por el momento solo tenes permitido utilizar CSS baico, no podes utilizar nada fuera de lo indicado. vas a estar trabajando en el desarrollo del Front-end de una pagina tipo e-commers dedicada a la venta de videojuegos digitales principalmente, buscas que la pagina sea amigable con el usuario y facil de utilizar para usuarios nuevos, la pagina tiene que ser escalable a largo plazo. La estetica de la pagina es minimalista y moderna.
+Actua como un desarollador y diseñador UX/UI Senior especializado en el dessarollo Front-end, por el momento solo tenes permitido utilizar CSS baico, no podes utilizar nada fuera de lo indicado. vas a estar trabajando en el desarrollo del Front-end de una pagina tipo e-commers dedicada a la venta de videojuegos digitales principalmente, buscas que la pagina sea amigable con el usuario y facil de utilizar para usuarios nuevos, la pagina tiene que ser escalable a largo plazo.
+La estetica de la pagina es minimalista y moderna.
 
 Por el momento se van a utilizar los siguientes colores:
 
-Fondo principal #0A0A0A (sujeto a cambios) Texto #FFFFFF(sujeto a cambios) Acento principal (botones, links) Azul eléctrico #00A0D7(sujeto a cambios) Éxito / Confirmación #92D709(sujeto a cambios) Error / Alerta Rojo intenso #E55F5F(sujeto a cambios)
+Fondo principal	#0A0A0A (sujeto a cambios)
+Texto #FFFFFF(sujeto a cambios)
+Acento principal (botones, links)	Azul eléctrico	#00A0D7(sujeto a cambios)
+Éxito / Confirmación #92D709(sujeto a cambios)
+Error / Alerta	Rojo intenso #E55F5F(sujeto a cambios)
 
 Tipografias (importadas desde fonts.google.com)
 
-Navbar / Títulos: Orbitron Botones de acción: Audiowide Textos secundarios: Press Start 2P Descripciones de producto: Rajdhani
+Navbar / Títulos: Orbitron
+Botones de acción: Audiowide
+Textos secundarios: Press Start 2P 
+Descripciones de producto: Rajdhani
 
 Aplica el atributo scroll-behavior al html.
 
-la navbar va a ser visible todo el tiempo dentro de esta se va a encontar el menu de hamburgresa de cuenta tambien se podra ver el logo de la pagina, reemplaza la ul que contiene carrito y mi bliblioteca y colocales los iconos correspondientes(en el caso del carrito un carrito de compras y en el de mi biblioteca un libro), tanbien se va a encontar la barra de busquedas(podes eliminar el boton de buscar de dicha barra), va a contar con un efecto de difuminado que deje ver levemente el contenido detras de la misma, debajo de esta se va a encontrar el carrusel exponiendo algunos de los articulos.
+la navbar va a ser visible todo el tiempo dentro de esta se va a encontar el menu de hamburgresa de cuenta tambien se podra ver el logo de la pagina, reemplaza la ul que contiene carrito y mi bliblioteca y colocales los iconos correspondientes(en el caso del carrito un carrito de compras y en el de mi biblioteca un libro), tanbien se va a encontar la barra de busquedas(podes eliminar el boton de buscar de dicha barra), va a contar con un efecto de difuminado que deje ver levemente el contenido detras de la misma,
+debajo de esta se va a encontrar el carrusel exponiendo algunos de los articulos.
 
-Respecto al catalogo: Cada producto debe mostrarse en una fila horizontal que ocupe todo el ancho disponible, con la siguiente estructura:
+Respecto al catalogo:
+Cada producto debe mostrarse en una fila horizontal que ocupe todo el ancho disponible, con la siguiente estructura: 
+- Imagen del juego a la izquierda. 
+- Al lado derecho, título del juego.
+- Debajo del titulo, una breve descripción o etiquetas de género.
 
-Imagen del juego a la izquierda.
-Al lado derecho, título del juego.
-Debajo del titulo, una breve descripción o etiquetas de género.
-Footer: por el momento dejalo como esta.
+Footer:
+por el momento dejalo como esta.
 -------------------------------------------------------------------------------------
 4(prediccion). se va a realizara una organizacion y separacion del css para mayor organizacion a futuro.
 
