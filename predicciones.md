@@ -113,3 +113,37 @@ Cada producto debe mostrarse en una fila horizontal que ocupe todo el ancho disp
 
 Footer:
 por el momento dejalo como esta.
+-------------------------------------------------------------------------------------
+4(prediccion). se va a realizara una organizacion y separacion del css para mayor organizacion a futuro.
+
+PROMPT:
+
+Se debe realizar la separación de los archivos CSS actuales.
+Crear un archivo base.css que contenga la configuración predeterminada de la página, incluyendo:
+
+Variables, Reset, Tipografías, Botones, Navbar completo,Estilos de precio (reutilizables) y Footer.
+Este archivo se cargará en todas las páginas.
+
+El archivo index.css contendrá únicamente las clases específicas de la estructura del index.html, es decir, aquellas que no forman parte de la configuración general.
+--------------------------------
+RESUMEN DE LO REALIZADO:
+
+product.css: Cree una hoja de estilos para product.html con solo lo que esa pagina usa (variables, navbar, botones, precio, footer), dejando de lado carrusel y catálogo.
+
+- Se separo en capas el css:
+
+base.css: lo compartido (variables, reset, navbar, botones, precio, footer)(ACA VA LO QUE SE REUTILIZA TODO EL TIEMPO, 
+EL ESQUELETO DE LA PAGINA)
+
+index.css: los añadidos necesarios para el index
+
+product.css:los añadidos necesarios para product.css(actualmente vacio)
+
+Cada pagina de ahora en adelante va a cargar base.css y un css especifico suyo si es necesario,
+esta organizacion se me ocurrio conversando con la IA sobre como se podria hacer para que todo lo relacionado
+con los estilos este mas organizado, de esta manera no se va a armar un choclo de montones de lineas de codigo en un unico css.
+y creando un css solo con lo necesario especificamente para cada seccion de la web(base.css + css de la web especifica)
+
+- Eliminacion de style.css, se dejo de usar y se elimino
+
+- Carpeta css, creee una carpeta llamada CSS y coloque en ella todos los css para una mayor organizacion..
