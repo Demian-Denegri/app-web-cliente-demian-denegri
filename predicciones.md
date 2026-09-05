@@ -130,4 +130,4 @@ y creando un css solo con lo necesario especificamente para cada seccion de la w
 
 - Eliminacion de style.css, se dejo de usar y se elimino
 
-- Carpeta css, creee una carpeta llamada CSS y coloque en ella todos los css para una mayor organizacion.
+- Carpeta css, creee una carpeta llamada CSS y coloque en ella todos los css para una mayor organizacion..
