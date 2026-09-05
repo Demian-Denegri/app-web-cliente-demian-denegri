@@ -1,0 +1,137 @@
+/* ============================================
+   SOLO ESTILOS DE LA PÁGINA DE INICIO
+   ============================================ */
+
+
+
+
+/* ============================================
+   CARRUSEL
+   ============================================ */
+.carousel-section {
+    padding: 32px 24px;
+}
+
+.carousel-section h2 {
+    margin-bottom: 16px;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    /* justify-content: center centra los items. */
+    justify-content: center;
+    gap: 16px;
+    overflow-x: auto; /* para permitir el scroll horizontal */
+    scroll-behavior: smooth;/* movimiento smoot */
+}
+
+.carousel-item {
+    flex: 0 0 220px;/* para que los elementos no se redimensionen */
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+}
+
+.carousel-item h3 {
+    font-size: 15px;
+    padding: 10px 10px 0;
+}
+
+/* Padding del precio dentro de la tarjeta del carrusel */
+.carousel-item .precio {
+    padding: 4px 10px 12px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--color-texto);
+    font-size: 20px;
+    padding: 8px 12px;
+}
+/* para las flecha izquierda */
+.carousel-btn:first-of-type {
+    left: 0;
+}
+/* para la flecha derecha */
+.carousel-btn:last-of-type {
+    right: 0;/* para que esté a la izquierda y no se salga*/
+}
+
+/* ============================================
+   CATÁLOGO Y FILTROS
+   ============================================ */
+.catalogo-section {
+    padding: 32px 24px;
+}
+
+.catalogo-section header {
+    margin-bottom: 20px;
+}
+
+.filtros {
+    margin-bottom: 24px;
+}
+
+.filtros label {
+    font-size: 11px;
+    color: var(--color-acento-aux);
+}
+
+.filtros input,
+.filtros select {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+}
+
+/* Cada juego ocupa una fila completa, imagen a la
+   izquierda e info a la derecha (flexbox). */
+.catalogo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fila-juego {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+}
+
+.fila-juego a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px;
+}
+
+.fila-juego:hover {
+    border-color: var(--color-acento);
+}
+
+.fila-juego img {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;/* para que la imagen cubra TODO el área disponible */
+}
+
+.info-juego h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.info-juego .genero {
+    color: var(--color-acento-aux);
+    font-size: 10px;
+    margin-bottom: 8px;
+}

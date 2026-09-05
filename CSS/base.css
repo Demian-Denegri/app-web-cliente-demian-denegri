@@ -1,6 +1,14 @@
 /* ============================================
-   VARIABLES GLOBALES
+   
+    variables, reset, tipografías, botones, navbar completo, 
+    precio (reutilizable)y footer. 
+    Se carga en todas las páginas.
+    
+    ------------------------------------------------ 
+
+    VARIABLES GLOBALES
    ============================================ */
+   
 :root {
     --color-fondo: #0A0A0A;
     --color-texto: #fffefe;
@@ -40,7 +48,7 @@ a {
     text-decoration: none;/* saca la decoracion por defecto de los links */
 }
 
-/* BOTONES CARRUSEL */
+/* BOTONES */
 button {
     font-family: var(--fuente-botones);
     background-color: var(--color-acento);
@@ -55,13 +63,15 @@ button {
    position: sticky la mantiene fija arriba
    mientras se scrollea la página.
    ============================================ */
+
+/* Configuración de la navbar */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 100;/* z-index sirve para que el navbar esté por encima de otros elementos (es como las capas)*/
     background-color: var(--color-fondo);
 }
-
+/* Configuración del interior de la navbar */
 .navbar nav {
     display: flex;/* flex para alinear los elementos*/
     align-items: center;/* centro los elemen=tros del interior */
@@ -69,6 +79,7 @@ button {
     padding: 12px 24px;
 }
 
+/*Config del logo */
 .logo {
     display: flex;/* para alinear los elementos */
     align-items: center;
@@ -76,17 +87,18 @@ button {
     font-family: var(--fuente-titulos);
     font-size: 18px;
 }
-
+/* Configuro solo la img del logo */
 .logo img {
     height: 32px;
 }
 
-/* BARRA DE BUSQUEDA EN LA NAVBAR */
+/* Donde configuro la posicion de la barra de búsqueda */
 .navbar-search {
     display: flex;
     flex: 1;
 }
 
+/* Donde configuro el input(la entrada de txt) de la barra de búsqueda */
 .navbar-search input {
     flex: 1;
     background: transparent;
@@ -96,24 +108,17 @@ button {
     font-family: var(--fuente-secundaria);
     font-size: 12px;
 }
-
-.navbar-search input::placeholder {
-    color: var(--color-acento-aux);
-}
-
 /* Iconos de carrito / biblioteca */
 .navbar-icons {
     display: flex;
     gap: 20px;
     list-style: none;
 }
-
 .navbar-icons a {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-
 .navbar-icons .icon {
     width: 22px;
     height: 22px;
@@ -143,7 +148,8 @@ button {
     padding: 20px;
     width: 280px;
 }
- /* menu expanido */
+
+/* menu expanido */
 .menu-cuenta fieldset {
     border: none;
     display: flex;
@@ -162,153 +168,17 @@ button {
 }
 
 /* ============================================
-   CARRUSEL
+   PRECIOS
    ============================================ */
-.carousel-section {
-    padding: 32px 24px;
-}
 
-.carousel-section h2 {
-    margin-bottom: 16px;
-}
-
-.carousel {
-    position: relative;
-    display: flex;
-    /* justify-content: center centra los items. */
-    justify-content: center;
-    gap: 16px;
-    overflow-x: auto; /* para permitir el scroll horizontal */
-    scroll-behavior: smooth;/* movimiento smoot */
-}
-
-.carousel-item {
-    flex: 0 0 220px;/* para que los elementos no se redimensionen */
-    background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
-}
-
-.carousel-item img {
-    width: 100%;
-    display: block;
-}
-
-.carousel-item h3 {
-    font-size: 15px;
-    padding: 10px 10px 0;
-}
-
-.carousel-item .precio {
-    padding: 4px 10px 12px;
-}
-/* precio actual */
-.carousel-item .precio strong {
-    color: var(--color-acento);
-}
-/* precio anterior */
-.carousel-item .precio s {
-    color: var(--color-acento-aux);
-    margin-left: 6px;
-    font-size: 11px;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    color: var(--color-texto);
-    font-size: 20px;
-    padding: 8px 12px;
-}
-/* para las flecha izquierda */
-.carousel-btn:first-of-type {
-    left: 0;
-}
-/* para la flecha derecha */
-.carousel-btn:last-of-type {
-    right: 0;/* para que esté a la izquierda y no se salga*/
-}
-
-/* ============================================
-   CATÁLOGO Y FILTROS
-   ============================================ */
-.catalogo-section {
-    padding: 32px 24px;
-}
-
-.catalogo-section header {
-    margin-bottom: 20px;
-}
-
-
-.filtros {
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.filtros label {
-    font-size: 11px;
-    color: var(--color-acento-aux);
-}
-
-.filtros input,
-.filtros select {
-    background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
-    color: var(--color-texto);
-    padding: 8px;
-    font-family: var(--fuente-secundaria);
-    font-size: 11px;
-}
-
-/* Cada juego ocupa una fila completa, imagen a la
-   izquierda e info a la derecha (flexbox). */
-.catalogo-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.fila-juego {
-    background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
-}
-
-.fila-juego a {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 12px;
-}
-
-.fila-juego:hover {
-    border-color: var(--color-acento);
-}
-
-.fila-juego img {
-    width: 200px;
-    height: 280px;
-    object-fit: cover;/* para que la imagen cubra TODO el área disponible */
-}
-
-.info-juego h3 {
-    font-size: 15px;
-    margin-bottom: 6px;
-}
-
-.info-juego .genero {
-    color: var(--color-acento-aux);
-    font-size: 10px;
-    margin-bottom: 8px;
-}
-
-.info-juego .precio strong {
+/* El precio principal */
+.precio strong {
     color: var(--color-acento);
     font-size: 13px;
 }
 
-.info-juego .precio s {
+/* El precio tachado, solo se muestra si hay descuento */
+.precio s { 
     color: var(--color-acento-aux);
     margin-left: 8px;
     font-size: 11px;
