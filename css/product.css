@@ -1,5 +1,189 @@
 /* ============================================
-   SOLO ESTILOS DE LA PÁGINA DE DETALLE
-   Se carga junto con base.css
-   (detalle del juego, especificaciones, reseñas)
+   DETALLE PRINCIPAL DEL JUEGO
    ============================================ */
+.detalle-juego {
+    padding: 32px 20px;
+}
+
+/* ============================================
+   1. HEADER DEL PRODUCTO
+   ============================================ */
+.detalle-header {/*para que el detalle se ubique a la derecha de la portada*/
+    display: flex;
+    flex-wrap: wrap;/* si no hay espacio, la info baja sola */
+    gap: 24px;
+}
+
+.portada {
+    width: 100%;
+    max-width: 310px;/* techo: nunca más ancha que esto */
+}
+
+.portada img {/*config de la img de portada*/
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.detalle-info {
+    flex: 1;/* ocupa el espacio que sobra */
+    min-width: 250px;/* si no le alcanza, se va abajo */
+}
+
+.detalle-info h1 {/* titulo*/
+    font-size: 50px;
+    margin-bottom: 8px;
+}
+
+.detalle-info .precio { /* precio*/
+    margin-bottom: 4px;
+}
+
+/* Descripción y etiquetas */
+.descripcion,
+.etiquetas {
+    margin-top: 16px;
+}
+
+.descripcion h2,/*tiulo "descriptcio", "titulo etiquetas"*/
+.etiquetas h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.descripcion p { /*parrafo descripcion*/
+    color: var(--color-acento-aux);
+    font-size: 13px;
+    margin-bottom: 8px;
+    max-width: 60ch;
+}
+
+.etiquetas ul {/*grupo etiquetas*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+.etiquetas li {/*etiquetas individuales*/
+    color: var(--color-acento);
+    font-size: 13px;
+    padding: 4px 8px;
+    border: 1px solid var(--color-acento);
+    border-radius: 4px;
+}
+.etiquetas li:hover {/*animcacion etiquetas*/
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    cursor: pointer;
+}
+
+/* ============================================
+   2. BOTONES DE ACCIÓN
+   ============================================ */
+.botones {
+    display: flex;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+/* ============================================
+   3. ESPECIFICACIONES
+   ============================================ */
+.especificaciones {/*ubicacion del titulo de especificaciones*/
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 17px;
+}
+
+.requisitos {/*las cajas se apilan solas si no hay espacio*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+/* Recuadro: acento auxiliar de fondo, texto en color de fondo */
+/*cuadarado que contien los requisitos minimos y recomendados*/
+.texto-requisitos {
+    background-color: transparent;
+    color: var(--color-letra);
+    list-style: none;
+    padding: 16px 24px;
+    text-align: left;
+    width: 350px;
+    height: 230px;
+    max-width: 340px;/* techo */
+    border-radius: 4px;
+    border: 1px solid var(--color-acento);
+    margin-top: 24px;
+}
+
+.texto-requisitos li {/*txt dentro del cuadrado de requisitos*/
+    padding: 4px 0;
+    font-size: 17px;
+    font-family: var(--fuente-titulos);
+}
+
+/* ============================================
+   5. RESEÑAS
+   El formulario "Publicar reseña" queda tal cual.
+   ============================================ */
+.resenas h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.resenas ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nombre-puntaje h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.nombre-puntaje p {
+    color: var(--color-acento-aux);
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+/* Recuadro de la reseña */
+.recuadro-reseña {
+    background-color: var(--color-acento-aux);
+    color: var(--color-fondo);
+    padding: 12px 16px;
+}
+
+.texto-reseña {
+    font-size: 12px;
+}
+
+/* ============================================
+   SECCIONES Y TEXTO SECUNDARIO
+   ============================================ */
+.especificaciones,
+.relacionados,
+.resenas {
+    margin-top: 48px;
+}
+
+.resenas > p {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* ============================================
+   RESPONSIVE BÁSICO
+   ============================================ */
+@media (max-width: 720px) {
+    .detalle-info h1 {/* título más chico en pantallas chicas */
+        font-size: 30px;
+    }
+}
