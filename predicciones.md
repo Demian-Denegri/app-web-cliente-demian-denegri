@@ -98,7 +98,7 @@ Al lado derecho, título del juego.
 Debajo del titulo, una breve descripción o etiquetas de género.
 Footer: por el momento dejalo como esta.
 -------------------------------------------------------------------------------------
-4(prediccion). se va a realizara una organizacion y separacion del css para mayor organizacion a futuro.
+4 (prediccion). se va a realizara una organizacion y separacion del css para mayor organizacion a futuro.
 
 PROMPT:
 
@@ -130,4 +130,62 @@ y creando un css solo con lo necesario especificamente para cada seccion de la w
 
 - Eliminacion de style.css, se dejo de usar y se elimino
 
-- Carpeta css, creee una carpeta llamada CSS y coloque en ella todos los css para una mayor organizacion..
+- Carpeta css, creee una carpeta llamada CSS y coloque en ella todos los css para una mayor organizacion.
+-------------------------------------------------------------------------------------
+5 (prediccion) se va a configurar los estilos y el contenido de la pagina de productos(product.css , product.html),
+se espera conseguir un resultado similar al planteado en el siguente boceto:
+(https://www.figma.com/design/KV4xRltOhYx1fjkxcsrw6W/Dise%C3%B1o-web-E-commerce?node-id=0-1&t=4vz7EEDJKPyjxHme-1)
+
+PROMPT:
+Rol: Actuá como desarrollador/diseñador UX/UI Senior especializado en Front-end, utilizando css basico.
+
+
+Tarea: Aplicar el siguiente layout a product.html, creando las clases necesarias en 
+product.css.
+
+- Header del producto
+
+   Imagen de portada: arriba a la izquierda, con margin respecto al nav y al borde 
+   de la pantalla (usá el espaciado estándar que ya se usa en el resto del proyecto).
+
+   A la derecha de la imagen: título del juego (clase existente para texto/títulos).
+
+   Debajo del título: precio, con la clase `.precio`.
+
+   Debajo del precio, con margin de separación: descripción del juego.
+
+   Debajo de la descripción: etiquetas del juego (ej. Acción, Carreras, Multijugador)
+
+- Botones de acción
+
+   Debajo de la imagen de portada, alineados con su ancho: dos botones en la misma 
+   fila. Izquierda: "Agregar al carrito". Derecha: "Comprar ahora".
+
+- Especificaciones
+
+    Centrado, debajo de todo el bloque anterior: título "Especificaciones".
+    Debajo, dos columnas:
+
+    Izquierda: título "Requisitos mínimos" + un recuadro con el color de acento 
+    auxiliar, texto en color de fondo, contenido en formato lista.
+
+    Derecha: mismo formato, título "Recomendados".
+
+- Juegos relacionados
+
+    Debajo de especificaciones: 4 cards iguales a las del carrusel de index.html.
+
+- Reseñas
+
+    Sección "Publicar reseña" tal como está actualmente (no modificar).
+
+    Debajo, listado de reseñas de usuario, cada una con:
+
+    Nombre de usuario
+
+    Debajo, puntaje
+
+    Debajo, un recuadro con color de acento auxiliar, con el texto de la reseña 
+    en color de fondo como color de letra.
+
+- Footer: dejar como está actualmente, sin modificaciones.
