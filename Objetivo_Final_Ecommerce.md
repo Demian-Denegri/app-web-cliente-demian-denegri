@@ -44,3 +44,8 @@ Si el usuario quiere guardar los saves de más de 3 juegos, se buscará evaluar 
 Perfil de usuario
 Cada usuario tendrá una sección de perfil, con un funcionamiento y diseño similar al perfil de Steam.
 En este perfil se podrían mostrar, entre otras cosas, los juegos que posee y la información relacionada con su actividad dentro de la plataforma.
+
+---------------------------
+BOCETOS
+---------------------------
+https://www.figma.com/design/KV4xRltOhYx1fjkxcsrw6W/Dise%C3%B1o-web-E-commerce?node-id=0-1&t=EWKdsms9nBKafV1y-1
