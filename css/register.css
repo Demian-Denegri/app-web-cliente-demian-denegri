@@ -1,0 +1,73 @@
+/* ============================================
+   REGISTRO
+   ============================================ */
+
+/* Contenedor central */
+.registro {
+    max-width: 400px;
+    margin: 48px auto;
+    padding: 24px;
+    background-color: transparent;
+    color: var(--color-acento);
+    border-radius: 8px;
+    border: 2px solid var(--color-acento);
+}
+
+/* Titulo, centrado en la parte superior */
+.registro h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 28px;
+}
+
+/* Formulario: campo agrupado, alineado a la izquierda */
+.registro-forma fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Subtitulos de los campos */
+.registro-forma label {
+    font-size: 11px;
+}
+
+/* Inputs: todo el ancho disponible del rectangulo */
+.registro-forma input {
+    width: 100%;
+    background-color: var(--color-texto);
+    border: 2px solid var(--color-acento);
+    color: var(--color-fondo);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.registro-forma input::placeholder {
+    color: var(--color-acento-aux);
+}
+
+/* Botón principal verde de base.css, solo lo centro */
+.registro-forma button {
+    display: block;
+    margin: 24px auto 0;
+    border-radius: 4px;
+}
+
+/* Boton secundario*/
+.boton-secundario {
+    display: block;
+    margin: 12px auto 0;
+    background-color: transparent;
+    border: 2px solid var(--color-acento);
+    color: var(--color-texo);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boton-secundario:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+}

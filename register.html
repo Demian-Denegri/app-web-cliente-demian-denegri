@@ -13,57 +13,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Tipografías -->
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 
 <body>
 
-    <!-- ============ HEADER ============ -->
-    <header>
+     <!-- ============ HEADER ============ -->
+     <!-- ============ 1. NAVBAR DE NAVEGACIÓN ============ -->
+    <header class="navbar">
         <nav aria-label="Navegación principal">
-            <a href="index.html" aria-label="NullPod, página de inicio">
+            <a href="index.html" class="logo" aria-label="NullPod, página de inicio">
                 <img src="img/pod-logo.png" alt="Logo de NullPod">
-                <span>NullPod</span>
             </a>
 
-            <form action="index.html" method="get" role="search" aria-label="Búsqueda de juegos">
-                <label for="busqueda">Buscar juegos</label>
+            <!-- Barra de búsqueda -->
+            <form action="#" method="get" role="search" aria-label="Búsqueda de juegos" class="navbar-search">
                 <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
-                <button type="submit">Buscar</button>
             </form>
 
-            <ul>
-                <li><a href="#" aria-label="Abrir carrito de compras">Carrito</a></li>
-                <li><a href="#">Mi biblioteca</a></li>
+            <ul class="navbar-icons">
+                <li>
+                    <a href="#" aria-label="Abrir carrito de compras">
+                        <!-- logo carrito -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L23 6H6"></path>
+                        </svg>
+                        <!-- logo carrito -->
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Ir a mi biblioteca">
+                        <!-- logo biblioteca -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <!-- logo biblioteca -->
+                        <span>Mi biblioteca</span>
+                    </a>
+                </li>
             </ul>
 
-            <!-- Menú hamburguesa: login + crear cuenta (consistente en todo el sitio) -->
-            <details id="acceso" aria-label="Menú de cuenta">
+            <!-- Menú hamburguesa: contiene login + botón crear cuenta (solo HTML semántico) -->
+            <details id="acceso" class="menu-cuenta" aria-label="Menú de cuenta">
                 <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
                     &#9776; Cuenta
                 </summary>
 
-                <section aria-labelledby="titulo-menu-cuenta-reg">
-                    <h2 id="titulo-menu-cuenta-reg">Cuenta</h2>
-                    <p>Ingresá si ya tenés cuenta o registrate.</p>
-
-                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta-reg">
+                <section aria-labelledby="titulo-menu-cuenta">
+                    
+                    <!-- Opciones de ingreso -->
+                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta">
                         <fieldset>
-                            <legend>Ya tengo cuenta</legend>
 
-                            <label for="log-email-reg">Correo electrónico</label>
-                            <input type="email" id="log-email-reg" name="email" required
+                            <label for="log-email">Correo electrónico</label>
+                            <input type="email" id="log-email" name="email" required
                                 placeholder="tucorreo@ejemplo.com">
 
-                            <label for="log-clave-reg">Contraseña</label>
-                            <input type="password" id="log-clave-reg" name="clave" required>
+                            <label for="log-clave">Contraseña</label>
+                            <input type="password" id="log-clave" name="clave" required>
 
                             <button type="submit">Ingresar</button>
                         </fieldset>
                     </form>
 
-                    <section aria-labelledby="titulo-sin-cuenta-reg">
-                        <h3 id="titulo-sin-cuenta-reg">¿No tenés cuenta?</h3>
-                        <p>Estás en la página de registro.</p>
+                    <!-- Botón crear cuenta dentro del mismo menú hamburguesa -->
+                    <section aria-labelledby="titulo-sin-cuenta-nav">
+                        <h3 id="titulo-sin-cuenta-nav">¿No tenés cuenta?</h3>
+                        
                         <form action="register.html" method="get" aria-label="Ir a registro">
                             <button type="submit">Crear una cuenta</button>
                         </form>
@@ -72,24 +91,14 @@
             </details>
         </nav>
     </header>
-
     <main>
 
-        <nav aria-label="Miga de pan">
-            <ol>
-                <li><a href="index.html">Inicio</a></li>
-                <li aria-current="page">Crear cuenta</li>
-            </ol>
-        </nav>
 
-        <section aria-labelledby="titulo-registro">
-            <h1 id="titulo-registro">Crear una cuenta</h1>
-            <p>Registrate como primer paso para comprar juegos y dejar reseñas en NullPod.</p>
+        <section class="registro" aria-labelledby="titulo-registro">
+            <h1 id="titulo-registro">Crear cuenta</h1>
 
-            <form action="#" method="post" aria-labelledby="titulo-registro">
+            <form class="registro-forma" action="#" method="post" aria-labelledby="titulo-registro">
                 <fieldset>
-                    <legend>Datos de registro</legend>
-
                     <label for="reg-nombre">Nombre de usuario</label>
                     <input type="text" id="reg-nombre" name="usuario" required minlength="3"
                         placeholder="Elegí tu nombre de usuario">
@@ -108,11 +117,10 @@
                 </fieldset>
             </form>
 
-            <aside aria-labelledby="titulo-ya-tenes-cuenta">
-                <h2 id="titulo-ya-tenes-cuenta">¿Ya tenés cuenta?</h2>
-                <p>Si ya estás registrado, abrí el menú <strong>Cuenta</strong> en la barra superior para ingresar.</p>
-                <p><a href="index.html">Volver al inicio</a></p>
-            </aside>
+            <!-- Iniciar sesión: el login está en index.html -->
+            <form action="index.html" method="get" aria-label="Ir a iniciar sesión">
+                <button type="submit" class="boton-secundario">Iniciar sesión</button>
+            </form>
         </section>
 
     </main>
