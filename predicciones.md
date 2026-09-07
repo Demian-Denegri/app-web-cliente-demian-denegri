@@ -189,3 +189,37 @@ product.css.
     en color de fondo como color de letra.
 
 - Footer: dejar como está actualmente, sin modificaciones.
+
+-------------------------------------------------------------------------------------
+6 (prediccion) se van a configurar los estilos de register.css
+
+PROMPT:
+
+Vas a trabajar sobre la pagina de register (register.html), utilizando las clases ya creadas de base.css y creando las clases 
+necesarias en el register.css. Antes de escribir codigo, revisa base.css 
+y los archivos ya existentes para reusar variables de espaciado y color.
+
+utilisa como criterio CSS basico como en el resto del proyecto.
+
+- Contenedor
+   En el centro de la pagina: un rectangulo vertical con el color de acento-auxiliar.
+
+-Título
+   Dentro del rectangulo, en la parte superior, centrado: título "Crear cuenta".
+
+- Formulario
+    Debajo del título, alineado a la izquierda dentro del rectangulo:
+
+    Subtítulo "Nombre de usuario" + su input debajo.
+    Debajo: subtítulo "Correo electronico" + su input debajo.
+    Debajo: subtítulo "Contraseña" + su input debajo.
+    Debajo: subtítulo "Confirmar contraseña" + su input debajo.
+
+Los inputs deben ocupar el mismo ancho (todo el ancho disponible 
+del rectángulo, con el padding/margin lateral que ya use en el proyecto).
+
+- Botones
+    Debajo de todo el formulario, centrado: botón de color acento con texto 
+    "Crear cuenta".
+    Debajo de este: botón con fondo transparente y borde de color acento, con 
+    texto "Iniciar sesión".
