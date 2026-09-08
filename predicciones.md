@@ -247,3 +247,11 @@ del rectángulo, con el padding/margin lateral que ya use en el proyecto).
 - Se van a realizar correcciones en la nabvar para que esta sea responsive
 - Se van a reemplazas los iconos tipo svg por iconos importados desde"https://fonts.google.com/icons".
 - se van a editar los botones.
+
+-------------------------------------------------------------------------------------
+8 (prediccion)
+
+se va a modificar el layout de index.html.
+
+PROMPT:
+tu tarea es cambiar el layout de la seccion catalogo a un grid de dos columnas: la navbar  y el carrusel quedan como estan, arriba, ocupando todo el ancho. debajo, usa CSS Grid con grid-template-columns para dividir en sidebar (250px fija) + contenido. En la sidebar va el .filtros (buscador del catalogo + el select de orden). En la columna derecha va .catalogo-lista, que a su vez tiene que ser un grid interno con varias columnas (auto-fill, minmax de aprox 220px) para que las .fila-juego se acomoden solas segun el ancho. En mobile quiero que la sidebar se apile arriba del contenido, ocupando el 100% del ancho.
