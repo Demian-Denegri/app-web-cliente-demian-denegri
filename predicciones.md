@@ -244,5 +244,6 @@ del rectángulo, con el padding/margin lateral que ya use en el proyecto).
 
 7 (prediccion)
 
-- Se van a realizar correcciones en la nabvar para qeu esta sea responsive
-- Se van a reemplazas los iconos svg por iconos importados desde"https://fonts.google.com/icons".
+- Se van a realizar correcciones en la nabvar para que esta sea responsive
+- Se van a reemplazas los iconos tipo svg por iconos importados desde"https://fonts.google.com/icons".
+- se van a editar los botones.

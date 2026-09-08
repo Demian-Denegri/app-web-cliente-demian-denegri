@@ -55,6 +55,11 @@ button {
     border: none;/* elimina bordes */
     padding: 8px 16px;
     cursor: pointer;/* cambia el cursor al pasar sobre el botón */
+    border-radius: 2px;/* bordes redondeados */
+
+    &:hover {
+        opacity: 0.8;/* efecto de opacidad al pasar el mouse */
+    }
 }
 
 /* ============================================
@@ -110,7 +115,7 @@ button {
 /* Iconos de carrito / biblioteca */
 .navbar-icons {
     display: flex;
-    gap: 20px;
+    gap: 32px;
     list-style: none;
 }
 .navbar-icons a {
@@ -119,8 +124,7 @@ button {
     gap: 6px;
 }
 .navbar-icons .icon {
-    width: 22px;
-    height: 22px;
+    font-size: 22px;
 }
 
 .navbar-icons a:hover {
@@ -249,4 +253,45 @@ footer nav {
     justify-content: center;
     gap: 16px;
     margin-top: 8px;
+}
+
+/* ============================================
+   RESPONSIVE — pantallas chicas (<768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* Navbar: flex-wrap para que los hijos pasen de línea */
+    .navbar nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 16px;
+    }
+
+    /* Oculto el buscador de la navbar */
+    .navbar-search {
+        /* Se ocupa todo el ancho y pasa a la segunda línea/ la linea de abajo */
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    /* Achico los íconos un poco */
+    .navbar-icons .icon {
+        font-size: 20px;
+    }
+
+    /* Empujo los íconos a la derecha */
+    .navbar-icons {
+        margin-left: auto;
+    }
+
+    /* Empujo el summary "Cuenta" a la derecha */
+    .menu-cuenta {
+        margin-left: auto;
+    }
+
+    /* para qeu el menu expandido tome todo el ancho de la pantalla */
+    .menu-cuenta section {
+        width: calc(100% - 32px);
+        right: 16px;
+    }
 }
