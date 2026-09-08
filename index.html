@@ -135,26 +135,29 @@
         <section aria-labelledby="titulo-catalogo" class="catalogo-section">
             <header>
                 <h2 id="titulo-catalogo">Catálogo de juegos</h2>
-
             </header>
 
-            <form action="#" method="get" role="search" aria-label="Buscar y filtrar catálogo" class="filtros">
-                <label for="buscar-catalogo">Buscar en el catálogo</label>
-                <input type="search" id="buscar-catalogo" name="q" placeholder="Ej.: aventura, puzzle, terror…">
+            <div class="catalogo-layout">
+                <aside class="sidebar">
+                    <form action="#" method="get" role="search" aria-label="Buscar y filtrar catálogo" class="filtros">
+                        <label for="buscar-catalogo">Buscar en el catálogo</label>
+                        <input type="search" id="buscar-catalogo" name="q" placeholder="Ej.: aventura, puzzle, terror…">
 
-                <label for="ordenar">Ordenar y filtrar por</label>
-                <select id="ordenar" name="orden">
-                    <option value="relevancia">Relevancia</option>
-                    <option value="precio-asc">Precio: menor a mayor</option>
-                    <option value="precio-desc">Precio: mayor a menor</option>
-                    <option value="genero">Género</option>
-                </select>
-            </form>
+                        <label for="ordenar">Ordenar y filtrar por</label>
+                        <select id="ordenar" name="orden">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="precio-asc">Precio: menor a mayor</option>
+                            <option value="precio-desc">Precio: mayor a menor</option>
+                            <option value="genero">Género</option>
+                        </select>
+                    </form>
+                </aside>
 
-            <!-- ============ 4. CATÁLOGO DE PRODUCTOS ============ -->
-            <section aria-labelledby="titulo-listado">
-                <h3 id="titulo-listado">Juegos disponibles</h3>
-                <div class="catalogo-lista">
+                <div class="catalogo-contenido">
+                    <!-- ============ 4. CATÁLOGO DE PRODUCTOS ============ -->
+                    <section aria-labelledby="titulo-listado">
+                        <h3 id="titulo-listado">Juegos disponibles</h3>
+                        <div class="catalogo-lista">
 
                     <article class="fila-juego">
                         <a href="product.html" aria-label="Ver detalles de Cyber Run">
@@ -200,8 +203,65 @@
                         </a>
                     </article>
 
+                    <article class="fila-juego">
+                        <a href="product.html" aria-label="Ver detalles de Neon Drift">
+                            <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Neon Drift">
+                            <div class="info-juego">
+                                <h3>Neon Drift</h3>
+                                <p class="genero">Carreras · Arcade</p>
+                                <p class="precio"><strong>$8.999</strong></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="fila-juego">
+                        <a href="product.html" aria-label="Ver detalles de Crystal Realms">
+                            <img src="https://imgproxy.eneba.games/m-PE1_SW28Jiy-AanJrZcxExxoR3l1GWmfkCclamtIE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/RVhUeG84cll3LWl4/V2JZU1pvV2ltVjdp/S3JyVjZxUERsT0VF/T09sM3lrLmpwZw" alt="Portada de Crystal Realms">
+                            <div class="info-juego">
+                                <h3>Crystal Realms</h3>
+                                <p class="genero">Rol · Fantasía</p>
+                                <p class="precio"><strong>$18.999</strong> <s>$24.999</s></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="fila-juego">
+                        <a href="product.html" aria-label="Ver detalles de Starship Tactics">
+                            <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Starship Tactics">
+                            <div class="info-juego">
+                                <h3>Starship Tactics</h3>
+                                <p class="genero">Estrategia · Sci-fi</p>
+                                <p class="precio"><strong>$13.499</strong></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="fila-juego">
+                        <a href="product.html" aria-label="Ver detalles de Shadow Vault">
+                            <img src="https://imgproxy.eneba.games/eobNNLmiDhHiKYsyhP1GV54d0ufYOFQwxe3EkfkqNoA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9L/ZVl1VWdnLmpwZw" alt="Portada de Shadow Vault">
+                            <div class="info-juego">
+                                <h3>Shadow Vault</h3>
+                                <p class="genero">Acción · Aventura</p>
+                                <p class="precio"><strong>$14.299</strong> <s>$19.999</s></p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="fila-juego">
+                        <a href="product.html" aria-label="Ver detalles de Pixel Heroes">
+                            <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Pixel Heroes">
+                            <div class="info-juego">
+                                <h3>Pixel Heroes</h3>
+                                <p class="genero">Plataformas · Retro</p>
+                                <p class="precio"><strong>$6.999</strong></p>
+                            </div>
+                        </a>
+                    </article>
+
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </section>
 
     </main>
