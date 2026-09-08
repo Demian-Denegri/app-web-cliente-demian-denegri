@@ -239,3 +239,10 @@ del rectángulo, con el padding/margin lateral que ya use en el proyecto).
     "Crear cuenta".
     Debajo de este: botón con fondo transparente y borde de color acento, con 
     texto "Iniciar sesión".
+
+-------------------------------------------------------------------------------------
+
+7 (prediccion)
+
+- Se van a realizar correcciones en la nabvar para qeu esta sea responsive
+- Se van a reemplazas los iconos svg por iconos importados desde"https://fonts.google.com/icons".
