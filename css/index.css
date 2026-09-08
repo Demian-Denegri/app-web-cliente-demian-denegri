@@ -27,33 +27,58 @@
     margin-bottom: 20px;
 }
 
-.filtros {
-    margin-bottom: 24px;
+.catalogo-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* --- Sidebar / Filtros --- */
+.sidebar {
+    position: sticky;
+    top: 80px;
 }
 
 .filtros label {
+    display: block;
     font-size: 11px;
     color: var(--color-acento-aux);
+    margin-bottom: 4px;
 }
 
 .filtros input,
 .filtros select {
+    width: 100%;
     background-color: var(--color-fondo);
     border: 1px solid var(--color-borde);
     color: var(--color-texto);
     padding: 8px;
     font-family: var(--fuente-secundaria);
     font-size: 11px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
 }
 
-/* Cada juego ocupa una fila completa, imagen a la
-   izquierda e info a la derecha (flexbox). */
+/* --- Catálogo grid interno --- */
+.catalogo-contenido h3 {
+    margin-bottom: 16px;
+    
+}
+
 .catalogo-lista {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 12px;
 }
 
+@media (min-width: 1300px) {
+    .catalogo-lista {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* --- Tarjeta de juego --- */
 .fila-juego {
     background-color: var(--color-fondo);
     border: 1px solid var(--color-borde);
@@ -61,19 +86,30 @@
 
 .fila-juego a {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 12px;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
 }
 
 .fila-juego:hover {
     border-color: var(--color-acento);
+    cursor: pointer;
 }
 
 .fila-juego img {
-    width: 200px;
-    height: 280px;
-    object-fit: cover;/* para que la imagen cubra TODO el área disponible */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    &:hover {
+        transition: filter 0.3s ease;
+        filter: brightness(1.2); /* se aclara al pasar el mouse */
+    }
+}
+
+.info-juego {
+    padding: 12px;
 }
 
 .info-juego h3 {
@@ -85,4 +121,17 @@
     color: var(--color-acento-aux);
     font-size: 10px;
     margin-bottom: 8px;
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    .catalogo-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
 }
