@@ -239,3 +239,46 @@ se va a modificar el layout de index.html.
 
 PROMPT:
 tu tarea es cambiar el layout de la seccion catalogo a un grid de dos columnas: la navbar  y el carrusel quedan como estan, arriba, ocupando todo el ancho. debajo, usa CSS Grid con grid-template-columns para dividir en sidebar (250px fija) + contenido. En la sidebar va el .filtros (buscador del catalogo + el select de orden). En la columna derecha va .catalogo-lista, que a su vez tiene que ser un grid interno con varias columnas (auto-fill, minmax de aprox 220px) para que las .fila-juego se acomoden solas segun el ancho. En mobile quiero que la sidebar se apile arriba del contenido, ocupando el 100% del ancho.
+-------------------------------------------------------------------------------------
+9 (prediccion)
+
+- se va a crear cart.css y cart.html.
+- en esta seccion apareceran los juegos agregados al carrito, 
+el layout tendra la siguiente disposicion: 
+
+del lado izquierdo unas cards que permitiran elegir el medio de pago(estas permitiran seleccionarlas por medio de un radio button),
+al seleccionarlas se desplegara un slider que permitira ingresar los datos correspondientes para dicho medio de pago.
+
+del lado derecho una seccion de resumen que contendra los juegos agregados al carrito mostrandolos como cards horizontales ordenados en filas uno debajo del otro.
+Debajo de estos un <.hr> que separara las cads de los juegos, del total a pagar.
+Debajo del total a pagar se encontrara un boton con la leyenda comprar para realizar la compra 
+y debajo de dicho boton fuera del contenedor del resumen la leyenda tenes un codigo de descuento que sera un slider que al clikearlo desplegara un input para ingresar dicho codigo
+
+PROMPT:
+
+Actua como un desarollador especializado en front-end y UX/UI.
+
+maquetado (cart.html / cart.css)
+
+Layout de dos columnas (mismo esquema de grid que usamos en catálogo: sidebar + contenido), con gap/espacio entre ambas columnas.
+
+Columna izquierda (medios de pago):
+
+Cards apiladas verticalmente, una debajo de otra
+Cada card tiene border
+Gap/espacio entre cada card
+Cada card contiene un radio button para seleccionar el medio de pago
+Al seleccionar una, se despliega un accordion/colapse (no slider) con los inputs correspondientes a ese medio de pago
+
+Columna derecha (resumen):
+
+Contenedor de resumen general, también con border
+Adentro: cards horizontales de los juegos agregados al carrito, apiladas una debajo de otra, con espacio entre ellas, cada una con border
+Debajo de las cards de juegos, un <hr> (separador visual, solo dentro de esta sección de resumen) que las separa del total a pagar
+Debajo del <hr>: el total a pagar
+Debajo del total: botón "Comprar"
+
+Fuera del contenedor de resumen:
+
+Texto "Tenés un código de descuento" con un accordion/colapse que al clickearlo despliega un input para ingresarlo
+-------------------------------------------------------------------------------------
