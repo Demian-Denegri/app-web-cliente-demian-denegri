@@ -1,0 +1,273 @@
+
+/* ============================================
+   CART.CSS
+   Reutiliza definidos en base.css  
+   aca solo lo específico de esta página.
+   ============================================ */
+
+/* ============================================
+   LAYOUT GENERAL dos columnas
+   Izquierda: medios de pago / Derecha: resumen
+   ============================================ */
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;              /* separación entre columnas (metodos de pago y resumen) */
+    max-width: 1200px;       /* tope de ancho del contenido */
+    margin: 0 auto;          /* entra el bloque en la pantalla */
+    padding: 32px 24px;
+    align-items: start;
+
+}
+
+.cart-layout h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   COLUMNA IZQUIERDA (MEDIOS DE PAGO)
+   ============================================ */
+.metodos-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;/* gap entre cards de metodos de pago */
+}
+
+/* Cada medio de pago es una card con border, apiladas con gap */
+.pago-card {
+    border: 2px solid var(--color-acento);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &:hover {
+        border-color: #5aff4d;
+        box-shadow: 0 0 8px #5aff4d;
+        transition: filter 0.3s ease;
+    };
+}
+
+/*
+   Efecto verde en el método de pago seleccionado.
+   :has() revisa si DENTRO de la card (.pago-card) hay un
+   radio checkeado; si lo hay, aplica el borde y la sombra
+   verde a TODA la card.
+   Como los radios comparten el mismo name="medio-pago",
+   al tildar uno se desmarca el anterior, y el resaltado
+   pasa automáticamente a la card correspondiente.s
+*/
+.pago-card:has(input[type="radio"]:checked) {
+    border-color: #5aff4d;
+    box-shadow: 0 0 8px #5aff4d;
+}
+
+.pago-card label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: var(--fuente-botones);
+    font-size: 17px;
+    flex: 1;
+}
+
+.pago-card .pago-icono {
+    width: 110px;
+    height: 50px;
+    object-fit: contain;
+    background-color: var(--color-texto);
+    border-radius: 4px;
+}
+
+.pago-card input[type="radio"] {
+    accent-color: var(--color-acento);
+    cursor: pointer;
+    margin-left: auto;
+    height: 20px;
+    width:  20px;
+    
+}
+
+/* Panel tipo acordeón: colapsado por defecto */
+.pago-panel {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+}
+
+/* Al tildar el radio de la card, se despliega su panel */
+.pago-card input[type="radio"]:checked ~ .pago-panel {/* le aplico lo del hover de .pago- pero para que quede siempre activo cuando esta seleccionado */
+    max-height: 320px;
+    margin-top: 14px;
+    
+}
+
+.pago-panel label {
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+    color: var(--color-acento-aux);
+    
+}
+
+.pago-panel input {
+    background-color: transparent;
+    border: 1px solid var(--color-acento-aux);
+    color: var(--color-texto);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+    border-radius: 2px;
+    
+}
+
+/* ============================================
+   COLUMNA DERECHA (RESUMEN)
+   ============================================ */
+.resumen-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.resumen {
+    border: 3px solid var(--color-acento);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cards horizontales de los juegos, una debajo de otra */
+.resumen-juegos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.juego-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid var(--color-acento);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+}
+
+.juego-card img {
+    width: 15%;
+    height: 15%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.btn-delete {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    color: red;
+    cursor: pointer;
+    font-size: 22px;
+    &:hover {
+        color: var(--color-letra);
+
+    }
+
+
+}
+
+.juego-info h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+/* Separador entre las cards de juegos y el total (solo dentro del resumen) */
+.resumen hr {
+    border: none;
+    border-top: 1px solid var(--color-acento-aux);
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fuente-titulos);
+    font-size: 20px;
+
+}
+
+.total strong {/* txt precio */
+    color: var(--color-acento);
+    font-size: 20px;
+    font-family: var(--fuente-secundaria);
+}
+
+.resumen button {
+    width: 35%;
+    align-self: center;
+}
+
+/* ============================================
+   CÓDIGO DE DESCUENTO (fuera del .resumen)
+   ============================================ */
+.descuento {
+    margin-top: 16px;
+    border: 2px solid var(--color-acento);
+    border-radius: 4px;
+    padding: 14px 16px;
+}
+
+.descuento summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--fuente-botones);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.descuento summary .material-symbols-outlined {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.flecha-descuento {
+    margin-left: auto;
+}
+
+.descuento[open] summary {
+    color: var(--color-acento);
+    margin-bottom: 12px;
+}
+
+.descuento input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--color-acento);
+    color: var(--color-texto);
+    padding: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 11px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   pantallas (<768px) Las columnas se apilan 
+   una debajo de otra
+   ============================================ */
+@media (max-width: 768px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+        gap: 24px;
+    }
+}
