@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NullPod: carrito de compras. Elegí el medio de pago y confirmá tu pedido.">
+    <meta name="author" content="Demian Denegri">
+    <title>NullPod — Carrito</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR (igual a index.html) ============ -->
+    <header class="navbar">
+        <nav aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="NullPod, página de inicio">
+                <img src="img/pod-logo.png" alt="Logo de NullPod">
+            </a>
+
+            <form action="#" method="get" role="search" aria-label="Búsqueda de juegos" class="navbar-search">
+                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
+            </form>
+
+            <ul class="navbar-icons">
+                <li>
+                    <a href="cart.html" aria-label="Abrir carrito de compras">
+                        <span class="material-symbols-outlined icon" aria-hidden="true">shopping_cart</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Ir a mi biblioteca">
+                        <span class="material-symbols-outlined icon" aria-hidden="true">menu_book</span>
+                    </a>
+                </li>
+            </ul>
+
+            <details id="acceso" class="menu-cuenta" aria-label="Menú de cuenta">
+                <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
+                    &#9776; Cuenta
+                </summary>
+
+                <section aria-labelledby="titulo-menu-cuenta">
+                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta">
+                        <fieldset>
+                            <label for="log-email">Correo electrónico</label>
+                            <input type="email" id="log-email" name="email" required
+                                placeholder="tucorreo@ejemplo.com">
+
+                            <label for="log-clave">Contraseña</label>
+                            <input type="password" id="log-clave" name="clave" required>
+
+                            <button type="submit">Ingresar</button>
+                        </fieldset>
+                    </form>
+
+                    <section aria-labelledby="titulo-sin-cuenta-nav">
+                        <h3 id="titulo-sin-cuenta-nav">¿No tenés cuenta?</h3>
+                        <form action="register.html" method="get" aria-label="Ir a registro">
+                            <button type="submit">Crear una cuenta</button>
+                        </form>
+                    </section>
+                </section>
+            </details>
+        </nav>
+    </header>
+
+    <main class="cart-layout">
+
+        <!-- ============ COLUMNA IZQUIERDA: MEDIOS DE PAGO ============ -->
+        <section aria-labelledby="titulo-pago" class="metodos-pago">
+
+            <!-- Card: tarjeta de crédito/débito -->
+            <article class="pago-card">
+                <label for="pago-tarjeta">
+                    <img class="pago-icono" src="https://assets.eneba.games/payments/v1/color/payrails_card.svg" alt="Tarjeta de crédito/débito">
+                    Tarjeta de crédito / débito
+                </label>
+                <input type="radio" id="pago-tarjeta" name="medio-pago" value="tarjeta">
+
+                <div class="pago-panel">
+                    <label for="tarjeta-numero">Número de tarjeta</label>
+                    <input type="text" id="tarjeta-numero" name="tarjeta-numero" placeholder="0000 0000 0000 0000">
+
+                    <label for="tarjeta-titular">Nombre del titular</label>
+                    <input type="text" id="tarjeta-titular" name="tarjeta-titular" placeholder="Como figura en la tarjeta">
+
+                    <label for="tarjeta-venc">Vencimiento</label>
+                    <input type="text" id="tarjeta-venc" name="tarjeta-venc" placeholder="MM/AA">
+
+                    <label for="tarjeta-cvv">CVV</label>
+                    <input type="text" id="tarjeta-cvv" name="tarjeta-cvv" placeholder="123">
+                </div>
+            </article>
+
+            <!-- Card: Mercado Pago -->
+            <article class="pago-card">
+                <label for="pago-mp">
+                    <img class="pago-icono" src="https://th.bing.com/th/id/OIP.XGewOevUQFXdCVAjvLYI5AHaFa?w=108&h=108&c=1&bgcl=95ef29&r=0&o=7&pid=ImgRC&rm=3" alt="">
+                    Mercado Pago
+                </label>
+                <input type="radio" id="pago-mp" name="medio-pago" value="mercadopago">
+
+                <div class="pago-panel">
+                    <label for="mp-email">Correo asociado a tu cuenta</label>
+                    <input type="email" id="mp-email" name="mp-email" placeholder="tucorreo@ejemplo.com">
+                </div>
+            </article>
+
+            <!-- Card: transferencia bancaria -->
+            <article class="pago-card">
+                <label for="pago-transferencia">
+                    <img class="pago-icono" src="https://cdn-icons-png.flaticon.com/512/12430/12430089.png" alt="">
+                    Transferencia bancaria
+                </label>
+                <input type="radio" id="pago-transferencia" name="medio-pago" value="transferencia">
+
+                <div class="pago-panel">
+                    <label for="transferencia-cbu">CBU / alias de origen</label>
+                    <input type="text" id="transferencia-cbu" name="transferencia-cbu" placeholder="Tu CBU o alias">
+                </div>
+            </article>
+                        <!-- Card: Pago Facil -->
+            <article class="pago-card">
+                <label for="pago-facil">
+                    <img class="pago-icono" src="https://extranet.pagofacil.com.ar/extranet/images/medio_der_r2_c2.gif" alt="">
+                    Pago Fácil
+                </label>
+                <input type="radio" id="pago-facil" name="medio-pago" value="facil">
+
+                <div class="pago-panel">
+                    <label for="transferencia-cbu">CBU / alias de origen</label>
+                    <input type="text" id="transferencia-cbu" name="transferencia-cbu" placeholder="Tu CBU o alias">
+                </div>
+            </article>
+               <!-- Card: Gift Card -->
+            <article class="pago-card">
+                <label for="pago-gift-card">
+                    <img class="pago-icono" src="img/icono-transferencia.png" alt="">
+                    Gift Card
+                </label>
+                <input type="radio" id="pago-gift-card" name="medio-pago" value="giftcard">
+
+                <div class="pago-panel">
+                    <label for="transferencia-cbu">CBU / alias de origen</label>
+                    <input type="text" id="transferencia-cbu" name="transferencia-cbu" placeholder="Tu CBU o alias">
+                </div>
+            </article>
+               <!-- Card: Rapi Pago -->
+            <article class="pago-card">
+                <label for="pago-rapi-pago">
+                    <img class="pago-icono" src="https://assets.eneba.games/payments/v1/color/dlocal_rapipago.svg" alt="">
+                    Rapi Pago
+                </label>
+                <input type="radio" id="pago-rapi-pago" name="medio-pago" value="rapipago">
+
+                <div class="pago-panel">
+                    <label for="transferencia-cbu">CBU / alias de origen</label>
+                    <input type="text" id="transferencia-cbu" name="transferencia-cbu" placeholder="Tu CBU o alias">
+                </div>
+            </article>
+               <!-- Card: PayPal-->
+            <article class="pago-card">
+                <label for="pago-paypal">
+                    <img class="pago-icono" src="https://assets.eneba.games/payments/v1/color/braintree_paypal.svg" alt="">
+                    PayPal
+                </label>
+                <input type="radio" id="pago-paypal" name="medio-pago" value="paypal">
+
+                <div class="pago-panel">
+                    <label for="transferencia-cbu">CBU / alias de origen</label>
+                    <input type="text" id="transferencia-cbu" name="transferencia-cbu" placeholder="Tu CBU o alias">
+                </div>
+            </article>
+        </section>
+        
+
+        <!-- ============ COLUMNA DERECHA: RESUMEN ============ -->
+        <div class="resumen-wrapper">
+
+            <section aria-labelledby="titulo-resumen" class="resumen">
+                <h2 id="titulo-resumen">Resumen del pedido</h2>
+
+                <div class="resumen-juegos">
+                    <article class="juego-card">
+                        <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Cyber Run">
+                        <div class="juego-info">
+                            <h3>Cyber Run</h3>
+                            <p class="precio"><strong>$12.999</strong> <s>$18.999</s></p>
+                        </div>
+                        <span class="material-symbols-outlined btn-delete" aria-label="Eliminar juego">delete</span>
+                    </article>
+
+                    <article class="juego-card">
+                        <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Space Legion">
+                        <div class="juego-info">
+                            <h3>Space Legion</h3>
+                            <p class="precio"><strong>$9.999</strong> <s>$13.499</s></p>
+                        </div>
+                        <span class="material-symbols-outlined btn-delete" aria-label="Eliminar juego">delete</span>
+                    </article>
+                </div>
+
+                <hr>
+
+                <div class="total">
+                    <span>Total a pagar :</span>
+                    <strong>$22.998</strong>
+                </div>
+
+                <button type="button">Comprar</button>
+            </section>
+
+            <!-- Fuera del contenedor de resumen -->
+            <details class="descuento">
+                <summary><span class="material-symbols-outlined" aria-hidden="true">sell</span> ¿Tenés un código de descuento? <span class="material-symbols-outlined flecha-descuento" aria-hidden="true">keyboard_arrow_down</span></summary>
+                <input type="text" id="codigo-descuento" name="codigo-descuento" placeholder="Ingresá tu código">
+            </details>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
