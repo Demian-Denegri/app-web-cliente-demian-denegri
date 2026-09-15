@@ -132,6 +132,9 @@ button {
 }
 
 /* Menú de cuenta (details/summary nativo del HTML) */
+.menu-cuenta {
+    margin-left: auto; /* lo empuja hacia el borde derecho del navbar */
+}
 .menu-cuenta summary {
     cursor: pointer;
     list-style: none;/* elimina el estilo de lista */

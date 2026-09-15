@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iniciá sesión en NullPod para comprar videojuegos digitales y dejar reseñas.">
+    <meta name="author" content="Demian Denegri">
+    <title>Iniciar sesión — NullPod</title>
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Tipografías -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+     <!-- ============ HEADER ============ -->
+     <!-- ============ 1. NAVBAR DE NAVEGACIÓN ============ -->
+    <header class="navbar">
+        <nav aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="NullPod, página de inicio">
+                <img src="img/pod-logo.png" alt="Logo de NullPod">
+            </a>
+
+        </nav>
+    </header>
+    <main>
+
+
+        <section class="login" aria-labelledby="titulo-login">
+            <h1 id="titulo-login">Iniciar sesión</h1>
+
+            <form class="login-forma" action="#" method="post" aria-labelledby="titulo-login">
+                <fieldset>
+                    <label for="log-email">Correo electrónico</label>
+                    <input type="email" id="log-email" name="email" required placeholder="tucorreo@ejemplo.com">
+
+                    <label for="log-clave">Contraseña</label>
+                    <input type="password" id="log-clave" name="clave" required placeholder="Ingresá tu contraseña">
+
+                    <button type="submit">Ingresar</button>
+                </fieldset>
+            </form>
+
+            <!-- Crear cuenta: el registro está en register.html -->
+            <form action="register.html" method="get" aria-label="Ir a crear cuenta">
+                <button type="submit" class="boton-secundario">Crear una cuenta</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

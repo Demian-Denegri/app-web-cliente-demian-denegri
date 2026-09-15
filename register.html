@@ -27,57 +27,6 @@
                 <img src="img/pod-logo.png" alt="Logo de NullPod">
             </a>
 
-            <!-- Barra de búsqueda -->
-            <form action="#" method="get" role="search" aria-label="Búsqueda de juegos" class="navbar-search">
-                <input type="search" id="busqueda" name="q" placeholder="Buscá un título…" autocomplete="off">
-            </form>
-
-            <ul class="navbar-icons">
-                <li>
-                    <a href="cart.html" aria-label="Abrir carrito de compras">
-                        <span class="material-symbols-outlined icon" aria-hidden="true">shopping_cart</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" aria-label="Ir a mi biblioteca">
-                        <span class="material-symbols-outlined icon" aria-hidden="true">menu_book</span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Menú hamburguesa: contiene login + botón crear cuenta (solo HTML semántico) -->
-            <details id="acceso" class="menu-cuenta" aria-label="Menú de cuenta">
-                <summary aria-label="Abrir menú de cuenta" aria-haspopup="menu">
-                    &#9776; Cuenta
-                </summary>
-
-                <section aria-labelledby="titulo-menu-cuenta">
-                    
-                    <!-- Opciones de ingreso -->
-                    <form action="#" method="post" aria-labelledby="titulo-menu-cuenta">
-                        <fieldset>
-
-                            <label for="log-email">Correo electrónico</label>
-                            <input type="email" id="log-email" name="email" required
-                                placeholder="tucorreo@ejemplo.com">
-
-                            <label for="log-clave">Contraseña</label>
-                            <input type="password" id="log-clave" name="clave" required>
-
-                            <button type="submit">Ingresar</button>
-                        </fieldset>
-                    </form>
-
-                    <!-- Botón crear cuenta dentro del mismo menú hamburguesa -->
-                    <section aria-labelledby="titulo-sin-cuenta-nav">
-                        <h3 id="titulo-sin-cuenta-nav">¿No tenés cuenta?</h3>
-                        
-                        <form action="register.html" method="get" aria-label="Ir a registro">
-                            <button type="submit">Crear una cuenta</button>
-                        </form>
-                    </section>
-                </section>
-            </details>
         </nav>
     </header>
     <main>
@@ -106,8 +55,8 @@
                 </fieldset>
             </form>
 
-            <!-- Iniciar sesión: el login está en index.html -->
-            <form action="index.html" method="get" aria-label="Ir a iniciar sesión">
+            <!-- Iniciar sesión -->
+            <form action="login.html" method="get" aria-label="Ir a iniciar sesión">
                 <button type="submit" class="boton-secundario">Iniciar sesión</button>
             </form>
         </section>
