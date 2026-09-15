@@ -298,3 +298,8 @@ Fuera del contenedor de resumen:
 
 Texto "Tenés un código de descuento" con un accordion/colapse que al clickearlo despliega un input para ingresarlo
 -------------------------------------------------------------------------------------
+10.(prediccion) 
+- se va a crear login.html y css.
+- se van a realizar correcciones en la navbar de register y login.
+-------------------------------------------------------------------------------------
+
