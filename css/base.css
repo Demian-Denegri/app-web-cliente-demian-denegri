@@ -35,6 +35,9 @@ body {
     font-family: var(--fuente-secundaria);
     font-size: 14px;
     line-height: 1.6; /* espacio entre líneas de txt */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3 {
@@ -166,7 +169,8 @@ button {
 
 .menu-cuenta input {
     background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
+    border: 1px solid var(--color-acento);
+    border-radius: 5px;
     color: var(--color-texto);
     padding: 8px;
     font-family: var(--fuente-secundaria);
@@ -205,7 +209,6 @@ button {
 .carousel-item {
     flex: 0 0 220px;
     background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
 }
 
 .carousel-item img {
@@ -240,13 +243,17 @@ button {
     right: 0;
 }
 
+main {
+    flex: 1;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
 footer {
     padding: 24px;
     text-align: center;
-    border-top: 1px solid var(--color-borde);
+    border-top: 1px solid var(--color-acento);
     color: var(--color-acento-aux);
     font-size: 11px;
 }
