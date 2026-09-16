@@ -302,4 +302,10 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 - se va a crear login.html y css.
 - se van a realizar correcciones en la navbar de register y login.
 -------------------------------------------------------------------------------------
+11. (prediccion)
+- se va a recrear los estilos de la seccion reseñas de product.html
+- se van a corregir los contenedores de especificaciones(se desborda el contenido al colocar cierta cantidad de texto).
+- se va a añadir un placeholder en el input de la contraseña.
+- se va a corregir el footer para que siempre este ubicado al final de la pantalla.
+-------------------------------------------------------------------------------------
 
