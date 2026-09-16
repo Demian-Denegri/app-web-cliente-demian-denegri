@@ -105,20 +105,27 @@
     font-size: 15px;
 }
 
+.requisitos section {
+    flex: 1 1 300px;/* las cajas ocupan el mismo ancho y ceden si no hay espacio */
+    min-width: 0;/* permite que se encojan sin desbordar */
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Recuadro: acento auxiliar de fondo, texto en color de fondo */
 /*cuadarado que contien los requisitos minimos y recomendados*/
 .texto-requisitos {
-    background-color: transparent;
-    color: var(--color-letra);
+    color: var(--color-texto);
     list-style: none;
     padding: 16px 24px;
     text-align: left;
-    width: 350px;
-    height: 230px;
-    max-width: 340px;/* techo */
+    width: 100%;
+    flex: 1;/* crece para completar la altura y quedar igual a la otra caja */
     border-radius: 4px;
     border: 1px solid var(--color-acento);
     margin-top: 24px;
+    overflow-wrap: break-word;/* corta palabras largas para que no se salgan del cuadro */
 }
 
 .texto-requisitos li {/*txt dentro del cuadrado de requisitos*/
@@ -128,41 +135,364 @@
 }
 
 /* ============================================
-   5. RESEÑAS
-   El formulario "Publicar reseña" queda tal cual.
+   5. RESEÑAS — Estilos completos reestilizados
    ============================================ */
+
+/* --- Título y subtítulo de la sección --- */
 .resenas h2 {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    /* Subrayado decorativo neón debajo del título */
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+.resenas h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    /* Barra verde neón centrada debajo del título */
+    background: var(--color-acento);
+    margin: 8px auto 0;
+    /* Sutil brillo alrededor de la barra */
+    box-shadow: 0 0 6px var(--color-acento);
 }
 
-.resenas ul {
+/* Subtítulo debajo del título: texto más chico y color auxiliar */
+.resenas-sub {
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--color-acento-aux);
+    font-size: 12px;
+}
+
+/* ============================================
+   Grid principal: dos columnas en desktop,
+   una sola columna en mobile.
+   Columna izquierda = resumen de puntuación
+   Columna derecha = formulario + listado
+   ============================================ */
+.resenas-grid {
+    display: grid;
+    /* En desktop: columna fija 280px a la izquierda,
+       columna flexible que ocupa el resto a la derecha */
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* ============================================
+   COLUMNA IZQUIERDA — Resumen de puntuación
+   Muestra promedio, estrellas, cantidad y barras
+   ============================================ */
+.resenas-resumen {
+    /* Borde neón verde sutil alrededor del resumen */
+    border: 1px solid var(--color-acento);
+    border-radius: 6px;
+    padding: 24px 20px;
+}
+
+/* --- Bloque superior: promedio numérico + estrellas grandes --- */
+.resumen-top {
+    /* Flexbox para centrar todo el contenido horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Número grande del promedio (ej: 4.5) */
+.resumen-promedio {
+    font-family: var(--fuente-titulos);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-acento);
+    line-height: 1;
+}
+
+/* Contenedor de las estrellas grandes del promedio */
+.resumen-estrellas {
+    display: flex;
+    gap: 2px;
+    margin: 6px 0 8px;
+}
+
+/* Estrellas llenas y media estrella: color verde neón */
+.estrella-llena,
+.estrella-mitad {
+    color: var(--color-acento);
+    font-size: 22px;
+    font-variation-settings: 'FILL' 1; /*para qeu las estrellas se llenen*/
+}
+
+/* Texto de cantidad de reseñas: color auxiliar, tamaño chica */
+.resumen-cantidad {
+    color: var(--color-acento-aux);
+    font-size: 11px;
+}
+
+/* --- Bloque de distribucion por puntaje (barras) --- */
+.resumen-distribucion {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Cada fila: cantidad | barra | estrella pequeña */
+.dist-fila {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Número de reseñas para cada puntaje (1, 2, 3, etc.) */
+.dist-cantidad {
+    font-size: 11px;
+    color: var(--color-acento-aux);
+    /* Ancho fijo para que los números queden alineados */
+    width: 14px;
+    text-align: right;
+}
+
+/* Barra de fondo: el track donde se llena la barra de progreso */
+.dist-barra {
+    flex: 1; /* ocupa todo el espacio disponible */
+    height: 6px;
+    overflow: hidden; /* recorta lo que se salga de la barra */
+}
+
+/* Barra de relleno: el segmento coloreado que representa el porcentaje.
+   Su ancho se define con style="width: X%" en el HTML */
+.dist-barra-fill {
+    height: 100%;
+    background-color: var(--color-acento);
+    border-radius: 3px;
+}
+
+/* Estrella pequeña al final de cada fila de distribución */
+.estrella-peq {
+    color: var(--color-acento);
+    font-size: 14px;
+}
+
+/* ============================================
+   COLUMNA DERECHA — Formulario + Listado
+   ============================================ */
+.resenas-col-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ============================================
+   FORMULARIO "DEJÁ TU RESEÑA"
+   Borde neón, campos estilizados, estrellas clickeables
+   ============================================ */
+.resenas-form fieldset {
+    /* Sin borde por defecto de fieldset */
+    border: 1px solid var(--color-acento);
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Legend: el título "Dejá tu reseña" que aparece sobre el borde */
+.resenas-form legend {
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-acento);
+    padding: 0 8px;
+    /* Separación entre el legend y el contenido del fieldset */
+    margin-bottom: 4px;
+}
+
+/* Labels del formulario: tamaño y color */
+.form-label {
+    font-size: 12px;
+    color: var(--color-acento-aux);
+    margin-bottom: 2px;
+}
+
+/* Textarea donde se escribe la reseña */
+.resenas-form textarea {
+    width: 100%;
+    min-height: 80px;
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-acento-aux);
+    border-radius: 4px;
+    color: var(--color-texto);
+    font-family: var(--fuente-secundaria);
+    font-size: 12px;
+    padding: 10px;
+    resize: vertical; /* permite redimensionar solo verticalmente */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state del textarea: borde neón y glow al hacer clic */
+.resenas-form textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+
+}
+
+/* --- Selector de estrellas clickeables --- */
+/* Los radio inputs están ocultos visualmente pero accesibles
+   para lectores de pantalla (position absolute + clip) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Contenedor de las estrellas clickeables */
+.estrellas-input {
+    display: flex;
+    gap: 4px;
+    /* Invertimos el orden visual para que las estrellas
+       se muestren de izquierda a derecha (1★ a 5★)
+       pero el CSS sibling selector funcione correctamente */
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/* Cada label de estrella: el ícono que el usuario ve y clickea */
+.estrella-label {
+    cursor: pointer;
+    /* Transición suave de color y transformación */
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+/* Color por defecto de las estrellas (vacías): gris apagado */
+.estrella-label .material-symbols-outlined {
+    color: var(--color-acento-aux);
+    font-size: 28px;
+    transition: color 0.15s ease;
+}
+
+/* --- Lógica de iluminación de estrellas con CSS puro ---
+   Cuando un radio está checked, iluminamos TODAS las estrellas
+   que le siguen (hermanos anteriores gracias al order invertido).
+   El selector ~ funciona con hermanos posteriores en el DOM,
+   por eso el HTML tiene las estrellas en orden inverso (5 a 1). */
+
+/* Estrella clickeada: se ilumina verde */
+.estrellas-input input:checked + .estrella-label .material-symbols-outlined {
+    color: var(--color-acento);
+}
+
+/* Hover: al pasar el mouse sobre una estrella,
+   se iluminan esa y todas las anteriores (visualmente) */
+.estrellas-input .estrella-label:hover .material-symbols-outlined,
+.estrellas-input .estrella-label:hover ~ .estrella-label .material-symbols-outlined {
+    color: var(--color-acento);
+}
+
+/* Efecto de escala al hacer hover: la estrella crece un poco */
+.estrellas-input .estrella-label:hover {
+    transform: scale(1.15);
+}
+
+/* ============================================
+   LISTADO DE RESEÑAS
+   ============================================ */
+.resenas-lista {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
-.nombre-puntaje h3 {
-    font-size: 20px;
-    margin-bottom: 6px;
+/* ============================================
+   CARD DE RESEÑA — Tarjeta individual
+   Borde neón, avatar, header con usuario+estrellas,
+   separador y texto
+   ============================================ */
+.resena-card {
+    border: 1px solid rgba(23, 207, 17, 0.25);
+    border-radius: 6px;
+    padding: 16px 18px;
+    background-color: var(--color-fondo);
+    /* Transición para el efecto hover */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nombre-puntaje p {
+/* Hover de la card: el borde se vuelve más brillante
+   y aparece un glow neón externo sutil */
+.resena-card:hover {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 14px rgba(23, 207, 17, 0.18);
+}
+
+/* --- Header de la card: avatar + nombre + estrellas --- */
+.resena-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Icono de avatar (círculo con borde neón) */
+.resena-avatar {
+    font-size: 32px;
+    color: var(--color-acento);
+    /* Fondo circular semitransparente */
+    background-color: transparent;
+    border-radius: 50%;
+    /* Padding para que el círculo no quede pegado al icono */
+    padding: 6px;
+    border: 1px solid rgba(23, 207, 17, 0.3);
+}
+
+/* Contenedor del nombre y las estrellas del usuario */
+.resena-header-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nombre del usuario */
+.resena-header-texto h3 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+/* Estrellas del puntaje de esta reseña específica */
+.resena-estrellas {
+    display: flex;
+    gap: 1px;
+}
+
+/* Estrellas llenas de cada reseña */
+.resena-estrellas .estrella-llena {
+    font-size: 16px;
+}
+
+/* Estrella vacía de cada reseña (sin puntaje) */
+.resena-estrellas .estrella-vacia {
     color: var(--color-acento-aux);
-    font-size: 11px;
-    margin-bottom: 10px;
+    font-size: 16px;
 }
 
-/* Recuadro de la reseña */
-.recuadro-reseña {
-    background-color: var(--color-acento-aux);
-    color: var(--color-fondo);
-    padding: 12px 16px;
+/* Separador horizontal entre header y texto */
+.resena-separador {
+    border: none;
+    margin: 12px 0;
 }
 
-.texto-reseña {
-    font-size: 12px;
+/* Texto de la reseña: estilo entre comillas */
+.resena-texto {
+    font-size: 13px;
+    color: var(--color-texto);
+    line-height: 1.5;
+    /* La cursiva le da un toque de "cita" */
+    font-style: italic;
 }
 
 /* ============================================
@@ -174,16 +504,22 @@
     margin-top: 48px;
 }
 
-.resenas > p {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
 /* ============================================
    RESPONSIVE BÁSICO
    ============================================ */
 @media (max-width: 720px) {
     .detalle-info h1 {/* título más chico en pantallas chicas */
         font-size: 30px;
+    }
+
+    /* En mobile: las dos columnas del grid de reseñas
+       pasan a una sola columna (el resumen queda arriba) */
+    .resenas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* El resumen de puntuación se centra en mobile */
+    .resenas-resumen {
+        text-align: center;
     }
 }

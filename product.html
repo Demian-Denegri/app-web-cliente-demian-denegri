@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Tipografías -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/product.css">
 </head>
@@ -62,8 +62,10 @@
                             <input type="email" id="log-email" name="email" required
                                 placeholder="tucorreo@ejemplo.com">
 
+                           
                             <label for="log-clave">Contraseña</label>
-                            <input type="password" id="log-clave" name="clave" required>
+                            <input type="password" id="log-clave" name="clave" required
+                                placeholder="Tu contraseña">
 
                             <button type="submit">Ingresar</button>
                         </fieldset>
@@ -197,57 +199,212 @@
                 <p><a href="index.html#titulo-catalogo">Ver catálogo completo</a></p>
             </aside>
 
-            <!-- 5. RESEÑAS -->
+            <!-- ============================================
+                 5. RESEÑAS — Sección completa reestilizada
+                 ============================================ -->
             <section aria-labelledby="titulo-reseñas" class="resenas">
+
+                <!-- Título principal de la seccion -->
                 <h2 id="titulo-reseñas">Reseñas</h2>
-                <p>Opiniones de jugadores que ya probaron el juego.</p>
+                <!-- Subtítulo informativo debajo del título -->
+                <p class="resenas-sub">Opiniones de jugadores que ya probaron el juego.</p>
 
-                <!-- Publicar reseña (tal como está actualmente) -->
-                <form action="#" method="post" aria-labelledby="titulo-dejar-reseña">
-                    <fieldset>
-                        <legend id="titulo-dejar-reseña">Dejá tu reseña</legend>
-                        <label for="reseña-cyberrun-puntaje">Puntaje (1 a 5)</label>
-                        <select id="reseña-cyberrun-puntaje" name="puntaje">
-                            <option value="5">5 — Excelente</option>
-                            <option value="4">4 — Muy bueno</option>
-                            <option value="3">3 — Bueno</option>
-                            <option value="2">2 — Regular</option>
-                            <option value="1">1 — Malo</option>
-                        </select>
+                <!-- Contenedor principal: usa CSS Grid para dividir
+                     en dos columnas en desktop y una sola columna en mobile -->
+                <div class="resenas-grid">
 
-                        <label for="reseña-cyberrun-texto">Tu reseña</label>
-                        <textarea id="reseña-cyberrun-texto" name="texto"
-                            placeholder="Contanos qué te pareció…"></textarea>
+                    <!-- ============ COLUMNA IZQUIERDA: Resumen de puntuación ============ -->
+                    <!-- Muestra el promedio general, estrellas visuales,
+                         cantidad de reseñas y barras de distribución por puntaje -->
+                    <aside class="resenas-resumen" aria-label="Resumen de puntuaciones">
 
-                        <button type="submit">Publicar reseña</button>
-                    </fieldset>
-                </form>
+                        <!-- Bloque central: numero promedio + estrellas grandes -->
+                        <div class="resumen-top">
+                            <!-- Numero grande con el promedio de todas las reseñas -->
+                            <span class="resumen-promedio">4.5</span>
 
-                <!-- Listado de reseñas de usuario -->
-                <ul>
-                    <li>
-                        <article aria-label="Reseña de neko_gamer">
-                            <header class="nombre-puntaje">
-                                <h3>neko_gamer</h3>
-                                <p>Puntaje: 5/5</p>
-                            </header>
-                            <div class="recuadro-reseña">
-                                <p class="texto-reseña">“Adictivo, los gráficos son una locura.”</p>
+                            <!-- Estrellas visuales del promedio.
+                                 star = estrella llena, star_half = estrella a la mitad,
+                                 star_border = estrella vacía -->
+                            <div class="resumen-estrellas" aria-label="4.5 de 5 estrellas">
+                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                <span class="material-symbols-outlined estrella-mitad" aria-hidden="true">star_half</span>
                             </div>
-                        </article>
-                    </li>
-                    <li>
-                        <article aria-label="Reseña de turbo_pixel">
-                            <header class="nombre-puntaje">
-                                <h3>turbo_pixel</h3>
-                                <p>Puntaje: 4/5</p>
-                            </header>
-                            <div class="recuadro-reseña">
-                                <p class="texto-reseña">“Las carreras nocturnas son lo mejor.”</p>
+
+                            <!-- Cantidad total de reseñas publicadas -->
+                            <span class="resumen-cantidad">2 reseñas</span>
+                        </div>
+
+                        <!-- ============ Barras de distribución por puntaje ============ -->
+                        <!-- Cada fila muestra: cantidad de reseñas | barra visual | estrella -->
+                        <div class="resumen-distribucion">
+
+                            <!-- Fila para 5 estrellas -->
+                            <div class="dist-fila">
+                                <span class="dist-cantidad">5</span>
+                                <!-- La barra: su ancho se calcula como porcentaje
+                                     (ej: si 1 de 2 reseñas es 5★, el ancho es 50%) -->
+                                <div class="dist-barra">
+                                    <div class="dist-barra-fill" style="width: 50%"></div>
+                                </div>
+                                <span class="material-symbols-outlined estrella-peq" aria-hidden="true">star</span>
                             </div>
-                        </article>
-                    </li>
-                </ul>
+
+                            <!-- Fila para 4 estrellas -->
+                            <div class="dist-fila">
+                                <span class="dist-cantidad">4</span>
+                                <div class="dist-barra">
+                                    <div class="dist-barra-fill" style="width: 50%"></div>
+                                </div>
+                                <span class="material-symbols-outlined estrella-peq" aria-hidden="true">star</span>
+                            </div>
+
+                            <!-- Fila para 3 estrellas -->
+                            <div class="dist-fila">
+                                <span class="dist-cantidad">3</span>
+                                <div class="dist-barra">
+                                    <div class="dist-barra-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="material-symbols-outlined estrella-peq" aria-hidden="true">star</span>
+                            </div>
+
+                            <!-- Fila para 2 estrellas -->
+                            <div class="dist-fila">
+                                <span class="dist-cantidad">2</span>
+                                <div class="dist-barra">
+                                    <div class="dist-barra-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="material-symbols-outlined estrella-peq" aria-hidden="true">star</span>
+                            </div>
+
+                            <!-- Fila para 1 estrella -->
+                            <div class="dist-fila">
+                                <span class="dist-cantidad">1</span>
+                                <div class="dist-barra">
+                                    <div class="dist-barra-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="material-symbols-outlined estrella-peq" aria-hidden="true">star</span>
+                            </div>
+
+                        </div>
+                    </aside>
+
+                    <!-- ============ COLUMNA DERECHA: Formulario + Listado ============ -->
+                    <div class="resenas-col-derecha">
+
+                        <!-- ============ Formulario para publicar reseña ============ -->
+                        <form action="#" method="post" aria-labelledby="titulo-dejar-reseña" class="resenas-form">
+                            <fieldset>
+                                <!-- Legend: título del formulario, visible en pantalla -->
+                                <legend id="titulo-dejar-reseña">Dejá tu reseña</legend>
+
+                                <!-- Selector de puntaje con estrellas clickeables.
+                                     Se usa un grupo de radios ocultos + labels con estrellas
+                                     para una experiencia visual más atractiva que un <select> -->
+                                <label class="form-label">Puntaje</label>
+                                <div class="estrellas-input" role="radiogroup" aria-label="Seleccioná un puntaje del 1 al 5">
+                                    <!-- Los inputs están ocultos con CSS.
+                                         El orden es inverso (5 a 1) para que el CSS sibling selector (~)
+                                         pueda iluminar las estrellas de izquierda a derecha -->
+                                    <input type="radio" id="estrella-5" name="puntaje" value="5" class="sr-only" checked>
+                                    <label for="estrella-5" aria-label="5 estrellas" class="estrella-label">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                    </label>
+
+                                    <input type="radio" id="estrella-4" name="puntaje" value="4" class="sr-only">
+                                    <label for="estrella-4" aria-label="4 estrellas" class="estrella-label">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                    </label>
+
+                                    <input type="radio" id="estrella-3" name="puntaje" value="3" class="sr-only">
+                                    <label for="estrella-3" aria-label="3 estrellas" class="estrella-label">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                    </label>
+
+                                    <input type="radio" id="estrella-2" name="puntaje" value="2" class="sr-only">
+                                    <label for="estrella-2" aria-label="2 estrellas" class="estrella-label">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                    </label>
+
+                                    <input type="radio" id="estrella-1" name="puntaje" value="1" class="sr-only">
+                                    <label for="estrella-1" aria-label="1 estrella" class="estrella-label">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                    </label>
+                                </div>
+
+                                <!-- Textarea para escribir el texto de la reseña -->
+                                <label for="reseña-cyberrun-texto" class="form-label">Tu reseña</label>
+                                <textarea id="reseña-cyberrun-texto" name="texto"
+                                    placeholder="Contanos qué te pareció…"></textarea>
+
+                                <!-- Botón de envío -->
+                                <button type="submit">Publicar reseña</button>
+                            </fieldset>
+                        </form>
+
+                        <!-- ============ Listado de reseñas existentes ============ -->
+                        <!-- Cada reseña es un <li> con un <article> dentro -->
+                        <ul class="resenas-lista">
+
+                            <!-- ---- Reseña 1: neko_gamer ---- -->
+                            <li>
+                                <article class="resena-card" aria-label="Reseña de neko_gamer">
+                                    <!-- Header de la card: avatar + nombre + estrellas -->
+                                    <header class="resena-header">
+                                        <!-- Icono de usuario como avatar genérico -->
+                                        <span class="material-symbols-outlined resena-avatar" aria-hidden="true">person</span>
+                                        <div class="resena-header-texto">
+                                            <!-- Nombre del usuario que reseñó -->
+                                            <h3>neko_gamer</h3>
+                                            <!-- Estrellas visuales del puntaje de esta reseña (5 de 5) -->
+                                            <div class="resena-estrellas" aria-label="Puntaje: 5 de 5">
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <!-- Separador visual entre header y contenido -->
+                                    <hr class="resena-separador">
+                                    <!-- Texto de la reseña -->
+                                    <p class="resena-texto">"Adictivo, los gráficos son una locura."</p>
+                                </article>
+                            </li>
+
+                            <!-- ---- Reseña 2: turbo_pixel ---- -->
+                            <li>
+                                <article class="resena-card" aria-label="Reseña de turbo_pixel">
+                                    <header class="resena-header">
+                                        <span class="material-symbols-outlined resena-avatar" aria-hidden="true">person</span>
+                                        <div class="resena-header-texto">
+                                            <h3>turbo_pixel</h3>
+                                            <!-- Estrellas visuales del puntaje (4 de 5) -->
+                                            <div class="resena-estrellas" aria-label="Puntaje: 4 de 5">
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-llena" aria-hidden="true">star</span>
+                                                <span class="material-symbols-outlined estrella-vacia" aria-hidden="true">star_border</span>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <hr class="resena-separador">
+                                    <p class="resena-texto">"Las carreras nocturnas son lo mejor."</p>
+                                </article>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Fin columna derecha -->
+
+                </div>
+                <!-- Fin resenas-grid -->
+
             </section>
 
         </article>
