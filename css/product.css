@@ -429,7 +429,6 @@
    y aparece un glow neón externo sutil */
 .resena-card:hover {
     border-color: var(--color-acento);
-    box-shadow: 0 0 14px rgba(23, 207, 17, 0.18);
 }
 
 /* --- Header de la card: avatar + nombre + estrellas --- */
@@ -491,7 +490,6 @@
     font-size: 13px;
     color: var(--color-texto);
     line-height: 1.5;
-    /* La cursiva le da un toque de "cita" */
     font-style: italic;
 }
 
