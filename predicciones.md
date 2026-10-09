@@ -308,4 +308,9 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 - se va a añadir un placeholder en el input de la contraseña.
 - se va a corregir el footer para que siempre este ubicado al final de la pantalla.
 -------------------------------------------------------------------------------------
-
+12. (prediccion)
+- se van a recrear los estilos del input de la barra de busqueda de la navbar.
+- se va a modificar el estilo del logo de la nevbar.
+- se van a modificar los estilos de la seccion de filtros de catalogo de juegos.
+- se va a anadir un archivo Java Script para realizar la carga de los productos disponibles desde el mismo.
+- se van a añadir placeholders de productos para obtener una mejor representacion visual.
