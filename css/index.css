@@ -13,11 +13,17 @@
 }
 
 .carousel-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 16px;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* ============================================
-   CATÁLOGO Y FILTROS
+   CATÁLOGO
    ============================================ */
 .catalogo-section {
     padding: 32px 24px;
@@ -33,33 +39,6 @@
     gap: 24px;
     align-items: start;
 }
-
-/* --- Sidebar / Filtros --- */
-.sidebar {
-    position: sticky;
-    top: 80px;
-}
-
-.filtros label {
-    display: block;
-    font-size: 11px;
-    color: var(--color-acento-aux);
-    margin-bottom: 4px;
-}
-
-.filtros input,
-.filtros select {
-    width: 100%;
-    background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
-    color: var(--color-texto);
-    padding: 8px;
-    font-family: var(--fuente-secundaria);
-    font-size: 11px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-}
-
 /* --- Catálogo grid interno --- */
 .catalogo-contenido h3 {
     margin-bottom: 16px;
@@ -72,16 +51,19 @@
     gap: 12px;
 }
 
-@media (min-width: 1300px) {
+/* Maximo 5 cards por fila en pantallas anchas */
+@media (min-width: 1200px) {
     .catalogo-lista {
         grid-template-columns: repeat(5, 1fr);
     }
 }
 
+
+
 /* --- Tarjeta de juego --- */
 .fila-juego {
     background-color: var(--color-fondo);
-    border: 1px solid var(--color-borde);
+    
 }
 
 .fila-juego a {
@@ -124,6 +106,184 @@
     margin-bottom: 8px;
 }
 
+
+/* ============================================
+   FILTROS
+   ============================================ */
+/* --- Sidebar / Filtros --- */
+.sidebar {
+    position: sticky;
+    top: 80px;
+}
+/*Cuadrado de filtros*/
+.filtros {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: hidden;
+    border: 2px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 18px 16px;
+
+}
+
+/* Franja neon superior del panel */
+.filtros::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-acento), transparent);
+}
+
+.filtros-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-titulos);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase; /*Para qeu se ponga en mayusculas*/
+    color: var(--color-texto);
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--color-borde);/*Linea punteada que separa titulo de la seccion de inputs*/
+}
+
+.filtros-titulo .material-symbols-outlined { /*icono ajustes titulo*/
+    font-size: 18px;
+    color: var(--color-acento);
+}
+
+.campo {/*Div que envuelve a los inputs de filtros*/
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filtros label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-acento-aux);
+    margin-bottom: 0;
+}
+
+/* Cuadrito neón antes de cada etiqueta */
+.filtros label::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-acento);
+    box-shadow: 0 0 6px rgba(23, 207, 17, 0.8);
+}
+
+.campo-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icono-campo {/*iconos dentro de los inputs*/
+    position: absolute;
+    left: 10px;
+    font-size: 16px;
+    color: var(--color-acento-aux);
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.icono-chevron {/*icono de flecha para select*/
+    position: absolute;
+    right: 8px;
+    font-size: 18px;
+    color: var(--color-acento);
+    pointer-events: none;
+}
+
+.filtros input,
+.filtros select {/*Config dentro de los Inputs*/
+    width: 100%;
+    background-color: #060606;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    color: var(--color-texto);
+    padding: 10px 10px 10px 34px;
+    font-family: var(--fuente-secundaria);
+    font-size: 10px;
+    -webkit-appearance: none;/*Saca el estilo por defecto del input*/
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtros input {
+    cursor: text;
+}
+
+.filtros select {
+    padding-right: 32px;
+    cursor: pointer;
+}
+
+.filtros select option {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.filtros input::placeholder {
+    color: #6b6b6b;
+}
+
+.filtros input:hover,
+.filtros select:hover {
+    border-color: #3d3d3d;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+.campo-control:focus-within .icono-campo {
+    color: var(--color-acento);
+}
+/* Botón limpiar filtros (reset nativo del formulario) */
+.btn-limpiar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background-color: transparent;
+    color: var(--color-acento);
+    border: 1px dashed var(--color-acento);/*linea entrecortada del botón*/
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 14px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;/*cambi color fondo smoot*/
+}
+
+.btn-limpiar .material-symbols-outlined {/*icono del boton limpiar*/
+    font-size: 16px;
+}
+
+.btn-limpiar:hover {/*cambiar color fondo*/
+    opacity: 1;
+    background-color: rgba(23, 207, 17, 0.12);
+    box-shadow: 0 0 14px rgba(23, 207, 17, 0.25);
+}
+
+.btn-limpiar:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(23, 207, 17, 0.4);
+}
+
+
 /* ============================================
    RESPONSIVE — MOBILE
    ============================================ */
@@ -134,5 +294,24 @@
 
     .sidebar {
         position: static;
+    }
+
+    /* Entre 601px y 768px los dos controles van lado a lado */
+    .filtros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+    }
+
+    .filtros-titulo,
+    .btn-limpiar {
+        grid-column: 1 / -1;
+    }
+}
+
+/* En pantallas chicas los campos van uno abajo del otro */
+@media (max-width: 600px) {
+    .filtros {
+        grid-template-columns: 1fr;
     }
 }
