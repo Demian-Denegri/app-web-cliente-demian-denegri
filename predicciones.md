@@ -298,3 +298,8 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 - se van a modificar los estilos de la seccion de filtros de catalogo de juegos.
 - se va a anadir un archivo Java Script para realizar la carga de los productos disponibles desde el mismo.
 - se van a añadir placeholders de productos para obtener una mejor representacion visual.
+-------------------------------------------------------------------------------------
+13. (prediccion)
+- se va a añadir la funcion de busquerda por medio del titulo de los productos.
+- se va a añadir mensaje de error en caso de no encontrar coincidencias.
+- se van a estilos al mensaje de error.
