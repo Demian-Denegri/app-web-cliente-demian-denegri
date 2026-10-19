@@ -243,6 +243,21 @@ button {
 }
 
 /* ============================================
+   MENSAJE SIN PRODUCTOS (reutilizable)
+   Se muestra cuando un filtro/búsqueda no
+   devuelve resultados
+   ============================================ */
+.mensaje-no-productos {
+    width: 100%;/* ocupa todo el ancho del contenedor */
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--color-acento-aux);
+    font-size: 13px;
+    border: 1px dashed var(--color-borde);
+    border-radius: 8px;
+}
+
+/* ============================================
    CARRUSEL (reutilizable: index.html y product.html)
    ============================================ */
 .carousel {
