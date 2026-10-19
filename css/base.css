@@ -248,9 +248,14 @@ button {
    devuelve resultados
    ============================================ */
 .mensaje-no-productos {
+    grid-column: 1 / -1;/* ocupa todas las columnas del grid del catálogo */
     width: 100%;/* ocupa todo el ancho del contenedor */
     padding: 48px 24px;
     text-align: center;
+    text-align: center;/* centra el texto horizontalmente */
+    display: flex;
+    align-items: center;/* centra el texto verticalmente */
+    justify-content: center;
     color: var(--color-acento-aux);
     font-size: 13px;
     border: 1px dashed var(--color-borde);
