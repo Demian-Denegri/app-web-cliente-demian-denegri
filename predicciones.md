@@ -303,3 +303,9 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 - se va a añadir la funcion de busquerda por medio del titulo de los productos.
 - se va a añadir mensaje de error en caso de no encontrar coincidencias.
 - se van a estilos al mensaje de error.
+-------------------------------------------------------------------------------------
+14. (prediccion)
+- se va a crear la base de datos del proyecto en supabase.
+- se va a añadir la obtencion de productos desde supabase.
+- se va a añadir la redirreccion correcta a la pagina de detalle del producto seleccionado.
+-------------------------------------------------------------------------------------
