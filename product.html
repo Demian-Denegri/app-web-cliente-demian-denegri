@@ -7,7 +7,6 @@
     <meta name="description"
         content="Detalle del juego Cyber Run en NullPod. Comprá el juego, consultá especificaciones, género y reseñas de la comunidad.">
     <meta name="author" content="Demian Denegri">
-    <title>Cyber Run — Detalle del juego | NullPod</title>
         <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/product.css">
+    <script src="product.js"></script>
 </head>
 
 <body>
@@ -84,7 +84,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="detalle">
 
         <!-- ============ DETALLE PRINCIPAL DEL JUEGO ============ -->
         <article id="cyber-run" aria-labelledby="titulo-juego" class="detalle-juego">
@@ -93,8 +93,7 @@
             <header class="detalle-header">
 
                 <figure class="portada">
-                    <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc"
-                        alt="Portada de Cyber Run: vehículos futuristas en ciudad cyberpunk nocturna">
+                    <img id ="imagen-portada">
 
                     <!-- 2. BOTONES DE ACCIÓN -->
                     <div class="botones">
@@ -104,23 +103,17 @@
                 </figure>
 
                 <div class="detalle-info">
-                    <h1 id="titulo-juego">Cyber Run</h1>
-                    <p class="precio"><strong>$12.999</strong> <s>$18.999</s> <span>— 32% de descuento</span></p>
+                    <h1 id="titulo-juego"></h1>
+                    <p class="precio" id="precio-actual"><strong></strong> <s id="precio-anterior"></s> <span></span></p>
 
                     <section aria-labelledby="titulo-descripcion" class="descripcion">
-                        <h2 id="titulo-descripcion">Descripción</h2>
-                        <p>Carreras futuristas en una metrópolis cyberpunk. Personalizá tu vehículo, esquivá el tráfico y
-                            competí contra jugadores de todo el mundo en circuitos nocturnos iluminados con neón.</p>
-                        <p>Desbloqueá piezas, mejorá tu motor y dominá las calles de la ciudad que nunca duerme.</p>
+                        <h2>Descripción</h2>
+                        <p id="descripcion"></p>
                     </section>
 
                     <section aria-labelledby="titulo-genero" class="etiquetas">
                         <h2 id="titulo-genero">Etiquetas</h2>
-                        <ul aria-label="Géneros y etiquetas">
-                            <li>Acción</li>
-                            <li>Carreras</li>
-                            <li>Multijugador</li>
-                        </ul>
+                    <ul id="lista-generos" aria-label="Géneros y etiquetas"></ul>
                     </section>
                 </div>
             </header>
@@ -133,22 +126,22 @@
                     <section aria-labelledby="titulo-minimos">
                         <h3 id="titulo-minimos">Requisitos mínimos</h3>
                         <ul class="texto-requisitos">
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i5-8400</li>
-                            <li>Memoria: 8 GB de RAM</li>
-                            <li>Gráficos: GTX 1060 6GB</li>
-                            <li>Almacenamiento: 40 GB</li>
+                            <li id="so-min"></li>
+                            <li id="procesador-min"></li>
+                            <li id="memoria-ram-min"></li>
+                            <li id="graficos-min"></li>
+                            <li id="almacenamiento-min"></li>
                         </ul>
                     </section>
 
                     <section aria-labelledby="titulo-recomendados">
                         <h3 id="titulo-recomendados">Recomendados</h3>
                         <ul class="texto-requisitos">
-                            <li>SO: Windows 10 de 64 bits</li>
-                            <li>Procesador: Intel i7-9700</li>
-                            <li>Memoria: 16 GB de RAM</li>
-                            <li>Gráficos: RTX 2070</li>
-                            <li>Almacenamiento: 40 GB en SSD</li>
+                            <li id="so-rec"></li>
+                            <li id="procesador-rec"></li>
+                            <li id="memoria-ram-rec"></li>
+                            <li id="graficos-rec"></li>
+                            <li id="almacenamiento-rec"></li>
                         </ul>
                     </section>
                 </div>
