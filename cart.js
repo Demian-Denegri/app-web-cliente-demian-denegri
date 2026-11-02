@@ -120,6 +120,5 @@ function eliminarProductoDelCarrito(id) {
   let id_productos = JSON.parse(localStorage.getItem("id_productos")) || [];
   id_productos = id_productos.filter((productoId) => Number(productoId) !== id); // elimino el producto del array,transafortmo el id a number porque el id del producto es number y el id del array es string
   localStorage.setItem("id_productos", JSON.stringify(id_productos));
-  window.reload(); // recargo la pagina para que se actualice el carrito
+  location.reload(); // recargo la pagina para que se actualice el carrito
 }
-  
