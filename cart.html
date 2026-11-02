@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/cart.css">
+    <script src="/cart.js" defer></script>
 </head>
 
 <body>
@@ -141,7 +141,7 @@
                <!-- Card: Gift Card -->
             <article class="pago-card">
                 <label for="pago-gift-card">
-                    <img class="pago-icono" src="img/icono-transferencia.png" alt="">
+                    <img class="pago-icono" src="https://tse1.mm.bing.net/th/id/OIP.S78uBI6i4lQpyOEQ359NhwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
                     Gift Card
                 </label>
                 <input type="radio" id="pago-gift-card" name="medio-pago" value="giftcard">
@@ -186,34 +186,17 @@
             <section aria-labelledby="titulo-resumen" class="resumen">
                 <h2 id="titulo-resumen">Resumen del pedido</h2>
 
-                <div class="resumen-juegos">
-                    <article class="juego-card">
-                        <img src="https://imgproxy.eneba.games/5Qy3D5WUFI4zk7rubIbuQI--Raklu07X3Bvab47vEYA/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/VXdNOXFyUUFMalQ5/U0EwVDl4cWxvZFhm/dDVJSU0yYUtpR0Q3/VHFNemhZLmpwZWc" alt="Portada de Cyber Run">
-                        <div class="juego-info">
-                            <h3>Cyber Run</h3>
-                            <p class="precio"><strong>$12.999</strong> <s>$18.999</s></p>
-                        </div>
-                        <span class="material-symbols-outlined btn-delete" aria-label="Eliminar juego">delete</span>
-                    </article>
-
-                    <article class="juego-card">
-                        <img src="https://imgproxy.eneba.games/O-fcee_zwF9-snXxHf3kn7mY6UiIHuVVoY8dJGQ4-8U/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9l/eGx4aXJlbHd6cG9x/ZnRqOHBoZi5qcGc" alt="Portada de Space Legion">
-                        <div class="juego-info">
-                            <h3>Space Legion</h3>
-                            <p class="precio"><strong>$9.999</strong> <s>$13.499</s></p>
-                        </div>
-                        <span class="material-symbols-outlined btn-delete" aria-label="Eliminar juego">delete</span>
-                    </article>
+                <div class="resumen-juegos" id="resumen-juegos">
                 </div>
 
                 <hr>
 
                 <div class="total">
                     <span>Total a pagar :</span>
-                    <strong>$22.998</strong>
+                    <strong id="total-pagar"></strong><!-- El total se va a renderizar desde cart.js -->
                 </div>
 
-                <button type="button">Comprar</button>
+                <button id="comprar" type="button" >Comprar</button>
             </section>
 
             <!-- Fuera del contenedor de resumen -->
