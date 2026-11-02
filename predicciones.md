@@ -325,3 +325,5 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 - se va a añadir la obtencion de productos desde supabase.
 - se va a añadir la redirreccion correcta a la pagina de detalle del producto seleccionado.
 -------------------------------------------------------------------------------------
+15. (prediccion)
+- se va a implementar funcionalidad al carrito de compras.
