@@ -100,3 +100,27 @@ function renderizarDetalleProducto(producto) {
   document.getElementById("almacenamiento-rec").textContent =
     `Almacenamiento: ${specs.almacenamiento_rec}`;
 }
+
+document.getElementById("agr_carrito").addEventListener("click", function() {
+  const id_productos = JSON.parse(localStorage.getItem("id_productos")) || [];//refresco el array de productosdel local storage
+  if (!id_productos.includes(id)) { // si el producto no está en el carrito, lo agrego
+  id_productos.push(id);         
+  console.log(id_productos)
+  localStorage.setItem("id_productos", JSON.stringify(id_productos)); // guardo el array en el localStorage
+  console.log("Producto agregado al carrito");
+  alert("Producto agregado al carrito");
+  }
+  else {
+    alert("El producto ya está en el carrito");
+  }
+})
+document.getElementById("comprar_ahora").addEventListener("click", function() {
+  const id_productos = JSON.parse(localStorage.getItem("id_productos")) || []; //refresco el array de productosdel local storage
+  if (!id_productos.includes(id)) { // si el producto no está en el carrito, lo agrego
+  id_productos.push(id);         
+  console.log(id_productos)
+  localStorage.setItem("id_productos", JSON.stringify(id_productos)); // guardo el array en el localStorage
+  console.log("Producto agregado al carrito");
+  }
+  window.location.href = "cart.html";// redirige a la página del carrito
+})
