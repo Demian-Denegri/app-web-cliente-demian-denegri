@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/register.css">
+    <script src="register.js" defer></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
         <section class="registro" aria-labelledby="titulo-registro">
             <h1 id="titulo-registro">Crear cuenta</h1>
 
-            <form class="registro-forma" action="#" method="post" aria-labelledby="titulo-registro">
+            <form id="reg-form" class="registro-forma" action="#" aria-labelledby="titulo-registro">
                 <fieldset>
                     <label for="reg-nombre">Nombre de usuario</label>
                     <input type="text" id="reg-nombre" name="usuario" required minlength="3"
@@ -51,7 +52,7 @@
                     <label for="reg-clave2">Confirmar contraseña</label>
                     <input type="password" id="reg-clave2" name="clave2" required placeholder="Repetí tu contraseña">
 
-                    <button type="submit">Crear cuenta</button>
+                    <button id="reg-boton" type="submit">Crear cuenta</button>
                 </fieldset>
             </form>
 

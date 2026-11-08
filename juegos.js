@@ -26,6 +26,13 @@ const traerProductoSupabase = () => {
 let productos = []; // acá se guardan los productos cuando llegan de Supabase
 // uso clase name en lugar de id porque id es único y no quiero que se repita, y si se repite, el html no es válido. En cambio, class name puede repetirse y es más flexible para css y js
 
+function obtenerPrecioFinal(producto) {
+  // si hay descuento se paga precio_descuento, si no, precio_actual
+  return producto.precio_descuento !== null
+    ? producto.precio_descuento
+    : producto.precio_actual;
+}
+
 function crearTarjeta(producto) {
   //funcion para crear la tarjeta de cada producto
   const articulo = document.createElement("article");
@@ -54,13 +61,8 @@ function crearTarjeta(producto) {
     .join(", "); // uno los géneros con coma y espacio, si no hay géneros, genero.textContent queda vacío
 
   // si hay descuento, se paga precio_descuento y precio_actual va tachado
-  const hayDescuento = producto.precio_descuento !== null; // si es null, no hay descuento
-  let precioFinal;
-  if (hayDescuento) {
-    precioFinal = producto.precio_descuento;
-  } else {
-    precioFinal = producto.precio_actual;
-  }
+  const hayDescuento = producto.precio_descuento !== null;
+  const precioFinal = obtenerPrecioFinal(producto);
 
   const precio = document.createElement("p");
   precio.className = "precio";
@@ -109,12 +111,34 @@ function renderizar(lista) {
   });
 }
 
+
+
+//filtros de la izquierda
+function ordenar(lista) {
+
+  const orden = document.getElementById("ordenar").value;
+  const copia = [...lista]; // copio para no modificar el array original
+ console.log("valor del select:", orden);
+  if (orden === "precio-asc") {
+    copia.sort((a, b) => obtenerPrecioFinal(a) - obtenerPrecioFinal(b));
+  } else if (orden === "precio-desc") {
+    copia.sort((a, b) => obtenerPrecioFinal(b) - obtenerPrecioFinal(a));
+  }
+  return copia;
+}
+
+function actualizarCatalogo() {
+  renderizar(ordenar(filtrarJuegos()));
+}
+
+
 // Cuando llegan los datos de Supabase, los guardo y dibujo el catálogo
 traerProductoSupabase().then((datos) => {
   productos = datos;
-  renderizar(productos);
+  actualizarCatalogo();
 });
 
+
 // Cuando se escribe en el input, se filtran los juegos
-document.getElementById("busqueda");
-document.addEventListener("input", () => renderizar(filtrarJuegos()));
+document.getElementById("busqueda").addEventListener("input", actualizarCatalogo);
+document.getElementById("ordenar").addEventListener("change", actualizarCatalogo);

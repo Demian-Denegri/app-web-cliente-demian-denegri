@@ -311,3 +311,9 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 -------------------------------------------------------------------------------------
 15. (prediccion)
 - se va a implementar funcionalidad al carrito de compras.
+-------------------------------------------------------------------------------------
+16. (prediccion)
+- se añadio funcionalidad al filtro por precio acendente y decendente.
+-------------------------------------------------------------------------------------
+17. (prediccion)
+- se va a añadir funcionalidad a la seccion de register.html
