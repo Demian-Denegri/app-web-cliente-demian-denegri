@@ -333,3 +333,6 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 -------------------------------------------------------------------------------------
 17. (prediccion)
 - se va a añadir funcionalidad a la seccion de register.html
+-------------------------------------------------------------------------------------
+18. (prediccion)
+- se va a reorganizar la estructura del proyecto.
