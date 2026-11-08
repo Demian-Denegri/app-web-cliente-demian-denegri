@@ -46,7 +46,7 @@ function registrar(userName, mail, password) {
     })
     .then((data) => {
       alert("Cuenta creada.");
-       window.location.href = "index.html"; // 
+       window.location.href = "../index.html"; // 
     })
     .catch((error) => {
       alert("No se pudo crear la cuenta.");

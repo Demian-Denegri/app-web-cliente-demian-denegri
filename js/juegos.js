@@ -40,7 +40,7 @@ function crearTarjeta(producto) {
   articulo.id = producto.producto_id;
 
   const enlace = document.createElement("a");
-  enlace.href = `product.html?id=${producto.producto_id}`; // página de detalle (a donde me va a llaver cuando se haga click en la tarjeta)
+  enlace.href = `html/product.html?id=${producto.producto_id}`; // página de detalle (a donde me va a llaver cuando se haga click en la tarjeta)
   enlace.ariaLabel = `Ver detalles de ${producto.titulo}`;
 
   const imagen = document.createElement("img");
