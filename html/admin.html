@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración de NullPod para gestionar los productos del catálogo.">
+    <meta name="author" content="Demian Denegri">
+    <title>NullPod — Administración de productos</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/admin.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ============ HEADER (reutiliza .navbar de base.css) ============ -->
+    <header class="navbar">
+        <nav aria-label="Navegación del panel">
+            <a href="../index.html" class="logo" aria-label="NullPod, ir a la tienda">
+                <img src="../img/pod-logo.png" alt="Logo de NullPod">
+            </a>
+
+            <p class="admin-nav-titulo">Panel de administración</p>
+
+            <ul class="navbar-icons">
+                <li>
+                    <a href="../index.html">
+                        <span class="material-symbols-outlined icon" aria-hidden="true">storefront</span>
+                        Ver tienda
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined icon" aria-hidden="true">logout</span>
+                        Salir
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <h1 class="admin-titulo">Productos</h1>
+
+        <!-- ============ LISTADO ============ -->
+        <section class="admin-bloque" aria-labelledby="titulo-listado">
+            <div class="admin-bloque-cabecera">
+                <h2 id="titulo-listado">Catálogo</h2>
+
+                <a class="btn-nuevo" href="#editor" id="btn-nuevo">
+                    <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                    Nuevo producto
+                </a>
+            </div>
+
+            <div class="tabla-scroll">
+                <table class="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Géneros</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalogo-lista">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ EDITOR ============ -->
+        <section class="admin-bloque" id="editor" aria-labelledby="titulo-editor">
+            <h2 id="titulo-editor">Editar producto</h2>
+            <p class="editor-ayuda">
+                Completá los datos obligatorios del formulario. Usá «Guardar cambios» para
+                actualizar el producto actual o «Crear producto» para dar de alta uno nuevo.
+            </p>
+
+            <form action="#" method="post" class="editor-form">
+                <div class="editor-col">
+
+                    <div class="campo">
+                        <label for="prod-titulo" required>Título</label>
+                        <input type="text" id="prod-titulo" name="titulo" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="prod-descripcion">Descripción</label>
+                        <textarea id="prod-descripcion" name="descripcion" rows="5" 
+                            required></textarea>
+                    </div>
+
+                    <div class="campo-fila">
+                        <div class="campo">
+                            <label for="prod-precio">Precio actual</label>
+                            <input type="number" id="prod-precio" name="precio_actual"  min="0"
+                                required>
+                        </div>
+                        <div class="campo">
+                            <label for="prod-descuento">Precio con descuento</label>
+                            <input type="number" id="prod-descuento" name="precio_descuento" 
+                                min="0">
+                        </div>
+                    </div>
+
+                    <div class="campo campo-generos">
+                        <label for="gen-input">Géneros</label>
+                        <div id="gen-chips" aria-live="polite" aria-label="Géneros seleccionados"></div>
+                        <input type="text" id="gen-input" list="gen-lista" placeholder="Escribí o elegí un género">
+                        <datalist id="gen-lista"></datalist>
+                        <p class="campo-ayuda">Elegí un género de la lista y presioná Enter para agregarlo.</p>
+                    </div>
+
+                    <div class="campo">
+                        <span class="campo-titulo">Especificaciones</span>
+                        <div class="specs">
+                            <fieldset>
+                                <legend>Mínimos</legend>
+                                <div class="campo">
+                                    <label for="spec-so-min">Sistema operativo</label>
+                                    <input type="text" id="spec-so-min" name="sistema_operativo_min"
+                                        >
+                                </div>
+                                <div class="campo">
+                                    <label for="spec-cpu-min">Procesador</label>
+                                    <input type="text" id="spec-cpu-min" name="procesador_min"
+                                       >
+                                </div>
+                                <div class="campo-fila">
+                                    <div class="campo">
+                                        <label for="spec-ram-min">RAM (GB)</label>
+                                        <input type="number" id="spec-ram-min" name="memoria_ram_gb_min"
+                                            min="0">
+                                    </div>
+                                    <div class="campo">
+                                        <label for="spec-disco-min">Disco (GB)</label>
+                                        <input type="number" id="spec-disco-min" name="almacenamiento_gb_min"
+                                             min="0">
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="spec-gpu-min">Gráficos</label>
+                                    <input type="text" id="spec-gpu-min" name="graficos_min"
+                                        >
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Recomendados</legend>
+                                <div class="campo">
+                                    <label for="spec-so-rec">Sistema operativo</label>
+                                    <input type="text" id="spec-so-rec" name="sistema_operativo_rec"
+                                       >
+                                </div>
+                                <div class="campo">
+                                    <label for="spec-cpu-rec">Procesador</label>
+                                    <input type="text" id="spec-cpu-rec" name="procesador_rec"
+                                        >
+                                </div>
+                                <div class="campo-fila">
+                                    <div class="campo">
+                                        <label for="spec-ram-rec">RAM (GB)</label>
+                                        <input type="number" id="spec-ram-rec" name="memoria_ram_gb_rec" 
+                                            min="0">
+                                    </div>
+                                    <div class="campo">
+                                        <label for="spec-disco-rec">Disco (GB)</label>
+                                        <input type="number" id="spec-disco-rec" name="almacenamiento_gb_rec"
+                                             min="0">
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="spec-gpu-rec">Gráficos</label>
+                                    <input type="text" id="spec-gpu-rec" name="graficos_rec">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="editor-col col-imagenes" aria-label="Portada del producto">
+                    <h3>Portada</h3>
+
+                    <img class="portada" id="prod-portadaEditor"
+                        src="https://placehold.co/600x400?text=Portada"
+                        alt="">
+
+                    <div class="campo">
+                        <label for="prod-imagen">URL de la imagen</label>
+                        <input type="url" id="prod-imagen" name="imagen_url"
+                            value="">
+                    </div>
+                </aside>
+
+                <div class="editor-footer">
+                    <div class="editor-footer-botones">
+                        <button type="reset" class="btn-suave" id="btnDescartar">Descartar</button>
+
+                        
+                        <button type="button" class="btn-crear" id="crearProducto">
+                            <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                            Crear producto
+                        </button>
+
+                        <span class="editor-footer-sep" aria-hidden="true"></span>
+
+                        
+                        <button type="button" id="guardarCambios">Guardar cambios</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER (estilos de base.css) ============ -->
+    <footer>
+        <p>&copy; 2026 NullPod. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="../index.html">Volver a la tienda</a>
+            <a href="#">Centro de ayuda</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
