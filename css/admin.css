@@ -1,0 +1,581 @@
+/* ============================================
+   ADMIN.CSS Reutiliza base.css.
+   ============================================ */
+
+:root {
+  --admin-campo: #0f0f0f;
+  --admin-borde-hover: #3d3d3d;
+  --admin-fila-hover: rgba(23, 207, 17, 0.04);
+  --admin-foco-sombra: rgba(23, 207, 17, 0.15);
+  --admin-peligro: #ff5c5c;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   CONTENEDOR
+   ============================================ */
+.admin-main {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+}
+
+.admin-nav-titulo {
+  font-family: var(--fuente-secundaria);
+  font-size: 9px;
+  color: var(--color-acento-aux);
+}
+
+.navbar-icons a {
+  font-size: 12px;
+}
+
+.admin-titulo {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.admin-bloque {
+  padding: 20px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+}
+
+.admin-bloque + .admin-bloque {
+  margin-top: 24px;
+}
+
+.admin-bloque h2 {
+  margin-bottom: 16px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- Cabecera del catálogo + botón "Nuevo producto" --- */
+.admin-bloque-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.admin-bloque-cabecera h2 {
+  margin-bottom: 0;
+}
+
+.btn-nuevo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: rgba(23, 207, 17, 0.08);
+  border: 1px solid rgba(23, 207, 17, 0.45);
+  border-radius: 6px;
+  font-family: var(--fuente-botones);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-acento);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-nuevo:hover {
+  background-color: rgba(23, 207, 17, 0.16);
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 3px var(--admin-foco-sombra);
+}
+
+.btn-nuevo .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* ============================================
+   TABLA DE PRODUCTOS
+   ============================================ */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-productos {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.tabla-productos th {
+  padding: 8px 10px;
+  text-align: left;
+  font-family: var(--fuente-titulos);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-acento-aux);
+  border-bottom: 1px solid var(--color-borde);
+  white-space: nowrap;
+}
+
+.tabla-productos td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-borde);
+  vertical-align: middle;
+}
+
+.tabla-productos tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-productos tbody tr:hover {
+  background-color: var(--admin-fila-hover);
+}
+
+.prod {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 170px;
+}
+
+.prod img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+}
+
+.prod span {
+  font-family: var(--fuente-titulos);
+  font-size: 12px;
+}
+
+.generos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 130px;
+}
+
+.generos span {
+  padding: 2px 8px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  font-family: var(--fuente-secundaria);
+  font-size: 8px;
+  color: var(--color-acento-aux);
+  white-space: nowrap;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.acciones a {
+  font-family: var(--fuente-botones);
+  font-size: 11px;
+  color: var(--color-acento-aux);
+}
+
+.acciones a:hover {
+  color: var(--color-acento);
+}
+
+.acciones .eliminar:hover {
+  color: red;
+}
+
+/* ============================================
+   EDITOR
+   ============================================ */
+.editor-ayuda {
+  margin: -6px 0 18px;
+  font-family: var(--fuente-secundaria);
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--color-acento-aux);
+}
+
+.editor-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 28px;
+  align-items: start;
+}
+
+.editor-col {
+  min-width: 0;
+}
+
+.col-imagenes {
+  padding-left: 28px;
+  border-left: 1px solid var(--color-borde);
+}
+
+.col-imagenes h3 {
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.portada {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+}
+
+/* --- Campos --- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.campo + .campo,
+.campo + .campo-fila,
+.campo-fila + .campo {
+  margin-top: 14px;
+}
+
+.campo label,
+.campo-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-acento-aux);
+}
+
+.editor-form input,
+.editor-form select,
+.editor-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--admin-campo);
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  color: var(--color-texto);
+  font-family: var(--fuente-secundaria);
+  font-size: 11px;
+}
+
+.editor-form input:hover,
+.editor-form select:hover,
+.editor-form textarea:hover {
+  border-color: var(--admin-borde-hover);
+}
+
+.editor-form input:focus,
+.editor-form select:focus,
+.editor-form textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 3px var(--admin-foco-sombra);
+}
+
+.editor-form textarea {
+  min-height: 120px;
+  line-height: 1.8;
+  resize: vertical;
+}
+
+.campo-fila {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.campo-fila .campo {
+  margin-top: 0;
+}
+
+/* --- Chips de géneros --- */
+.campo-generos {
+  gap: 8px;
+}
+
+#gen-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 6px;
+  background-color: var(--admin-campo);
+  border: 1px dashed var(--color-borde);
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+}
+
+#gen-chips:empty::before {
+  content: "Sin géneros seleccionados";
+  padding: 0 4px;
+  font-family: var(--fuente-secundaria);
+  font-size: 10px;
+  color: var(--color-acento-aux);
+  opacity: 0.7;
+}
+
+#gen-chips .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 4px 4px 10px;
+  background-color: rgba(23, 207, 17, 0.08);
+  border: 1px solid rgba(23, 207, 17, 0.45);
+  border-radius: 999px;
+  font-family: var(--fuente-secundaria);
+  font-size: 10px;
+  line-height: 1;
+  color: var(--color-texto);
+  cursor: default;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+#gen-chips .chip:hover {
+  background-color: rgba(23, 207, 17, 0.14);
+  border-color: var(--color-acento);
+}
+
+#gen-chips .chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-acento-aux);
+  font-family: var(--fuente-botones);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+#gen-chips .chip button:hover {
+  background-color: var(--admin-peligro);
+  color: #ffffff;
+}
+
+#gen-chips .chip button:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+}
+
+.campo-generos #gen-input::placeholder {
+  color: var(--color-acento-aux);
+  opacity: 0.6;
+}
+
+.campo-ayuda {
+  margin: 0;
+  font-family: var(--fuente-secundaria);
+  font-size: 9px;
+  line-height: 1.5;
+  color: var(--color-acento-aux);
+  opacity: 0.75;
+}
+
+/* --- Especificaciones --- */
+.specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.specs fieldset {
+  padding: 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+}
+
+.specs legend {
+  padding: 0 6px;
+  font-family: var(--fuente-titulos);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-acento);
+}
+
+/* --- Guardar --- */
+.editor-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.editor-footer-botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* Acción secundaria: contorno verde, sin relleno */
+.btn-crear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--color-acento);
+  box-shadow: inset 0 0 0 1px rgba(23, 207, 17, 0.5);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-crear:hover {
+  background-color: rgba(23, 207, 17, 0.12);
+  box-shadow: inset 0 0 0 1px var(--color-acento);
+  opacity: 1;
+}
+
+.btn-crear:active {
+  background-color: rgba(23, 207, 17, 0.2);
+}
+
+.btn-crear .material-symbols-outlined {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Separador entre acciones secundarias y la acción principal */
+.editor-footer-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-borde);
+}
+
+.editor-footer .btn-suave {
+  background-color: transparent;
+  border: 1px solid var(--color-borde);
+  color: var(--color-acento-aux);
+}
+
+.editor-footer .btn-suave:hover {
+  color: var(--color-texto);
+  border-color: red;
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 860px) {
+  .editor-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .col-imagenes {
+    padding-top: 24px;
+    padding-left: 0;
+    border-top: 1px solid var(--color-borde);
+    border-left: none;
+  }
+
+  .specs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portada {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 620px) {
+  .admin-nav-titulo {
+    display: none;
+  }
+
+  .navbar-icons {
+    gap: 14px;
+  }
+
+  .navbar-icons a {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .admin-main {
+    padding: 20px 16px 40px;
+  }
+
+  .admin-bloque {
+    padding: 16px;
+  }
+
+  .editor-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .editor-footer-botones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .editor-footer #btnDescartar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .editor-footer #crearProducto {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .editor-footer #guardarCambios {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .editor-footer-sep {
+    display: none;
+  }
+
+  .editor-footer button {
+    width: 100%;
+  }
+}

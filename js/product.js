@@ -82,11 +82,11 @@ function renderizarDetalleProducto(producto) {
   document.getElementById("procesador-min").textContent =
     `Procesador: ${specs.procesador_min}`;
   document.getElementById("memoria-ram-min").textContent =
-    `Memoria: ${specs.memoria_ram_min}`;
+    `Memoria: ${specs.memoria_ram_gb_min} GB`;
   document.getElementById("graficos-min").textContent =
     `Gráficos: ${specs.graficos_min}`;
   document.getElementById("almacenamiento-min").textContent =
-    `Almacenamiento: ${specs.almacenamiento_min}`;
+    `Almacenamiento: ${specs.almacenamiento_gb_min} GB`;
 
   //Requisitos recomendados
   document.getElementById("so-rec").textContent =
@@ -94,11 +94,11 @@ function renderizarDetalleProducto(producto) {
   document.getElementById("procesador-rec").textContent =
     `Procesador: ${specs.procesador_rec}`;
   document.getElementById("memoria-ram-rec").textContent =
-    `Memoria: ${specs.memoria_ram_rec}`;
+    `Memoria: ${specs.memoria_ram_gb_rec} GB`;
   document.getElementById("graficos-rec").textContent =
     `Gráficos: ${specs.graficos_rec}`;
   document.getElementById("almacenamiento-rec").textContent =
-    `Almacenamiento: ${specs.almacenamiento_rec}`;
+    `Almacenamiento: ${specs.almacenamiento_gb_rec} GB`;
 }
 
 document.getElementById("agr_carrito").addEventListener("click", function() {
