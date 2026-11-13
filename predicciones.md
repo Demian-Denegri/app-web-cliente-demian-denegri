@@ -340,3 +340,6 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 19. (prediccion)
 - se va crear la seccion de admin.html desde el cual se gestionaran todos los productos de la pagina(esta pagina permitira realizar el ABMC de los productos).
 - se va a corregior un error el cual causa que en la pagina de producto en la seccion de especificaciones tanto la ram como el almacenamiento aparazcan como undefined.
+-------------------------------------------------------------------------------------
+20. (prediccion)
+- se va a corregir el filtro por genero del index.html.

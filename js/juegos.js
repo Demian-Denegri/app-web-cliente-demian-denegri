@@ -33,6 +33,13 @@ function obtenerPrecioFinal(producto) {
     : producto.precio_actual;
 }
 
+function obtenerGeneros(producto) {
+  // producto_genero es un array de { genero: { nombre } }
+  return (producto.producto_genero || [])
+    .filter((pg) => pg.genero && pg.genero.nombre) // por si algún género viene vacío
+    .map((pg) => pg.genero.nombre);
+}
+
 function crearTarjeta(producto) {
   //funcion para crear la tarjeta de cada producto
   const articulo = document.createElement("article");
@@ -56,9 +63,7 @@ function crearTarjeta(producto) {
   // producto_genero es un array de { genero: { nombre } }
   const genero = document.createElement("p");
   genero.className = "genero";
-  genero.textContent = (producto.producto_genero || [])
-    .map((pg) => pg.genero.nombre) // extraigo el nombre de cada género (el nombre de los generos esta dentro de producto_genero, que es un array de objetos que tienen un objeto genero con la propiedad nombre)
-    .join(", "); // uno los géneros con coma y espacio, si no hay géneros, genero.textContent queda vacío
+  genero.textContent = obtenerGeneros(producto).join(", "); // uno los géneros con coma y espacio, si no hay géneros, genero.textContent queda vacío
 
   // si hay descuento, se paga precio_descuento y precio_actual va tachado
   const hayDescuento = producto.precio_descuento !== null;
@@ -78,12 +83,51 @@ function crearTarjeta(producto) {
 }
 
 function filtrarJuegos() {
-  //funcion para filtrar los juegos por nombre
+  // filtra por título (buscador del navbar) y por el género elegido en el select
   const busqueda = document.getElementById("busqueda").value;
-  const listaFiltrada = productos.filter((producto) =>
-    producto.titulo.toLowerCase().includes(busqueda.toLowerCase()),
-  );
+  const generoInput = document.getElementById("filtrar-genero");
+  const generoSeleccionado = generoInput ? generoInput.value : "";
+
+  const listaFiltrada = productos.filter((producto) => {
+    const coincideBusqueda = producto.titulo
+      .toLowerCase()
+      .includes(busqueda.toLowerCase());
+
+    const coincideGenero =
+      generoSeleccionado === "" ||
+      obtenerGeneros(producto).includes(generoSeleccionado);
+
+    return coincideBusqueda && coincideGenero;
+  });
   return listaFiltrada;
+}
+
+function cargarFiltroGeneros() {
+  // llena el select de géneros con los nombres únicos que llegan de Supabase
+  const select = document.getElementById("filtrar-genero");
+  if (!select) return;
+
+  const generos = [...new Set(productos.flatMap(obtenerGeneros))].sort((a, b) =>
+    a.localeCompare(b, "es"),
+  );
+
+  const valorActual = select.value;
+  select.replaceChildren();
+
+  const opcionTodos = document.createElement("option");
+  opcionTodos.value = "";
+  opcionTodos.textContent = "Todos los géneros";
+  select.appendChild(opcionTodos);
+
+  generos.forEach((nombre) => {
+    const opcion = document.createElement("option");
+    opcion.value = nombre;
+    opcion.textContent = nombre;
+    select.appendChild(opcion);
+  });
+
+  // mantengo la selección previa si ese género sigue existiendo
+  select.value = generos.includes(valorActual) ? valorActual : "";
 }
 
 function sinProductos() {
@@ -111,14 +155,16 @@ function renderizar(lista) {
   });
 }
 
-
-
+/* 
+==========================================
+ -------------ORDENAMIENTO----------------
+========================================== 
+*/
 //filtros de la izquierda
 function ordenar(lista) {
-
   const orden = document.getElementById("ordenar").value;
   const copia = [...lista]; // copio para no modificar el array original
- console.log("valor del select:", orden);
+  console.log("valor del select:", orden);
   if (orden === "precio-asc") {
     copia.sort((a, b) => obtenerPrecioFinal(a) - obtenerPrecioFinal(b));
   } else if (orden === "precio-desc") {
@@ -131,14 +177,33 @@ function actualizarCatalogo() {
   renderizar(ordenar(filtrarJuegos()));
 }
 
-
 // Cuando llegan los datos de Supabase, los guardo y dibujo el catálogo
 traerProductoSupabase().then((datos) => {
   productos = datos;
+  cargarFiltroGeneros();
   actualizarCatalogo();
 });
 
+// Select de géneros: filtra el catálogo por el nombre de la etiqueta de género
+document
+  .getElementById("filtrar-genero")
+  .addEventListener("change", actualizarCatalogo);
 
-// Cuando se escribe en el input, se filtran los juegos
-document.getElementById("busqueda").addEventListener("input", actualizarCatalogo);
-document.getElementById("ordenar").addEventListener("change", actualizarCatalogo);
+document
+  .getElementById("ordenar")
+  .addEventListener("change", actualizarCatalogo);
+
+// La barra de búsqueda del navbar filtra el catálogo por título
+document
+  .getElementById("busqueda")
+  .addEventListener("input", actualizarCatalogo);
+
+// El filtrado es en vivo, así que evito que Enter recargue la página
+document.querySelector(".filtros").addEventListener("submit", (evento) => {
+  evento.preventDefault();
+});
+
+// El botón "Limpiar filtros" hace un reset nativo: espero a que se aplique y redibujo
+document.querySelector(".filtros").addEventListener("reset", () => {
+  setTimeout(actualizarCatalogo, 0);
+});
