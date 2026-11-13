@@ -147,16 +147,21 @@
                             Filtrar catálogo
                         </p>
 
+                       
+
                         <div class="campo">
-                            <label for="buscar-catalogo">Buscar en el catálogo</label>
+                            <label for="filtrar-genero">Filtrar por género</label>
                             <div class="campo-control">
-                                <span class="material-symbols-outlined icono-campo" aria-hidden="true">search</span>
-                                <input type="search" id="buscar-catalogo" name="q" placeholder="Título o género…" autocomplete="off">
+                                <span class="material-symbols-outlined icono-campo" aria-hidden="true">category</span>
+                                <select id="filtrar-genero" name="genero">
+                                    <option value="">Todos los géneros</option>
+                                </select>
+                                <span class="material-symbols-outlined icono-chevron" aria-hidden="true">expand_more</span>
                             </div>
                         </div>
 
                         <div class="campo">
-                            <label for="ordenar">Ordenar y filtrar por</label>
+                            <label for="ordenar">Ordenar por</label>
                             <div class="campo-control">
                                 <span class="material-symbols-outlined icono-campo" aria-hidden="true">sort</span>
                                 <select id="ordenar" name="orden">
