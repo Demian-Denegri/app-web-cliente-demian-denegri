@@ -327,3 +327,6 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 -------------------------------------------------------------------------------------
 20. (prediccion)
 - se va a corregir el filtro por genero del index.html.
+-------------------------------------------------------------------------------------
+21. (prediccion)
+- Se incorporará una funcionalidad de previsualización de la imagen de portada de los juegos antes de completar su alta en el panel de administración.
