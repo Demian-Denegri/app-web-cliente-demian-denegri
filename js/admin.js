@@ -586,6 +586,9 @@ document.getElementById("btn-nuevo").addEventListener("click", () => {
   document.getElementById("btnDescartar").click();
 });
 
+document.getElementById("prod-imagen").addEventListener("input", (evento) => {
+  document.getElementById("prod-portadaEditor").src = evento.target.value;
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   productos = await traerProductoSupabase();
