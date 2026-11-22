@@ -36,18 +36,20 @@
 
 /* Cada medio de pago es una card con border, apiladas con gap */
 .pago-card {
-    border: 2px solid var(--color-acento);
-    border-radius: 4px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 16px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 
     &:hover {
-        border-color: #5aff4d;
-        box-shadow: 0 0 8px #5aff4d;
-        transition: filter 0.3s ease;
-    };
+        background-color: var(--bg-elevated);
+        border-color: var(--accent-hover);
+        box-shadow: 0 0 8px rgba(24, 214, 18, 0.35);
+    }
 }
 
 /*
@@ -60,8 +62,8 @@
    pasa automáticamente a la card correspondiente.s
 */
 .pago-card:has(input[type="radio"]:checked) {
-    border-color: #5aff4d;
-    box-shadow: 0 0 8px #5aff4d;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 8px rgba(24, 214, 18, 0.35);
 }
 
 .pago-card label {
@@ -69,7 +71,7 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    font-family: var(--fuente-botones);
+    font-family: var(--font-ui);
     font-size: 17px;
     flex: 1;
 }
@@ -78,12 +80,12 @@
     width: 110px;
     height: 50px;
     object-fit: contain;
-    background-color: var(--color-texto);
-    border-radius: 4px;
+    background-color: var(--text-primary);
+    border-radius: var(--radius-md);
 }
 
 .pago-card input[type="radio"] {
-    accent-color: var(--color-acento);
+    accent-color: var(--accent-primary);
     cursor: pointer;
     margin-left: auto;
     height: 20px;
@@ -110,21 +112,31 @@
 }
 
 .pago-panel label {
-    font-family: var(--fuente-secundaria);
+    font-family: var(--font-ui);
     font-size: 11px;
-    color: var(--color-acento-aux);
+    color: var(--text-secondary);
     
 }
 
 .pago-panel input {
-    background-color: transparent;
-    border: 1px solid var(--color-acento-aux);
-    color: var(--color-texto);
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
     padding: 8px;
-    font-family: var(--fuente-secundaria);
+    font-family: var(--font-ui);
     font-size: 11px;
-    border-radius: 2px;
-    
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pago-panel input::placeholder {
+    color: var(--text-muted);
+}
+
+.pago-panel input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: var(--focus-ring);
 }
 
 /* ============================================
@@ -136,8 +148,9 @@
 }
 
 .resumen {
-    border: 3px solid var(--color-acento);
-    border-radius: 4px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -155,10 +168,17 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    border: 2px solid var(--color-acento);
-    border-radius: 4px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 8px;
     position: relative;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.juego-card:hover {
+    background-color: var(--bg-elevated);
+    border-color: var(--accent-primary);
 }
 
 .juego-card img {
@@ -166,17 +186,19 @@
     height: 15%;
     object-fit: cover;
     flex-shrink: 0;
+    border-radius: var(--radius-md);
 }
 
 .btn-delete {
     position: absolute;
     bottom: 8px;
     right: 8px;
-    color: red;
+    color: var(--status-danger);
     cursor: pointer;
     font-size: 22px;
+    transition: color var(--transition-fast);
     &:hover {
-        color: var(--color-letra);
+        color: var(--text-primary);
 
     }
 
@@ -191,22 +213,23 @@
 /* Separador entre las cards de juegos y el total (solo dentro del resumen) */
 .resumen hr {
     border: none;
-    border-top: 1px solid var(--color-acento-aux);
+    border-top: 1px solid var(--border-subtle);
 }
 
 .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--fuente-titulos);
+    font-family: var(--font-ui);
+    font-weight: 600;
     font-size: 20px;
 
 }
 
 .total strong {/* txt precio */
-    color: var(--color-acento);
+    color: var(--accent-primary);
     font-size: 20px;
-    font-family: var(--fuente-secundaria);
+    font-family: var(--font-ui);
 }
 
 .resumen button {
@@ -214,20 +237,30 @@
     align-self: center;
 }
 
+/* Estado deshabilitado: carrito vacío */
+.resumen button:disabled,
+.resumen button:disabled:hover {
+    background-color: var(--bg-elevated);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
 /* ============================================
    CÓDIGO DE DESCUENTO (fuera del .resumen)
    ============================================ */
 .descuento {
     margin-top: 16px;
-    border: 2px solid var(--color-acento);
-    border-radius: 4px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 14px 16px;
 }
 
 .descuento summary {
     cursor: pointer;
     list-style: none;
-    font-family: var(--fuente-botones);
+    font-family: var(--font-ui);
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -244,19 +277,85 @@
 }
 
 .descuento[open] summary {
-    color: var(--color-acento);
+    color: var(--accent-primary);
     margin-bottom: 12px;
 }
 
 .descuento input {
     width: 100%;
-    background-color: transparent;
-    border: 1px solid var(--color-acento);
-    color: var(--color-texto);
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
     padding: 8px;
-    font-family: var(--fuente-secundaria);
+    font-family: var(--font-ui);
     font-size: 11px;
-    border-radius: 2px;
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.descuento input::placeholder {
+    color: var(--text-muted);
+}
+
+.descuento input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: var(--focus-ring);
+}
+
+/* ============================================
+   MENSAJE FIJO "GRACIAS POR TU COMPRA"
+   Se ve todo el tiempo por ahora; la lógica de JS
+   se encargará después de mostrarlo/ocultarlo.
+   ============================================ */
+.compra-confirmacion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200; /* por encima de la navbar (z-index: 100) */
+    width: min(420px, calc(100% - 32px));
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0 24px rgba(24, 214, 18, 0.35);
+}
+
+/* Necesario para que el atributo `hidden` de JS gane sobre el display:flex */
+.compra-confirmacion[hidden] {
+    display: none;
+}
+
+.compra-confirmacion-icono {
+    font-size: 48px;
+    color: var(--accent-primary);
+}
+
+.compra-confirmacion h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text-primary);
+}
+
+.compra-confirmacion p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Modificador de error: hereda el layout de .compra-confirmacion y solo cambia el acento */
+.compra-error {
+    border-color: var(--status-danger);
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.35);
+}
+
+.compra-error .compra-confirmacion-icono {
+    color: var(--status-danger);
 }
 
 /* ============================================

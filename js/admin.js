@@ -361,13 +361,15 @@ function crearFila(producto) {
 
   const hayDescuento = producto.precio_descuento !== null;
   const strong = document.createElement("strong");
-  strong.textContent = `$${obtenerPrecioFinal(producto)}`;
+  const precioFinalFormateado = obtenerPrecioFinal(producto).toLocaleString('es-AR');
+  strong.textContent = `$${precioFinalFormateado}`;
   precio.appendChild(strong);
 
   if (hayDescuento) {
     precio.append(" "); // espacio entre ambos precios
     const tachado = document.createElement("s");
-    tachado.textContent = `$${producto.precio_actual}`;
+    const precioActualFormateado = producto.precio_actual.toLocaleString('es-AR');
+    tachado.textContent = `$${precioActualFormateado}`;
     precio.appendChild(tachado);
   }
   tdPrecio.appendChild(precio);
@@ -400,7 +402,7 @@ function crearFila(producto) {
 
     const portada = document.getElementById("prod-portadaEditor");
     if (!datos.imagen_url) {
-      portada.src = "https://placehold.co/600x400?text=Portada";
+      portada.src = "https://placehold.co/400x600?text=Portada";
     } else {
       portada.src = datos.imagen_url;
     }
@@ -550,7 +552,7 @@ document.getElementById("btnDescartar").addEventListener("click", () => {
   generosSeleccionados = [];
   renderizarChips(); // limpio los chips de géneros
   const portada = document.getElementById("prod-portadaEditor");
-  portada.src = "https://placehold.co/600x400?text=Portada"; //Elimino la imagen de portada
+  portada.src = "https://placehold.co/400x600?text=Portada"; //Elimino la imagen de portada
   portada.alt = "Sin portada";
   actualizarBotones(); // actualizo el estado del botón al descartar
 });
