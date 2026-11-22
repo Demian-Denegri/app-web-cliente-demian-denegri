@@ -346,3 +346,15 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 -------------------------------------------------------------------------------------
 21. (prediccion)
 - Se incorporará una funcionalidad de previsualización de la imagen de portada de los juegos antes de completar su alta en el panel de administración.
+-------------------------------------------------------------------------------------
+22. (prediccion)
+- Se va a refactorizar toda la estetica de la pagina.
+- Se va a Colocar un fondo animado.
+- Se va a correfir un erro que ocaciona que en index.html las imagenes de las cards de los productos no sean del mismo tamaño.
+- Se va a modificar el formateo de los precios.
+- Se reemplazara el span de descuento de product.html por un badge de descuento.
+- se va a modificar el boton de agregar al carrito de produc.html(se le va a añadir un icono de crrito y modificar su estilo)
+- Se va a añadir loading="lazy".
+- Se va a añadir mensaje de confirmacion de compra en la pagina de cart.
+- Se va a añadir un mensaje de error en el proceso de la compra.
+- Se va a modificar el boton de comprar de cart.css para que este se desabilite en caso de no tener productos en el carrito.
