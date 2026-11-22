@@ -69,11 +69,14 @@ function renderizarDetalleProducto(producto) {
           producto.precio_descuento) *
           100,
       ) * -1; // calculo el porcentaje de descuento y lo guardo en el objeto producto
+    const precioFinalFormateado = producto.precio_actual.toLocaleString('es-AR');
+    const precioAnteriorFormateado = producto.precio_descuento.toLocaleString('es-AR');
     document.getElementById("precio-actual").innerHTML =
-      `<strong>$${producto.precio_actual}</strong> <s id="precio-anterior">$${producto.precio_descuento}</s> <span>— ${producto.descuento}% de descuento</span>`;
+      `<strong>$${precioFinalFormateado}</strong> <s id="precio-anterior">$${precioAnteriorFormateado}</s> <span class="hero-badge hero-badge--oferta"> ${producto.descuento}% Off</span>`;
   } else {
+    const precioFinalFormateado = producto.precio_actual.toLocaleString('es-AR');
     document.getElementById("precio-actual").innerHTML =
-      `<strong>$${producto.precio_actual}</strong>`;
+      `<strong>$${precioFinalFormateado}</strong>`;
   }
 
   //Requisitos mínimos

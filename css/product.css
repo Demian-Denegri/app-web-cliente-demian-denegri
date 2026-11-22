@@ -23,6 +23,7 @@
     display: block;
     width: 100%;
     object-fit: cover;
+    border-radius: var(--radius-md);
 }
 
 .detalle-info {
@@ -39,6 +40,31 @@
     margin-bottom: 4px;
 }
 
+/* Badge de oferta (mismos estilos que el hero de index.css),
+   adaptado para que quede en línea dentro del precio */
+.detalle-info .hero-badge {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 6px;
+    margin-left: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.detalle-info .hero-badge--oferta {
+    border: 1px solid var(--status-discount-bg);
+    background-color: var(--bg-elevated);
+    color: var(--status-discount-bg);
+    font-family: var(--font-retro);
+    font-size: 10px;
+    transform: rotate(4deg);
+}
+
 /* Descripción y etiquetas */
 .descripcion,
 .etiquetas {
@@ -52,8 +78,8 @@
 }
 
 .descripcion p { /*parrafo descripcion*/
-    color: var(--color-acento-aux);
-    font-size: 13px;
+    color: var(--text-secondary);
+    font-size: 14px;
     margin-bottom: 8px;
     max-width: 60ch;
 }
@@ -66,15 +92,19 @@
 }
 
 .etiquetas li {/*etiquetas individuales*/
-    color: var(--color-acento);
-    font-size: 13px;
-    padding: 4px 8px;
-    border: 1px solid var(--color-acento);
-    border-radius: 4px;
+    color: var(--accent-primary);
+    background-color: var(--accent-subtle);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 .etiquetas li:hover {/*animcacion etiquetas*/
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
     cursor: pointer;
 }
 
@@ -85,6 +115,85 @@
     display: flex;
     gap: 7px;
     margin-top: 12px;
+}
+
+/* --- Secundario: Agregar al carrito --- */
+#agr_carrito {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+#agr_carrito:hover {
+    background-color: var(--accent-subtle);
+}
+
+#agr_carrito:active {
+    transform: scale(0.97);
+}
+
+#agr_carrito .material-symbols-outlined {
+    font-size: 18px;
+    transition: transform 180ms ease;
+}
+
+#agr_carrito:hover .material-symbols-outlined {
+    transform: translateX(3px) scale(1.1);
+}
+
+/* --- Primario: Comprar ahora --- */
+#comprar_ahora {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
+    font-weight: 600;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Brillo que recorre el botón principal de vez en cuando */
+#comprar_ahora::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    animation: cta-brillo 3.5s ease-in-out infinite;
+}
+
+#comprar_ahora:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+#comprar_ahora:active {
+    transform: translateY(0) scale(0.97);
+}
+
+@keyframes cta-brillo {
+    0%, 65% { left: -75%; }
+    100% { left: 125%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #agr_carrito,
+    #agr_carrito .material-symbols-outlined,
+    #comprar_ahora {
+        transition: none;
+    }
+
+    #comprar_ahora::after {
+        animation: none;
+    }
 }
 
 /* ============================================
@@ -116,14 +225,15 @@
 /* Recuadro: acento auxiliar de fondo, texto en color de fondo */
 /*cuadarado que contien los requisitos minimos y recomendados*/
 .texto-requisitos {
-    color: var(--color-texto);
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
     list-style: none;
     padding: 16px 24px;
     text-align: left;
     width: 100%;
     flex: 1;/* crece para completar la altura y quedar igual a la otra caja */
-    border-radius: 4px;
-    border: 1px solid var(--color-acento);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
     margin-top: 24px;
     overflow-wrap: break-word;/* corta palabras largas para que no se salgan del cuadro */
 }
@@ -131,7 +241,7 @@
 .texto-requisitos li {/*txt dentro del cuadrado de requisitos*/
     padding: 4px 0;
     font-size: 17px;
-    font-family: var(--fuente-titulos);
+    font-family: var(--font-ui);
 }
 
 /* ============================================
@@ -153,17 +263,17 @@
     width: 60px;
     height: 2px;
     /* Barra verde neón centrada debajo del título */
-    background: var(--color-acento);
+    background: var(--accent-primary);
     margin: 8px auto 0;
     /* Sutil brillo alrededor de la barra */
-    box-shadow: 0 0 6px var(--color-acento);
+    box-shadow: 0 0 6px var(--accent-primary);
 }
 
 /* Subtítulo debajo del título: texto más chico y color auxiliar */
 .resenas-sub {
     text-align: center;
     margin-bottom: 32px;
-    color: var(--color-acento-aux);
+    color: var(--text-secondary);
     font-size: 12px;
 }
 
@@ -188,8 +298,9 @@
    ============================================ */
 .resenas-resumen {
     /* Borde neón verde sutil alrededor del resumen */
-    border: 1px solid var(--color-acento);
-    border-radius: 6px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 24px 20px;
 }
 
@@ -204,10 +315,10 @@
 
 /* Número grande del promedio (ej: 4.5) */
 .resumen-promedio {
-    font-family: var(--fuente-titulos);
+    font-family: var(--font-ui);
     font-size: 48px;
     font-weight: 700;
-    color: var(--color-acento);
+    color: var(--accent-primary);
     line-height: 1;
 }
 
@@ -221,15 +332,15 @@
 /* Estrellas llenas y media estrella: color verde neón */
 .estrella-llena,
 .estrella-mitad {
-    color: var(--color-acento);
+    color: var(--accent-primary);
     font-size: 22px;
     font-variation-settings: 'FILL' 1; /*para qeu las estrellas se llenen*/
 }
 
 /* Texto de cantidad de reseñas: color auxiliar, tamaño chica */
 .resumen-cantidad {
-    color: var(--color-acento-aux);
-    font-size: 11px;
+    color: var(--text-muted);
+    font-size: 12px;
 }
 
 /* --- Bloque de distribucion por puntaje (barras) --- */
@@ -248,8 +359,8 @@
 
 /* Número de reseñas para cada puntaje (1, 2, 3, etc.) */
 .dist-cantidad {
-    font-size: 11px;
-    color: var(--color-acento-aux);
+    font-size: 12px;
+    color: var(--text-muted);
     /* Ancho fijo para que los números queden alineados */
     width: 14px;
     text-align: right;
@@ -259,6 +370,8 @@
 .dist-barra {
     flex: 1; /* ocupa todo el espacio disponible */
     height: 6px;
+    background-color: var(--border-subtle);
+    border-radius: var(--radius-sm);
     overflow: hidden; /* recorta lo que se salga de la barra */
 }
 
@@ -266,13 +379,13 @@
    Su ancho se define con style="width: X%" en el HTML */
 .dist-barra-fill {
     height: 100%;
-    background-color: var(--color-acento);
-    border-radius: 3px;
+    background-color: var(--accent-primary);
+    border-radius: var(--radius-sm);
 }
 
 /* Estrella pequeña al final de cada fila de distribución */
 .estrella-peq {
-    color: var(--color-acento);
+    color: var(--accent-primary);
     font-size: 14px;
 }
 
@@ -291,8 +404,9 @@
    ============================================ */
 .resenas-form fieldset {
     /* Sin borde por defecto de fieldset */
-    border: 1px solid var(--color-acento);
-    border-radius: 6px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -301,10 +415,10 @@
 
 /* Legend: el título "Dejá tu reseña" que aparece sobre el borde */
 .resenas-form legend {
-    font-family: var(--fuente-titulos);
+    font-family: var(--font-ui);
     font-size: 16px;
-    font-weight: 700;
-    color: var(--color-acento);
+    font-weight: 600;
+    color: var(--text-primary);
     padding: 0 8px;
     /* Separación entre el legend y el contenido del fieldset */
     margin-bottom: 4px;
@@ -312,8 +426,8 @@
 
 /* Labels del formulario: tamaño y color */
 .form-label {
-    font-size: 12px;
-    color: var(--color-acento-aux);
+    font-size: 13px;
+    color: var(--text-secondary);
     margin-bottom: 2px;
 }
 
@@ -321,22 +435,26 @@
 .resenas-form textarea {
     width: 100%;
     min-height: 80px;
-    background-color: var(--color-fondo);
-    border: 1px solid var(--color-acento-aux);
-    border-radius: 4px;
-    color: var(--color-texto);
-    font-family: var(--fuente-secundaria);
-    font-size: 12px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    font-size: 13px;
     padding: 10px;
     resize: vertical; /* permite redimensionar solo verticalmente */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.resenas-form textarea::placeholder {
+    color: var(--text-muted);
 }
 
 /* Focus state del textarea: borde neón y glow al hacer clic */
 .resenas-form textarea:focus {
     outline: none;
-    border-color: var(--color-acento);
-
+    border-color: var(--accent-primary);
+    box-shadow: var(--focus-ring);
 }
 
 /* --- Selector de estrellas clickeables --- */
@@ -373,9 +491,9 @@
 
 /* Color por defecto de las estrellas (vacías): gris apagado */
 .estrella-label .material-symbols-outlined {
-    color: var(--color-acento-aux);
+    color: var(--text-muted);
     font-size: 28px;
-    transition: color 0.15s ease;
+    transition: color var(--transition-fast);
 }
 
 /* --- Lógica de iluminación de estrellas con CSS puro ---
@@ -386,14 +504,14 @@
 
 /* Estrella clickeada: se ilumina verde */
 .estrellas-input input:checked + .estrella-label .material-symbols-outlined {
-    color: var(--color-acento);
+    color: var(--accent-primary);
 }
 
 /* Hover: al pasar el mouse sobre una estrella,
    se iluminan esa y todas las anteriores (visualmente) */
 .estrellas-input .estrella-label:hover .material-symbols-outlined,
 .estrellas-input .estrella-label:hover ~ .estrella-label .material-symbols-outlined {
-    color: var(--color-acento);
+    color: var(--accent-primary);
 }
 
 /* Efecto de escala al hacer hover: la estrella crece un poco */
@@ -417,18 +535,20 @@
    separador y texto
    ============================================ */
 .resena-card {
-    border: 1px solid rgba(23, 207, 17, 0.25);
-    border-radius: 6px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
     padding: 16px 18px;
-    background-color: var(--color-fondo);
+    background-color: var(--bg-surface);
     /* Transición para el efecto hover */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* Hover de la card: el borde se vuelve más brillante
    y aparece un glow neón externo sutil */
 .resena-card:hover {
-    border-color: var(--color-acento);
+    background-color: var(--bg-elevated);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 1px var(--accent-subtle);
 }
 
 /* --- Header de la card: avatar + nombre + estrellas --- */
@@ -441,13 +561,13 @@
 /* Icono de avatar (círculo con borde neón) */
 .resena-avatar {
     font-size: 32px;
-    color: var(--color-acento);
+    color: var(--accent-primary);
     /* Fondo circular semitransparente */
-    background-color: transparent;
+    background-color: var(--accent-subtle);
     border-radius: 50%;
     /* Padding para que el círculo no quede pegado al icono */
     padding: 6px;
-    border: 1px solid rgba(23, 207, 17, 0.3);
+    border: 1px solid var(--border-default);
 }
 
 /* Contenedor del nombre y las estrellas del usuario */
@@ -475,20 +595,21 @@
 
 /* Estrella vacía de cada reseña (sin puntaje) */
 .resena-estrellas .estrella-vacia {
-    color: var(--color-acento-aux);
+    color: var(--text-muted);
     font-size: 16px;
 }
 
 /* Separador horizontal entre header y texto */
 .resena-separador {
     border: none;
+    border-top: 1px solid var(--border-subtle);
     margin: 12px 0;
 }
 
 /* Texto de la reseña: estilo entre comillas */
 .resena-texto {
-    font-size: 13px;
-    color: var(--color-texto);
+    font-size: 14px;
+    color: var(--text-primary);
     line-height: 1.5;
     font-style: italic;
 }
@@ -497,7 +618,6 @@
    SECCIONES Y TEXTO SECUNDARIO
    ============================================ */
 .especificaciones,
-.relacionados,
 .resenas {
     margin-top: 48px;
 }

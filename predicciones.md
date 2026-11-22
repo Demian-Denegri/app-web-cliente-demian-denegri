@@ -350,7 +350,7 @@ Texto "Tenés un código de descuento" con un accordion/colapse que al clickearl
 22. (prediccion)
 - Se va a refactorizar toda la estetica de la pagina.
 - Se va a Colocar un fondo animado.
-- Se va a correfir un erro que ocaciona que en index.html las imagenes de las cards de los productos no sean del mismo tamaño.
+- Se va a corregir un error que ocaciona que en index.html las imagenes de las cards de los productos no sean del mismo tamaño.
 - Se va a modificar el formateo de los precios.
 - Se reemplazara el span de descuento de product.html por un badge de descuento.
 - se va a modificar el boton de agregar al carrito de produc.html(se le va a añadir un icono de crrito y modificar su estilo)

@@ -53,6 +53,7 @@ function crearTarjeta(producto) {
   const imagen = document.createElement("img");
   imagen.src = producto.imagen_url;
   imagen.alt = `Portada de ${producto.titulo}`;
+  imagen.loading = "lazy"; // carga la portada recién cuando la card se acerca al viewport
   const div = document.createElement("div");
   div.className = "info-juego";
 
@@ -71,7 +72,9 @@ function crearTarjeta(producto) {
 
   const precio = document.createElement("p");
   precio.className = "precio";
-  precio.innerHTML = `<strong>$${precioFinal}</strong> ${hayDescuento ? `<s>$${producto.precio_actual}</s>` : ""}`;
+  const precioFinalFormateado = precioFinal.toLocaleString('es-AR');
+  const precioActualFormateado = producto.precio_actual.toLocaleString('es-AR');
+  precio.innerHTML = `<strong>$${precioFinalFormateado}</strong> ${hayDescuento ? `<s>$${precioActualFormateado}</s>` : ""}`;
 
   articulo.appendChild(enlace);
   enlace.appendChild(imagen);

@@ -3,17 +3,17 @@
    ============================================ */
 
 :root {
-  --admin-campo: #0f0f0f;
-  --admin-borde-hover: #3d3d3d;
-  --admin-fila-hover: rgba(23, 207, 17, 0.04);
-  --admin-foco-sombra: rgba(23, 207, 17, 0.15);
-  --admin-peligro: #ff5c5c;
+  --admin-campo: var(--bg-input);
+  --admin-borde-hover: var(--text-muted);
+  --admin-fila-hover: rgba(24, 214, 18, 0.05);
+  --admin-peligro: var(--status-danger);
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-acento);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
+  box-shadow: var(--focus-ring);
 }
 
 /* ============================================
@@ -27,9 +27,9 @@ button:focus-visible {
 }
 
 .admin-nav-titulo {
-  font-family: var(--fuente-secundaria);
+  font-family: var(--font-ui);
   font-size: 9px;
-  color: var(--color-acento-aux);
+  color: var(--text-muted);
 }
 
 .navbar-icons a {
@@ -43,8 +43,9 @@ button:focus-visible {
 
 .admin-bloque {
   padding: 20px;
-  border: 1px solid var(--color-borde);
-  border-radius: 8px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
 }
 
 .admin-bloque + .admin-bloque {
@@ -77,25 +78,25 @@ button:focus-visible {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background-color: rgba(23, 207, 17, 0.08);
-  border: 1px solid rgba(23, 207, 17, 0.45);
-  border-radius: 6px;
-  font-family: var(--fuente-botones);
+  background-color: var(--accent-subtle);
+  border: 1px solid rgba(24, 214, 18, 0.45);
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
   font-size: 10px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-acento);
+  color: var(--accent-primary);
   transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .btn-nuevo:hover {
-  background-color: rgba(23, 207, 17, 0.16);
-  border-color: var(--color-acento);
-  box-shadow: 0 0 0 3px var(--admin-foco-sombra);
+  background-color: rgba(24, 214, 18, 0.2);
+  border-color: var(--accent-primary);
+  box-shadow: var(--focus-ring);
 }
 
 .btn-nuevo .material-symbols-outlined {
@@ -111,25 +112,25 @@ button:focus-visible {
 
 .tabla-productos {
   width: 100%;
-  min-width: 700px;
+  min-width: 860px;
   border-collapse: collapse;
 }
 
 .tabla-productos th {
-  padding: 8px 10px;
+  padding: 12px 16px;
   text-align: left;
-  font-family: var(--fuente-titulos);
-  font-size: 9px;
+  font-family: var(--font-ui);
+  font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-acento-aux);
-  border-bottom: 1px solid var(--color-borde);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
   white-space: nowrap;
 }
 
 .tabla-productos td {
-  padding: 10px;
-  border-bottom: 1px solid var(--color-borde);
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--border-subtle);
   vertical-align: middle;
 }
 
@@ -144,59 +145,71 @@ button:focus-visible {
 .prod {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 170px;
+  gap: 14px;
+  min-width: 220px;
 }
 
 .prod img {
-  width: 42px;
-  height: 42px;
+  width: 80px;
+  aspect-ratio: 2 / 3;
+  height: auto;
   object-fit: cover;
-  border: 1px solid var(--color-borde);
-  border-radius: 4px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
 }
 
 .prod span {
-  font-family: var(--fuente-titulos);
-  font-size: 12px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .generos {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  min-width: 130px;
+  gap: 6px;
+  min-width: 160px;
 }
 
 .generos span {
-  padding: 2px 8px;
-  border: 1px solid var(--color-borde);
-  border-radius: 10px;
-  font-family: var(--fuente-secundaria);
-  font-size: 8px;
-  color: var(--color-acento-aux);
+  padding: 4px 10px;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-secondary);
   white-space: nowrap;
+}
+
+.tabla-productos .precio strong {
+  font-size: 15px;
+}
+
+.tabla-productos .precio s {
+  font-size: 13px;
 }
 
 .acciones {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 16px;
   white-space: nowrap;
 }
 
 .acciones a {
-  font-family: var(--fuente-botones);
-  font-size: 11px;
-  color: var(--color-acento-aux);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
 }
 
 .acciones a:hover {
-  color: var(--color-acento);
+  color: var(--accent-primary);
 }
 
 .acciones .eliminar:hover {
-  color: red;
+  color: var(--status-danger);
 }
 
 /* ============================================
@@ -204,10 +217,10 @@ button:focus-visible {
    ============================================ */
 .editor-ayuda {
   margin: -6px 0 18px;
-  font-family: var(--fuente-secundaria);
-  font-size: 10px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   line-height: 1.7;
-  color: var(--color-acento-aux);
+  color: var(--text-muted);
 }
 
 .editor-form {
@@ -223,7 +236,7 @@ button:focus-visible {
 
 .col-imagenes {
   padding-left: 28px;
-  border-left: 1px solid var(--color-borde);
+  border-left: 1px solid var(--border-subtle);
 }
 
 .col-imagenes h3 {
@@ -236,11 +249,11 @@ button:focus-visible {
 .portada {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   margin-bottom: 14px;
-  border: 1px solid var(--color-borde);
-  border-radius: 6px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
 }
 
 /* --- Campos --- */
@@ -259,11 +272,11 @@ button:focus-visible {
 
 .campo label,
 .campo-titulo {
-  font-family: var(--fuente-titulos);
-  font-size: 9px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--color-acento-aux);
+  color: var(--text-secondary);
 }
 
 .editor-form input,
@@ -272,11 +285,17 @@ button:focus-visible {
   width: 100%;
   padding: 10px 12px;
   background-color: var(--admin-campo);
-  border: 1px solid var(--color-borde);
-  border-radius: 6px;
-  color: var(--color-texto);
-  font-family: var(--fuente-secundaria);
-  font-size: 11px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.editor-form input::placeholder,
+.editor-form textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .editor-form input:hover,
@@ -289,8 +308,8 @@ button:focus-visible {
 .editor-form select:focus,
 .editor-form textarea:focus {
   outline: none;
-  border-color: var(--color-acento);
-  box-shadow: 0 0 0 3px var(--admin-foco-sombra);
+  border-color: var(--accent-primary);
+  box-shadow: var(--focus-ring);
 }
 
 .editor-form textarea {
@@ -322,17 +341,17 @@ button:focus-visible {
   min-height: 38px;
   padding: 6px;
   background-color: var(--admin-campo);
-  border: 1px dashed var(--color-borde);
-  border-radius: 6px;
-  transition: border-color 0.15s ease;
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
 }
 
 #gen-chips:empty::before {
   content: "Sin géneros seleccionados";
   padding: 0 4px;
-  font-family: var(--fuente-secundaria);
+  font-family: var(--font-ui);
   font-size: 10px;
-  color: var(--color-acento-aux);
+  color: var(--text-muted);
   opacity: 0.7;
 }
 
@@ -341,22 +360,22 @@ button:focus-visible {
   align-items: center;
   gap: 6px;
   padding: 4px 4px 4px 10px;
-  background-color: rgba(23, 207, 17, 0.08);
-  border: 1px solid rgba(23, 207, 17, 0.45);
+  background-color: var(--accent-subtle);
+  border: 1px solid rgba(24, 214, 18, 0.45);
   border-radius: 999px;
-  font-family: var(--fuente-secundaria);
+  font-family: var(--font-ui);
   font-size: 10px;
   line-height: 1;
-  color: var(--color-texto);
+  color: var(--text-primary);
   cursor: default;
   transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease;
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 #gen-chips .chip:hover {
-  background-color: rgba(23, 207, 17, 0.14);
-  border-color: var(--color-acento);
+  background-color: rgba(24, 214, 18, 0.2);
+  border-color: var(--accent-primary);
 }
 
 #gen-chips .chip button {
@@ -369,37 +388,38 @@ button:focus-visible {
   background-color: transparent;
   border: none;
   border-radius: 50%;
-  color: var(--color-acento-aux);
-  font-family: var(--fuente-botones);
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
   font-size: 13px;
   line-height: 1;
   cursor: pointer;
   transition:
-    background-color 0.15s ease,
-    color 0.15s ease;
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 #gen-chips .chip button:hover {
   background-color: var(--admin-peligro);
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 #gen-chips .chip button:focus-visible {
-  outline: 2px solid var(--color-acento);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 1px;
+  box-shadow: var(--focus-ring);
 }
 
 .campo-generos #gen-input::placeholder {
-  color: var(--color-acento-aux);
+  color: var(--text-muted);
   opacity: 0.6;
 }
 
 .campo-ayuda {
   margin: 0;
-  font-family: var(--fuente-secundaria);
+  font-family: var(--font-ui);
   font-size: 9px;
   line-height: 1.5;
-  color: var(--color-acento-aux);
+  color: var(--text-muted);
   opacity: 0.75;
 }
 
@@ -413,17 +433,19 @@ button:focus-visible {
 
 .specs fieldset {
   padding: 14px;
-  border: 1px solid var(--color-borde);
-  border-radius: 6px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
 }
 
 .specs legend {
   padding: 0 6px;
-  font-family: var(--fuente-titulos);
+  font-family: var(--font-ui);
+  font-weight: 600;
   font-size: 9px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-acento);
+  color: var(--accent-primary);
 }
 
 /* --- Guardar --- */
@@ -436,7 +458,7 @@ button:focus-visible {
   gap: 14px;
   margin-top: 28px;
   padding-top: 18px;
-  border-top: 1px solid var(--color-borde);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .editor-footer-botones {
@@ -455,22 +477,24 @@ button:focus-visible {
   gap: 6px;
   background-color: transparent;
   border: none;
-  border-radius: 6px;
-  color: var(--color-acento);
-  box-shadow: inset 0 0 0 1px rgba(23, 207, 17, 0.5);
+  border-radius: var(--radius-md);
+  color: var(--accent-primary);
+  box-shadow: inset 0 0 0 1px rgba(24, 214, 18, 0.5);
   transition:
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .btn-crear:hover {
-  background-color: rgba(23, 207, 17, 0.12);
-  box-shadow: inset 0 0 0 1px var(--color-acento);
+  background-color: var(--accent-subtle);
+  box-shadow: inset 0 0 0 1px var(--accent-primary);
   opacity: 1;
 }
 
 .btn-crear:active {
-  background-color: rgba(23, 207, 17, 0.2);
+  background-color: var(--accent-active);
+  color: var(--text-on-accent);
+  box-shadow: inset 0 0 0 1px var(--accent-active);
 }
 
 .btn-crear .material-symbols-outlined {
@@ -482,18 +506,19 @@ button:focus-visible {
 .editor-footer-sep {
   width: 1px;
   height: 24px;
-  background-color: var(--color-borde);
+  background-color: var(--border-subtle);
 }
 
 .editor-footer .btn-suave {
   background-color: transparent;
-  border: 1px solid var(--color-borde);
-  color: var(--color-acento-aux);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
 }
 
 .editor-footer .btn-suave:hover {
-  color: var(--color-texto);
-  border-color: red;
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--status-danger);
   opacity: 1;
 }
 
@@ -509,7 +534,7 @@ button:focus-visible {
   .col-imagenes {
     padding-top: 24px;
     padding-left: 0;
-    border-top: 1px solid var(--color-borde);
+    border-top: 1px solid var(--border-subtle);
     border-left: none;
   }
 
